@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BMotion</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_login">LOGIN</string>
+    <string name="welcome">CUSTOMER LOGIN</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_success">"Login success"</string>
+    <string name="prompt_forgot_password">Forgot Password?</string>
+    <string name="prompt_remember_me">Remember me</string>
+    <string name="prompt_create_account">Create Account</string>
+    <string name="connect_server_failed">Failed connect to server</string>
+</resources>
