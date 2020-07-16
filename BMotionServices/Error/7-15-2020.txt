@@ -1,0 +1,36 @@
+Time: 15/07/2020 12:04:48 AM
+------------------------------------------------------------------------
+Message: An error occurred while updating the entries. See the inner exception for details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 46
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: BMotionServices.Models.Users
+------------------------------------------------------------------------
+
+Time: 15/07/2020 12:10:39 AM
+------------------------------------------------------------------------
+Message: An error occurred while updating the entries. See the inner exception for details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 46
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: BMotionServices.Models.Users
+------------------------------------------------------------------------
+
+Time: 15/07/2020 12:23:06 AM
+------------------------------------------------------------------------
+Message: An error occurred while updating the entries. See the inner exception for details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 47
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":"1234567890","RoleId":1,"Name":"iam","Profession":"IT Developer","Email":"irham.nurahman@gmail.com","Password":"P@ssw0rd","Phone":"08128928392"}
+------------------------------------------------------------------------
+

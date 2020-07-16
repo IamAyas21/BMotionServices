@@ -1,23 +1,27 @@
-﻿using System;
+﻿using BMotionServices.Entity;
+using BMotionServices.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BMotionServices.Models
+namespace BMotionServices.Logic
 {
-    public class UserModels
+    public class UserLogic
     {
-        List<Users> userList;
-        static UserModels usrRgs = null;
-        private UserModels()
+        BMotionDBEntities db = new BMotionDBEntities();
+        List<User> userList;
+        static UserLogic usrRgs = null;
+        private UserLogic()
         {
-            userList = new List<Users>();
+            userList = db.Users.ToList();
         }
-        public static UserModels getInstance()
+        public static UserLogic getInstance()
         {
             if (usrRgs == null)
             {
-                usrRgs = new UserModels();
+                usrRgs = new UserLogic();
                 return usrRgs;
             }
             else
@@ -25,39 +29,33 @@ namespace BMotionServices.Models
                 return usrRgs;
             }
         }
-        public void Add(Users users)
+        
+        public void Add(Users user)
         {
-            userList.Add(users);
-        }
-        public String Remove(String nip)
-        {
-            for (int i = 0; i < userList.Count; i++)
+            try
             {
-                Users usrs = userList.ElementAt(i);
-                if (usrs.NIP.Equals(nip))
-                {
-                    userList.RemoveAt(i);//update the new record
-                    return "Delete successful";
-                }
+                User userEntity = new User();
+                userEntity.NIP = user.NIP;
+                userEntity.Email = user.Email;
+                userEntity.Name = user.Name;
+                userEntity.Password = user.Password;
+                userEntity.Phone = user.Phone;
+                userEntity.Profession = user.Profession;
+                //userEntity.RoleId = user.RoleId;
+
+                db.Users.Add(userEntity);
+                db.SaveChanges();
             }
-            return "Delete un-successful";
+            catch (Exception e)
+            {
+                Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(user));
+            }
         }
-        public List<Users> getAllUsers()
+       
+        public List<User> getAllUsers()
         {
             return userList;
         }
-        public String UpdateUsers(Users users)
-        {
-            for (int i = 0; i < userList.Count; i++)
-            {
-                Users usrs = userList.ElementAt(i);
-                if (usrs.NIP.Equals(users.NIP))
-                {
-                    userList[i] = users;//update the new record
-                    return "Update successful";
-                }
-            }
-            return "Update un-successful";
-        }
+       
     }
 }

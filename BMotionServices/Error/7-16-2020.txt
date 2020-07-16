@@ -1,0 +1,19 @@
+Time: 16/07/2020 11:23:19 AM
+------------------------------------------------------------------------
+Message: The underlying provider failed on Open.
+StackTrace:    at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BMotionServices.Controllers.UserController.Login(Users user)
+Source: EntityFramework
+TargetSite: Void Open()
+Payload: {"NIP":"1234567890","RoleId":1,"Name":"iam","Profession":"IT Developer","Email":"irham.nurahman@gmail.com","Password":"P@ssw0rd","Phone":"08128928392"}
+------------------------------------------------------------------------
+
