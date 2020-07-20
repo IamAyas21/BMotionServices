@@ -21,10 +21,14 @@ public class User {
     private String email;
     @SerializedName("Password")
     @Expose
-    private Object password;
+    private String password;
     @SerializedName("Phone")
     @Expose
     private String phone;
+
+    @SerializedName("KTP")
+    @Expose
+    private String ktp;
 
     public String getNIP() {
         return nIP;
@@ -66,11 +70,11 @@ public class User {
         this.email = email;
     }
 
-    public Object getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Object password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -80,5 +84,12 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public String getKTP() {
+        return ktp;
+    }
+
+    public void setKTP(String ktp) {
+        this.ktp = ktp;
     }
 }

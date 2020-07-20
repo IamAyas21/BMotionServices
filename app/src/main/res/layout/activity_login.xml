@@ -10,87 +10,110 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/rectanglecustomer"
             android:layout_gravity="center"
             android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="20dp"
-                    android:text="@string/welcome"
-                    android:textSize="24dp"
-                    android:textColor="@color/cardview_light_background"
-                    android:gravity="center"/>
-                <EditText
-                    android:id="@+id/edtUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginRight="30dp"
-                    android:drawableLeft="@drawable/mail"
-                    android:hint="@string/prompt_email"
-                    android:gravity="center"
-                    android:textColor="@color/cardview_light_background"
-                    android:textColorHint="@color/cardview_light_background"/>
-                <EditText
-                    android:id="@+id/edtPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="30dp"
-                    android:drawableLeft="@drawable/padlock"
-                    android:hint="@string/prompt_password"
-                    android:inputType="textPassword"
-                    android:gravity="center"
-                    android:textColor="@color/cardview_light_background"
-                    android:textColorHint="@color/cardview_light_background"/>
-
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:background="@color/colorBlue"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:orientation="horizontal">
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/prompt_remember_me"
-                            android:layout_weight="0.5"
-                            android:textColor="@color/cardview_light_background"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/prompt_forgot_password"
-                            android:layout_weight="0.5"
-                            android:layout_marginRight="20dp"
-                            android:gravity="right"
-                            android:textStyle="italic"
-                            android:textColor="@color/cardview_light_background"/>
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnLogin"
-                    android:layout_width="154dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/ripple_effect"
-                    android:text="@string/prompt_login"
-                    android:textColor="@android:color/white"
-                    android:layout_gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="50dp"
-                    android:text="@string/prompt_create_account"
-                    android:textColor="@color/cardview_light_background"
-                    android:gravity="center"/>
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:background="@drawable/rectanglecustomer"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingTop="20dp"
+                                    android:text="@string/welcome"
+                                    android:textSize="24dp"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:gravity="center"/>
+                                <EditText
+                                    android:id="@+id/edtUser"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginRight="30dp"
+                                    android:drawableLeft="@drawable/mail"
+                                    android:hint="@string/prompt_email"
+                                    android:gravity="center"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textColorHint="@color/cardview_light_background"/>
+                                <EditText
+                                    android:id="@+id/edtPassword"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:drawableLeft="@drawable/padlock"
+                                    android:hint="@string/prompt_password"
+                                    android:inputType="textPassword"
+                                    android:gravity="center"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textColorHint="@color/cardview_light_background"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="20dp"
+                                    android:orientation="horizontal">
+                                        <CheckBox
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/prompt_remember_me"
+                                            android:layout_weight="0.5"
+                                            android:textColor="@color/cardview_light_background"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/prompt_forgot_password"
+                                            android:layout_weight="0.5"
+                                            android:layout_marginRight="20dp"
+                                            android:gravity="right"
+                                            android:textStyle="italic"
+                                            android:textColor="@color/cardview_light_background"/>
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/btnLogin"
+                                    android:layout_width="154dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:background="@drawable/ripple_effect"
+                                    android:text="@string/prompt_login"
+                                    android:textColor="@android:color/white"
+                                    android:layout_gravity="center"/>
+
+                                <TextView
+                                    android:id="@+id/txvSignUp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="50dp"
+                                    android:text="@string/prompt_create_account"
+                                    android:textSize="16dp"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:gravity="center"/>
+                        </LinearLayout>
+                </LinearLayout>
         </LinearLayout>
+
 </ScrollView>

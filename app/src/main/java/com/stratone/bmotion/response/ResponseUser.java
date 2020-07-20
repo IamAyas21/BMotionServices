@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.stratone.bmotion.model.User;
 
-public class ResponseLogin {
+public class ResponseUser {
     @SerializedName("status")
     @Expose
     private String status;
