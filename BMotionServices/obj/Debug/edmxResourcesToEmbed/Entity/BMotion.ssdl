@@ -114,6 +114,8 @@
     <Property Name="Email" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
     <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="KTP" Type="varchar" MaxLength="50" />
+    <Property Name="verification" Type="varchar" MaxLength="1" />
   </EntityType>
   <Association Name="FK_MemberDetails_Documents">
     <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />

@@ -116,6 +116,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="BMotionDBModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="verification" ColumnName="verification" />
+          <ScalarProperty Name="KTP" ColumnName="KTP" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="Name" ColumnName="Name" />

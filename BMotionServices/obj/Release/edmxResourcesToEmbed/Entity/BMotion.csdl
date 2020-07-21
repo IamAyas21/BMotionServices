@@ -132,6 +132,8 @@
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+    <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="verification" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_MemberDetails_Documents">
     <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />

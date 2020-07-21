@@ -5,9 +5,12 @@ using BMotionServices.Parse;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace BMotionServices.Controllers
@@ -31,7 +34,7 @@ namespace BMotionServices.Controllers
         {
             try
             {
-                var userList = db.Users.Where(usr => usr.NIP.Equals(user.NIP) && usr.Password.Equals(user.Password)).ToList();
+                var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) && usr.Password.Equals(user.Password)).ToList();
                 if (userList.Count > 0)
                 {
                     return new ResponseUsers
@@ -68,25 +71,16 @@ namespace BMotionServices.Controllers
             }
         }
 
+
         [HttpPost]
         [Route("Register")]
-        public ResponseUsers Register(Users user)
+        public ResponseUsers Register()
         {
-            var userList = db.Users.Where(usr => usr.NIP.Equals(user.NIP)).ToList();
-            if (userList.Count > 0)
+            Users user = UserLogic.getInstance().Add();
+            try
             {
-                return new ResponseUsers
+                if(user.isSuccess)
                 {
-                    status = "failed",
-                    message = "user already"
-                };
-            }
-            else
-            {
-                try
-                {
-                    UserLogic.getInstance().Add(user);
-
                     return new ResponseUsers
                     {
                         status = "success",
@@ -101,15 +95,23 @@ namespace BMotionServices.Controllers
                         }
                     };
                 }
-                catch (Exception e)
+                else
                 {
-                    Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(user));
                     return new ResponseUsers
                     {
                         status = "failed",
-                        message = e.Message
+                        message = "user already",
                     };
                 }
+            }
+            catch (Exception e)
+            {
+                Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(user));
+                return new ResponseUsers
+                {
+                    status = "failed",
+                    message = e.Message
+                };
             }
         }
     }

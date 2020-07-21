@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="DocumentNo" />
@@ -119,6 +119,8 @@
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="KTP" Type="varchar" MaxLength="50" />
+          <Property Name="verification" Type="varchar" MaxLength="1" />
         </EntityType>
         <Association Name="FK_MemberDetails_Documents">
           <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
@@ -276,8 +278,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BMotionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -413,6 +414,8 @@
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+          <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="verification" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_MemberDetails_Documents">
           <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />
@@ -691,6 +694,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="BMotionDBModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="verification" ColumnName="verification" />
+                <ScalarProperty Name="KTP" ColumnName="KTP" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

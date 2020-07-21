@@ -56,5 +56,34 @@ namespace BMotionServices.Models
             get { return phone; }
             set { phone = value; }
         }
+
+        string ktp;
+        public String KTP
+        {
+            get { return ktp; }
+            set { ktp = value; }
+        }
+
+        string verification;
+        public String Verification
+        {
+            get { return verification; }
+            set { verification = value; }
+        }
+
+        string imagektp;
+        public String ImageKTP
+        {
+            get { return imagektp; }
+            set { imagektp = value; }
+        }
+
+        bool issuccess;
+        public bool isSuccess
+        {
+            get { return issuccess; }
+            set { issuccess = value; }
+        }
+
     }
 }

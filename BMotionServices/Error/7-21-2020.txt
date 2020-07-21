@@ -1,0 +1,1077 @@
+Time: 21/07/2020 12:31:38 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"5688643333\"","RoleId":0,"Name":"\"ghjkkvxx\"","Profession":null,"Email":"\"hshhah\"","Password":null,"Phone":"\"8181881\"","KTP":null,"Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 12:32:00 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"5688643333\"","RoleId":0,"Name":"\"ghjkkvxx\"","Profession":null,"Email":"\"hshhah\"","Password":null,"Phone":"\"8181881\"","KTP":null,"Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 12:41:44 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 12:59:05 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"7272727272\"","RoleId":0,"Name":"\"hehsh\"","Profession":null,"Email":"\"jejej\"","Password":null,"Phone":"\"73737\"","KTP":"\"ktp_20200721_010015_7522344980795923789.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:01:05 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:13:38 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"9191919119188118\"","RoleId":0,"Name":"\"ksksjjs\"","Profession":null,"Email":"\"kwkwkkw\"","Password":null,"Phone":"\"010010202\"","KTP":"\"ktp_20200721_011437_496596793832732809.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:14:00 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"9191919119188118\"","RoleId":0,"Name":"\"ksksjjs\"","Profession":null,"Email":"\"kwkwkkw\"","Password":null,"Phone":"\"010010202\"","KTP":"\"ktp_20200721_011437_496596793832732809.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:18:54 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:19:29 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:19:59 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:24 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:26 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:32 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:35 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:35 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:38 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:38 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:38 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:39 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:22:40 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"828283837\"","RoleId":0,"Name":"\"hdhshshs\"","Profession":null,"Email":"\"jajsjsud\"","Password":null,"Phone":"\"01238383838\"","KTP":"\"ktp_20200721_012020_838428206644717756.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:26:19 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:26:35 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:28:17 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"66432233\"","RoleId":0,"Name":"\"bnfddryj\"","Profession":null,"Email":"\"hhgddgj\"","Password":null,"Phone":"\"98654\"","KTP":"\"ktp_20200721_012941_380770097430657172.png\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:30:48 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:31:26 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:32:08 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"4688988888\"","RoleId":0,"Name":"\"hgfr\"","Profession":null,"Email":"\"ggg\"","Password":null,"Phone":"\"88877\"","KTP":"\"ktp_20200721_013335_2630657309063384406.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:36:54 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"8282828838\"","RoleId":0,"Name":"\"ndnjdhd\"","Profession":null,"Email":"\"hrhdhh\"","Password":null,"Phone":"\"83838\"","KTP":"\"ktp_20200721_0137568758400721245541962.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:38:18 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"8282828838\"","RoleId":0,"Name":"\"ndnjdhd\"","Profession":null,"Email":"\"hrhdhh\"","Password":null,"Phone":"\"83838\"","KTP":"\"ktp_20200721_0137568758400721245541962.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:45:08 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:46:05 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:46:28 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:47:26 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:47:53 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:27 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:37 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:38 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:48:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:49:07 AM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"8281751525253\"","RoleId":0,"Name":"\"hshdhh\"","Profession":null,"Email":"\"dndhd\"","Password":null,"Phone":"\"0302929\"","KTP":"\"ktp_20200721_0150428549927731472167787.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:52:50 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:53:25 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:54:03 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:04 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:23 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:31 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:32 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:32 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:32 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:34 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:34 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:35 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:35 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:36 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:36 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:36 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:37 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:57:39 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 01:59:17 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:11:11 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":" 1661616616 ","RoleId":0,"Name":" shhdhdh ","Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:11:39 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":" 1661616616 ","RoleId":0,"Name":" shhdhdh ","Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:12:58 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:41 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:44 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:44 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:45 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:45 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:45 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:46 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:14:47 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:15:18 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":" 28727272727277 ","RoleId":0,"Name":" ehehhe ","Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:15:55 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":" 28727272727277 ","RoleId":0,"Name":" ehehhe ","Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:17:40 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"28727272727277\"","RoleId":0,"Name":"\"ehehhe\"","Profession":null,"Email":"\"hshdhsh\"","Password":null,"Phone":"\"39393939\"","KTP":"\"ktp_20200721_0216485980632819000610977.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:17:47 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"28727272727277\"","RoleId":0,"Name":"\"ehehhe\"","Profession":null,"Email":"\"hshdhsh\"","Password":null,"Phone":"\"39393939\"","KTP":"\"ktp_20200721_0216485980632819000610977.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:18:00 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"28727272727277\"","RoleId":0,"Name":"\"ehehhe\"","Profession":null,"Email":"\"hshdhsh\"","Password":null,"Phone":"\"39393939\"","KTP":"\"ktp_20200721_0216485980632819000610977.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 02:18:28 AM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"181771828\"","RoleId":0,"Name":"\"jejhsh\"","Profession":null,"Email":"\"jejjej\"","Password":null,"Phone":"\"92828\"","KTP":"\"ktp_20200721_0220033045472079250052959.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 21/07/2020 07:53:05 AM
+------------------------------------------------------------------------
+Message: An error occurred while updating the entries. See the inner exception for details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":"\"717171661616\"","RoleId":0,"Name":"\"hwhahha\"","Profession":null,"Email":"\"gwhahah\"","Password":null,"Phone":"\"9191817\"","KTP":"\"ktp_20200721_074806248413940707289167.jpg\"","Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
