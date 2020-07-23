@@ -1,0 +1,146 @@
+Time: 19/07/2020 08:14:56 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:15:46 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:18:33 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:21:49 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:21:51 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 72
+   at BMotionServices.Controllers.UserController.Register(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Controllers\UserController.cs:line 88
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:23:09 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:23:09 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 72
+   at BMotionServices.Controllers.UserController.Register(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Controllers\UserController.cs:line 88
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:23:41 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:23:41 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 72
+   at BMotionServices.Controllers.UserController.Register(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Controllers\UserController.cs:line 88
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:25:44 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:25:44 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 72
+   at BMotionServices.Controllers.UserController.Register(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Controllers\UserController.cs:line 88
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:28:21 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 52
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+
+Time: 19/07/2020 08:28:21 PM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Logic\UsersLogic.cs:line 72
+   at BMotionServices.Controllers.UserController.Register(Users user) in D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\Controllers\UserController.cs:line 88
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null}
+------------------------------------------------------------------------
+

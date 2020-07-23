@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentNo" />
+    </Key>
+    <Property Name="DocumentNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocumentFile" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Fuels">
+    <Key>
+      <PropertyRef Name="FuildId" />
+    </Key>
+    <Property Name="FuildId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MemberDetails">
+    <Key>
+      <PropertyRef Name="MemberDetailId" />
+    </Key>
+    <Property Name="MemberDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NIP" Type="varchar" MaxLength="50" />
+    <Property Name="FuelId" Type="int" />
+    <Property Name="DocumentNo" Type="varchar" MaxLength="50" />
+    <Property Name="OutletNo" Type="varchar" MaxLength="50" />
+    <Property Name="Quota" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="50" />
+    <Property Name="Liter" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FuildId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Outlets">
+    <Key>
+      <PropertyRef Name="OutletNo" />
+    </Key>
+    <Property Name="OutletNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Restriction">
+    <Key>
+      <PropertyRef Name="RestrictionId" />
+    </Key>
+    <Property Name="RestrictionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Read" Type="bit" />
+    <Property Name="Add" Type="bit" />
+    <Property Name="Update" Type="bit" />
+    <Property Name="Delete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="NIP" />
+    </Key>
+    <Property Name="NIP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="Profession" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="KTP" Type="varchar" MaxLength="50" />
+    <Property Name="verification" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_MemberDetails_Documents">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentNo" />
+      </Principal>
+      <Dependent Role="MemberDetails">
+        <PropertyRef Name="DocumentNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberDetails_Fuels">
+    <End Role="Fuels" Type="Self.Fuels" Multiplicity="0..1" />
+    <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fuels">
+        <PropertyRef Name="FuildId" />
+      </Principal>
+      <Dependent Role="MemberDetails">
+        <PropertyRef Name="FuelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberDetails_Outlets">
+    <End Role="Outlets" Type="Self.Outlets" Multiplicity="0..1" />
+    <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlets">
+        <PropertyRef Name="OutletNo" />
+      </Principal>
+      <Dependent Role="MemberDetails">
+        <PropertyRef Name="OutletNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberDetails_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="NIP" />
+      </Principal>
+      <Dependent Role="MemberDetails">
+        <PropertyRef Name="NIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetails_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Fuels">
+    <End Role="Fuels" Type="Self.Fuels" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fuels">
+        <PropertyRef Name="FuildId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="FuildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restriction_Menus">
+    <End Role="Menus" Type="Self.Menus" Multiplicity="0..1" />
+    <End Role="Restriction" Type="Self.Restriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Restriction">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restriction_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Restriction" Type="Self.Restriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Restriction">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BMotionDBModelStoreContainer">
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fuels" EntityType="Self.Fuels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberDetails" EntityType="Self.MemberDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Outlets" EntityType="Self.Outlets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restriction" EntityType="Self.Restriction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="MemberDetails" EntitySet="MemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberDetails_Fuels" Association="Self.FK_MemberDetails_Fuels">
+      <End Role="Fuels" EntitySet="Fuels" />
+      <End Role="MemberDetails" EntitySet="MemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberDetails_Outlets" Association="Self.FK_MemberDetails_Outlets">
+      <End Role="Outlets" EntitySet="Outlets" />
+      <End Role="MemberDetails" EntitySet="MemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberDetails_Users" Association="Self.FK_MemberDetails_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MemberDetails" EntitySet="MemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Fuels" Association="Self.FK_Orders_Fuels">
+      <End Role="Fuels" EntitySet="Fuels" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restriction_Menus" Association="Self.FK_Restriction_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Restriction" EntitySet="Restriction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restriction_Role" Association="Self.FK_Restriction_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Restriction" EntitySet="Restriction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,132 @@
+Time: 20/07/2020 01:02:35 AM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 11:19:14 AM
+------------------------------------------------------------------------
+Message: An error occurred while updating the entries. See the inner exception for details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":"\"3212190381\"","RoleId":0,"Name":"\"jdasj\"","Profession":null,"Email":"\"dajda\"","Password":null,"Phone":"\"0302\"","KTP":"\"JPEG_20200720_111832_7243972524866702669.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 12:17:46 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"9329032030\"","RoleId":0,"Name":"\"klkdsdk\"","Profession":null,"Email":"\"flak\"","Password":null,"Phone":"\"-023020\"","KTP":"\"JPEG_20200720_121729_6998723326000091817.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 12:17:54 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"9329032030\"","RoleId":0,"Name":"\"klkdsdk\"","Profession":null,"Email":"\"flak\"","Password":null,"Phone":"\"32232\"","KTP":"\"JPEG_20200720_121729_6998723326000091817.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 08:36:14 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"23424434324243\"","RoleId":0,"Name":"\"fsf\"","Profession":null,"Email":"\"sfskslkdfskfds\"","Password":null,"Phone":"\"4239429\"","KTP":"\"JPEG_20200720_203217_2752691338889795237.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 08:37:23 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"23424434324243\"","RoleId":0,"Name":"\"fsf\"","Profession":null,"Email":"\"sfskslkdfskfds\"","Password":null,"Phone":"\"4239429\"","KTP":"\"JPEG_20200720_203217_2752691338889795237.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 08:38:31 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"42342423476473264\"","RoleId":0,"Name":"\"jsfhjfdssh\"","Profession":null,"Email":"\"fhsdjfh\"","Password":null,"Phone":"\"842384328\"","KTP":"\"JPEG_20200720_203811_4688138200786697083.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 08:39:49 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"42342423476473264\"","RoleId":0,"Name":"\"jsfhjfdssh\"","Profession":null,"Email":"\"fhsdjfh\"","Password":null,"Phone":"\"842384328\"","KTP":"\"JPEG_20200720_203811_4688138200786697083.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 10:10:12 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"12344\"","RoleId":0,"Name":"\"jsjsjs\"","Profession":null,"Email":"\"nshsjs\"","Password":null,"Phone":"\"9292929\"","KTP":"\"JPEG_20200720_221137_159196305726909611.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 10:31:43 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"57875549877\"","RoleId":0,"Name":"\"hjwhhd\"","Profession":null,"Email":"\"bsbdhd\"","Password":null,"Phone":"\"8488483\"","KTP":"\"JPEG_20200720_223303_3387842033691821749.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 20/07/2020 10:34:45 PM
+------------------------------------------------------------------------
+Message: Illegal characters in path.
+StackTrace:    at System.IO.Path.CheckInvalidPathChars(String path, Boolean checkAdditional)
+   at System.IO.Path.GetFileName(String path)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: Void CheckInvalidPathChars(System.String, Boolean)
+Payload: {"NIP":"\"57875549877\"","RoleId":0,"Name":"\"hjwhhd\"","Profession":null,"Email":"\"bsbdhd\"","Password":null,"Phone":"\"8488483\"","KTP":"\"JPEG_20200720_223303_3387842033691821749.jpg\"","Verification":null,"isSuccess":false}
+------------------------------------------------------------------------
+
