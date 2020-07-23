@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">BMotion</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_email">email</string>
+    <string name="prompt_password">password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="prompt_login">LOGIN</string>
     <string name="welcome">CUSTOMER LOGIN</string>
@@ -23,5 +23,13 @@
     <string name="disclaimer_sign_up_1">your password will be sent</string>
     <string name="disclaimer_sign_up_2">to your email address</string>
     <string name="prompt_capture">Capture</string>
+    <string name="prompt_upload_file">Click To Upload File</string>
     <string name="msg">Mohon terima semua permisi</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="prompt_add_file_upload">-- upload document --</string>
+    <string name="prompt_exp_date">-- expired date --</string>
+    <string name="prompt_signup_password">-- password --</string>
+    <string name="prompt_failed_get_file">Cant get file upload</string>
+    <string name="b_motion">B-MOTION</string>
+    <string name="prompt_pick_file">Pick file</string>
 </resources>

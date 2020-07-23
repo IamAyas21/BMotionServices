@@ -29,7 +29,8 @@ public interface ApiInterface {
             @Nullable @Part("password") String password,
             @Part("phone") String phone,
             @Part("ktp") String ktp,
-            @Part MultipartBody.Part imagektp
+            @Part MultipartBody.Part imagektp,
+            @Part MultipartBody.Part filepdf
             );
 
     @FormUrlEncoded
