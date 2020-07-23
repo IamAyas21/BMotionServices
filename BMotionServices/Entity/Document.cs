@@ -21,12 +21,15 @@ namespace BMotionServices.Entity
         }
     
         public string DocumentNo { get; set; }
+        public string NIP { get; set; }
         public string DocumentFile { get; set; }
+        public Nullable<System.DateTime> ExpDate { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
     
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberDetail> MemberDetails { get; set; }
     }

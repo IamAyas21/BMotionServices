@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="827b55af6eb343279d6623904d6f2cc2" Name="Diagram1">
-        <EntityTypeShape EntityType="BMotionDBModel.Document" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Fuel" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.MemberDetail" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Menu" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.OrderDetail" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Order" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Outlet" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Restriction" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.Role" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BMotionDBModel.User" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+      <Diagram DiagramId="371880263a004a6dbb6abd50522c7df2" Name="Diagram1">
+        <EntityTypeShape EntityType="BMotionDBModel.Document" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Fuel" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.MemberDetail" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Menu" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.OrderDetail" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Order" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Outlet" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Restriction" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.Role" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BMotionDBModel.User" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="BMotionDBModel.FK_Documents_Users" ManuallyRouted="false" />
         <AssociationConnector Association="BMotionDBModel.FK_MemberDetails_Documents" ManuallyRouted="false" />
         <AssociationConnector Association="BMotionDBModel.FK_MemberDetails_Fuels" ManuallyRouted="false" />
         <AssociationConnector Association="BMotionDBModel.FK_Orders_Fuels" ManuallyRouted="false" />

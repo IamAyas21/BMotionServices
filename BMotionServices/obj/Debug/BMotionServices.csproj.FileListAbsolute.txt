@@ -149,6 +149,6 @@ D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\bin\Microsoft.O
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\bin\System.Web.Http.Owin.xml
+D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.csprojResolveAssemblyReference.cache
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.dll
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.pdb
-D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.csprojResolveAssemblyReference.cache

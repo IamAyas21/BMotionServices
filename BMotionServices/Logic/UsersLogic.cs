@@ -49,6 +49,16 @@ namespace BMotionServices.Logic
                 user.Profession = postedContext.Request.Params["profession"];
                 user.Email = postedContext.Request.Params["email"];
                 user.KTP = postedContext.Request.Params["ktp"];
+                user.ExpDate = postedContext.Request.Params["expdate"];
+
+                Logging.Log.getInstance().CreateConsoleLog(user.NIP);
+                Logging.Log.getInstance().CreateConsoleLog(user.Name);
+                Logging.Log.getInstance().CreateConsoleLog(user.Password);
+                Logging.Log.getInstance().CreateConsoleLog(user.Phone);
+                Logging.Log.getInstance().CreateConsoleLog(user.Profession);
+                Logging.Log.getInstance().CreateConsoleLog(user.Email);
+                Logging.Log.getInstance().CreateConsoleLog(user.KTP);
+                Logging.Log.getInstance().CreateConsoleLog(user.ExpDate);
 
                 var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) || usr.NIP.Equals(user.NIP)).ToList();
                 if (userList.Count == 0)
@@ -57,40 +67,68 @@ namespace BMotionServices.Logic
                     {
                         if (Request["imagektp"].ContentType.ToLower() == "image/jpg" ||
                         Request["imagektp"].ContentType.ToLower() == "image/jpeg" ||
-                        Request["imagektp"].ContentType.ToLower() == "image/png")
+                        Request["imagektp"].ContentType.ToLower() == "image/png" && 
+                        Request["filepdf"].ContentType.ToLower() == "application/pdf")
                         {
-                            HttpPostedFile file = Request[0];
+                            HttpPostedFile imgKtp = Request["imagektp"];
+                            HttpPostedFile filePdf = Request["filepdf"];
 
-                            string fileName = file.FileName;
-                            var path = Path.Combine(
-                                HttpContext.Current.Server.MapPath(pathUpload),
-                                DateTime.Now.ToString("ddMMyyyy")
-                            );
+                            user.ImageKTP = imgKtp.FileName;
+                            user.FilePDF = filePdf.FileName;
+                            string dateDayNow = DateTime.Now.ToString("ddMMyyyy");
+                            string dateTimeDayNow = DateTime.Now.ToString("ddMMyyyyHHmmss");
 
-                            if (!Directory.Exists(path))
+                            var pathImgKtp = Path.Combine(HttpContext.Current.Server.MapPath(pathUpload), dateDayNow,"KTP");
+                            var pathFilePdf = Path.Combine(HttpContext.Current.Server.MapPath(pathUpload),dateDayNow, "Document");
+
+                            if (!Directory.Exists(pathImgKtp))
                             {
-                                // This path is a directory
-                                System.IO.Directory.CreateDirectory(path);
+                                System.IO.Directory.CreateDirectory(pathImgKtp);
                             }
 
-                            using (var fileStream = new System.IO.FileStream(path + "\\" + fileName, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                            if (!Directory.Exists(pathFilePdf))
                             {
-                                file.InputStream.CopyTo(fileStream);
+                                System.IO.Directory.CreateDirectory(pathFilePdf);
                             }
 
+                            using (var fileStream = new System.IO.FileStream(pathImgKtp + "\\" + user.ImageKTP, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                            {
+                                imgKtp.InputStream.CopyTo(fileStream);
+                            }
+
+                            using (var fileStream = new System.IO.FileStream(pathFilePdf + "\\" + user.FilePDF, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                            {
+                                filePdf.InputStream.CopyTo(fileStream);
+                            }
+
+                            string strUser = user.NIP.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             db = new BMotionDBEntities();
                             User userEntity = new User();
-                            userEntity.NIP = user.NIP.ToString().Replace('"', ' ').Trim();
-                            userEntity.Email = user.Email.ToString().Replace('"', ' ').Replace('"', ' ').Trim();
-                            userEntity.Name = user.Name.ToString().Replace('"', ' ').Replace('"', ' ').Trim();
-                            //userEntity.Password = user.Password.ToString().Replace('"', ' ').Replace('"', ' ');
-                            userEntity.Phone = user.Phone.ToString().Replace('"', ' ').Replace('"', ' ').Trim();
-                            //userEntity.Profession = user.Profession.ToString().Replace('"', ' ').Replace('"', ' ');
-                            userEntity.KTP = user.KTP.ToString().Replace('"', ' ').Replace('"', ' ').Trim();
+                            userEntity.NIP = strUser;  
+                            userEntity.Email = user.Email.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
+                            userEntity.Name = user.Name.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
+                            userEntity.Phone = user.Phone.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
+                            userEntity.KTP = user.KTP.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
+                            userEntity.Password = user.Password.ToString().Replace('"', ' ').Replace('\\', ' ');
+                            userEntity.CreatedDate = DateTime.Now;
+                            userEntity.CreatedBy = strUser;
+                            userEntity.Password = user.Password.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             //userEntity.verification = user.Verification.ToString().Replace('"', ' ').Replace('"', ' ');
+                            //userEntity.Profession = user.Profession.ToString().Replace('"', ' ').Replace('"', ' ');
                             //userEntity.RoleId = user.RoleId;
 
                             db.Users.Add(userEntity);
+                            db.SaveChanges();
+
+                            db = new BMotionDBEntities();
+                            Document docEntity = new Document();
+                            docEntity.DocumentNo = "Doc_" + dateTimeDayNow;
+                            docEntity.NIP = strUser;
+                            docEntity.DocumentFile = user.FilePDF;
+                            docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
+                            docEntity.CreatedDate = DateTime.Now;
+                            docEntity.CreatedBy = strUser;
+                            db.Documents.Add(docEntity);
                             db.SaveChanges();
                         }
                     }

@@ -50,5 +50,15 @@ namespace BMotionServices.Logging
                 writer.Close();
             }
         }
+
+        public void CreateConsoleLog(string value)
+        {
+            string date = DateTime.Now.ToShortDateString().Replace("/","-");
+            using (StreamWriter writer = new StreamWriter(path + date + ".txt", true))
+            {
+                writer.WriteLine(value);
+                writer.Close();
+            }
+        }
     }
 }

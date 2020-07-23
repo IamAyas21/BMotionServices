@@ -78,6 +78,20 @@ namespace BMotionServices.Models
             set { imagektp = value; }
         }
 
+        string filepdf;
+        public String FilePDF
+        {
+            get { return filepdf; }
+            set { filepdf = value; }
+        }
+
+        String expdate;
+        public String ExpDate
+        {
+            get { return expdate; }
+            set { expdate = value; }
+        }
+
         bool issuccess;
         public bool isSuccess
         {

@@ -5,7 +5,9 @@
       <PropertyRef Name="DocumentNo" />
     </Key>
     <Property Name="DocumentNo" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="DocumentFile" Type="varchar" MaxLength="30" />
+    <Property Name="NIP" Type="varchar" MaxLength="50" />
+    <Property Name="DocumentFile" Type="varchar" MaxLength="250" />
+    <Property Name="ExpDate" Type="datetime" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
     <Property Name="UpdatedDate" Type="datetime" />
@@ -103,6 +105,16 @@
     <Property Name="UpdatedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="NIP" />
@@ -116,7 +128,23 @@
     <Property Name="Phone" Type="varchar" MaxLength="15" />
     <Property Name="KTP" Type="varchar" MaxLength="50" />
     <Property Name="verification" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_Documents_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="NIP" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="NIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MemberDetails_Documents">
     <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
     <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
@@ -235,7 +263,12 @@
     <EntitySet Name="Outlets" EntityType="Self.Outlets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Restriction" EntityType="Self.Restriction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Documents_Users" Association="Self.FK_Documents_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
     <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
       <End Role="Documents" EntitySet="Documents" />
       <End Role="MemberDetails" EntitySet="MemberDetails" />
