@@ -61,6 +61,8 @@
                                     android:drawableLeft="@drawable/mail"
                                     android:hint="@string/prompt_email"
                                     android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:singleLine="true"
                                     android:textColor="@color/cardview_light_background"
                                     android:textColorHint="@color/cardview_light_background"/>
                                 <EditText
@@ -73,6 +75,7 @@
                                     android:drawableLeft="@drawable/padlock"
                                     android:hint="@string/prompt_password"
                                     android:inputType="textPassword"
+                                    android:imeOptions="actionDone"
                                     android:gravity="center"
                                     android:textColor="@color/cardview_light_background"
                                     android:textColorHint="@color/cardview_light_background"/>

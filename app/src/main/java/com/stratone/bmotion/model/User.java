@@ -3,6 +3,8 @@ package com.stratone.bmotion.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class User {
     @SerializedName("NIP")
     @Expose
@@ -29,6 +31,9 @@ public class User {
     @SerializedName("KTP")
     @Expose
     private String ktp;
+    @SerializedName("ExpDate")
+    @Expose
+    private String expdate;
 
     public String getNIP() {
         return nIP;
@@ -91,5 +96,12 @@ public class User {
 
     public void setKTP(String ktp) {
         this.ktp = ktp;
+    }
+    public String getExpdate() {
+        return expdate;
+    }
+
+    public void setExpdate(String expdate) {
+        this.expdate = expdate;
     }
 }

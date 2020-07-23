@@ -122,9 +122,9 @@
                         android:gravity="center"
                         android:focusable="false"
                         android:background="@drawable/rectangleedittext"
-                        android:drawableLeft="@android:drawable/ic_input_add"
                         android:hint="@string/prompt_exp_date"
-                        android:drawableStart="@android:drawable/ic_input_add" />
+                        android:drawableLeft="@drawable/calendar"
+                        android:drawableStart="@drawable/calendar" />
 
                     <EditText
                         android:id="@+id/uploadFile"

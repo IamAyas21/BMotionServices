@@ -32,4 +32,19 @@
     <string name="prompt_failed_get_file">Cant get file upload</string>
     <string name="b_motion">B-MOTION</string>
     <string name="prompt_pick_file">Pick file</string>
+    <string name="prompt_loading">please wait . . .</string>
+    <string name="prompt_welcome">Welcome</string>
+    <string name="prompt_username">Varrenco JA</string>
+    <string name="prompt_quota_bbm">Quota BBM</string>
+    <string name="prompt_total_buy_bbm">Total Pembelian BBM</string>
+    <string name="prompt_count_quota_bbm">200 ltr</string>
+    <string name="prompt_month_year">APR 2020</string>
+    <string name="prompt_input">INPUT</string>
+    <string name="prompt_support">SUPPORT</string>
+    <string name="prompt_profile">PROFIL</string>
+    <string name="prompt_info">INFO</string>
+    <string name="prompt_outlet">Nearby Outlet</string>
+    <string name="prompt_item_outlet">SPBU 567</string>
+    <string name="prompt_item_outlet_address">Jl. Pekapuran No. 57</string>
+    <string name="prompt_twice_exit">Please click BACK again to exit</string>
 </resources>

@@ -13,6 +13,7 @@ import retrofit2.Response;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -88,6 +89,8 @@ public class RegisterActivity extends AppCompatActivity {
     final Calendar myCalendar = Calendar.getInstance();
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private File arrFile[] = new File[2];
+    private ProgressDialog pDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,6 +162,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void signUp(File[] file)
     {
+        pDialog = new ProgressDialog(RegisterActivity.this);
+        pDialog.setMessage(getResources().getString(R.string.prompt_loading));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
         RequestBody photoBody = RequestBody.create(MediaType.parse("image/jpg"), file[0]);
         MultipartBody.Part photoPart = MultipartBody.Part.createFormData("imagektp",
                 file[0].getName(), photoBody);
@@ -172,6 +181,8 @@ public class RegisterActivity extends AppCompatActivity {
         user.setEmail(eEmail.getText().toString());
         user.setName(eFullName.getText().toString());
         user.setPhone(ePhone.getText().toString());
+        user.setExpdate(expDate.getText().toString());
+        user.setPassword(ePassword.getText().toString());
         user.setKTP(file[0].getName());
 
         uploadService = new UploadService();
@@ -183,6 +194,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(baseResponse != null) {
                     if(baseResponse.getStatus().equals("success"))
                     {
+                        pDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
@@ -191,6 +203,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else
                     {
+                        pDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -198,6 +211,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
+                pDialog.dismiss();
                 Toast.makeText(RegisterActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
