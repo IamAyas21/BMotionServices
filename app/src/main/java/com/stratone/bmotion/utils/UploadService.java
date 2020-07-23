@@ -44,8 +44,8 @@ public class UploadService {
         uploadInterface = retrofit.create(ApiInterface.class);
     }
 
-    public void SignUpMultipart(User user, MultipartBody.Part imageKTP, Callback callback) {
-        uploadInterface.registerMultipart(user.getNIP(),user.getName(),user.getProfession(),user.getEmail(),user.getPassword(),user.getPhone(), user.getKTP(),imageKTP).enqueue(callback);
+    public void SignUpMultipart(User user, MultipartBody.Part imageKTP, MultipartBody.Part pdfFile, Callback callback) {
+        uploadInterface.registerMultipart(user.getNIP(),user.getName(),user.getProfession(),user.getEmail(),user.getPassword(),user.getPhone(), user.getKTP(), user.getExpdate(),imageKTP, pdfFile).enqueue(callback);
     }
 
     public void SignUpBase64(User user, MultipartBody.Part ktp, Callback callback) {

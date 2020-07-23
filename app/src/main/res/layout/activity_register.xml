@@ -13,38 +13,31 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/redbackground">
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/whitebackground"
                     android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imgBtnBack"
-                        android:layout_width="40dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_gravity="right"
-                        android:background="@drawable/iconback" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="30dp"
-                        android:textSize="24dp"
+                        android:layout_marginTop="50dp"
+                        android:paddingLeft="20dp"
+                        android:textSize="50dp"
+                        android:background="@color/colorBlue"
+                        android:textColor="@color/cardview_light_background"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="@string/prompt_sign_up"/>
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="3dp"
+
+                    <ImageButton
+                        android:id="@+id/imgBtnBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="15dp"
                         android:layout_margin="20dp"
-                        android:background="@color/cardview_dark_background"/>
+                        android:layout_gravity="left"
+                        android:background="@drawable/iconback" />
 
                     <ImageView
                         android:id="@+id/imgCamera"
@@ -60,6 +53,9 @@
                         android:layout_margin="15dp"
                         android:hint="@string/prompt_nik"
                         android:gravity="center"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
                         android:background="@drawable/rectangleedittext"/>
 
                     <EditText
@@ -69,6 +65,9 @@
                         android:layout_margin="15dp"
                         android:hint="@string/prompt_fullname"
                         android:gravity="center"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
                         android:background="@drawable/rectangleedittext"/>
                     <EditText
                         android:id="@+id/edtEmail"
@@ -76,6 +75,20 @@
                         android:layout_height="50dp"
                         android:layout_margin="15dp"
                         android:hint="@string/prompt_email_address"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:gravity="center"
+                        android:background="@drawable/rectangleedittext"/>
+                    <EditText
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="15dp"
+                        android:hint="@string/prompt_signup_password"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
                         android:gravity="center"
                         android:background="@drawable/rectangleedittext"/>
                     <EditText
@@ -84,6 +97,9 @@
                         android:layout_height="50dp"
                         android:layout_margin="15dp"
                         android:hint="@string/prompt_phone_numb"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
                         android:gravity="center"
                         android:background="@drawable/rectangleedittext"/>
                     <EditText
@@ -92,27 +108,41 @@
                         android:layout_height="50dp"
                         android:layout_margin="15dp"
                         android:hint="@string/prompt_city"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
                         android:gravity="center"
                         android:background="@drawable/rectangleedittext"/>
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/expiredDate"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_margin="15dp"
                         android:gravity="center"
-                        android:text="@string/disclaimer_sign_up_1"/>
+                        android:focusable="false"
+                        android:background="@drawable/rectangleedittext"
+                        android:hint="@string/prompt_exp_date"
+                        android:drawableLeft="@drawable/calendar"
+                        android:drawableStart="@drawable/calendar" />
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/uploadFile"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_margin="15dp"
                         android:gravity="center"
-                        android:text="@string/disclaimer_sign_up_2"/>
+                        android:focusable="false"
+                        android:background="@drawable/rectangleedittext"
+                        android:drawableLeft="@android:drawable/ic_input_add"
+                        android:hint="@string/prompt_add_file_upload"
+                        android:drawableStart="@android:drawable/ic_input_add" />
 
                     <Button
                         android:id="@+id/btnSignUp"
                         android:layout_width="154dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginBottom="20dp"
+                        android:layout_margin="20dp"
                         android:background="@drawable/ripple_effect"
                         android:text="@string/prompt_sign_up"
                         android:textColor="@android:color/white"
