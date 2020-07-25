@@ -47,4 +47,13 @@
     <string name="prompt_item_outlet">SPBU 567</string>
     <string name="prompt_item_outlet_address">Jl. Pekapuran No. 57</string>
     <string name="prompt_twice_exit">Please click BACK again to exit</string>
+    <string name="prompt_charging_data_input">Charging \nData Input</string>
+    <string name="prompt_subsidi">Subsidi</string>
+    <string name="prompt_non_subsidi">Non Subsidi</string>
+    <string name="prompt_quota_remaining">200 quota remaining</string>
+    <string name="prompt_premium">PREMIUM</string>
+    <string name="prompt_enter_the_numb_of_units">Enter the number of units in liters</string>
+    <string name="prompt_ok">OK</string>
+    <string name="error_cant_empty">field cannot be empty</string>
+    <string name="prompt_set_your_image">Set your image</string>
 </resources>

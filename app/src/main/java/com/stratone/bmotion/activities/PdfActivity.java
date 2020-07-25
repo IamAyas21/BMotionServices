@@ -35,7 +35,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     private PDFView pdfView;
     public ProgressDialog pDialog;
     public static final int FILE_PICKER_REQUEST_CODE = 1;
-    private String pdfPath, nik, fullName, email, password, phone, city, expDate;
+    private String filePath, nik, fullName, email, password, phone, city, expDate;
     private Uri uri;
 
     @Override
@@ -50,7 +50,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     private void GetPutExtra()
     {
         if(getIntent().getExtras()!=null){
-            pdfPath = String.valueOf(getIntent().getStringExtra("path_pdf")) ;
+            filePath = String.valueOf(getIntent().getStringExtra("path_file")) ;
             nik = String.valueOf(getIntent().getStringExtra("nik"));
             fullName = String.valueOf(getIntent().getStringExtra("full_name"));
             email = String.valueOf(getIntent().getStringExtra("email_address"));
@@ -58,13 +58,21 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
             phone = String.valueOf(getIntent().getStringExtra("phone_number"));
             city = String.valueOf(getIntent().getStringExtra("city"));
             expDate = String.valueOf(getIntent().getStringExtra("exp_date"));
-            uri = Uri.parse(getIntent().getStringExtra("image_ktp"));
+
+            if(getIntent().getStringExtra("image_ktp") != null)
+            {
+                uri = Uri.parse(getIntent().getStringExtra("image_ktp"));
+            }
         }
     }
 
     private void SetPutExtra(Intent intent)
     {
-        intent.putExtra("image_ktp",uri.toString());
+        if(uri != null)
+        {
+            intent.putExtra("image_ktp",uri.toString());
+        }
+
         intent.putExtra("nik",nik);
         intent.putExtra("full_name",fullName);
         intent.putExtra("email_address",email);
@@ -72,7 +80,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
         intent.putExtra("phone_number",phone);
         intent.putExtra("city",city);
         intent.putExtra("exp_date",expDate);
-        intent.putExtra("path_pdf",pdfPath);
+        intent.putExtra("path_file",filePath);
     }
 
     @Override
@@ -124,7 +132,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
             displayFromFile(file);
             if (path != null) {
                 Log.d("Path: ", path);
-                pdfPath = path;
+                filePath = path;
                 Toast.makeText(this, "Picked file: " + path, Toast.LENGTH_LONG).show();
             }
         }

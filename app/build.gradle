@@ -34,6 +34,8 @@ dependencies {
 
     /*New*/
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.afollestad.material-dialogs:core:0.9.4.5'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     /*Library Retrofit*/
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
