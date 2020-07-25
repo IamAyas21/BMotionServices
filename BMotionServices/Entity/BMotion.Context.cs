@@ -34,6 +34,7 @@ namespace BMotionServices.Entity
         public virtual DbSet<Outlet> Outlets { get; set; }
         public virtual DbSet<Restriction> Restrictions { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

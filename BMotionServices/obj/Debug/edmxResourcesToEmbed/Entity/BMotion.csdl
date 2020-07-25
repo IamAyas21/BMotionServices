@@ -5,11 +5,14 @@
       <PropertyRef Name="DocumentNo" />
     </Key>
     <Property Name="DocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DocumentFile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ExpDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Documents_Users" FromRole="Documents" ToRole="Users" />
     <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Documents" FromRole="Documents" ToRole="MemberDetails" />
   </EntityType>
   <EntityType Name="Fuel">
@@ -119,6 +122,16 @@
     <NavigationProperty Name="Restrictions" Relationship="Self.FK_Restriction_Role" FromRole="Role" ToRole="Restriction" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="NIP" />
@@ -130,11 +143,28 @@
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
     <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="verification" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Users" FromRole="Users" ToRole="Documents" />
+    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
   </EntityType>
+  <Association Name="FK_Documents_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="NIP" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="NIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MemberDetails_Documents">
     <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />
     <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
@@ -253,7 +283,12 @@
     <EntitySet Name="Outlets" EntityType="Self.Outlet" />
     <EntitySet Name="Restrictions" EntityType="Self.Restriction" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Documents_Users" Association="Self.FK_Documents_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
     <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
       <End Role="Documents" EntitySet="Documents" />
       <End Role="MemberDetails" EntitySet="MemberDetails" />

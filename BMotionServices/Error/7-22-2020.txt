@@ -1,0 +1,532 @@
+Time: 22/07/2020 09:50:38 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 09:50:58 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:35:46 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:16 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:40 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:42 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:43 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:43 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:44 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:44 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:45 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:45 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:49 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:49 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:50 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:50 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:50 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:50 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:51 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:51 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:51 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:51 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:51 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:52 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:52 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:52 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:52 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:36:54 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:44:38 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:44:45 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:21 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:43 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:52 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:53 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:54 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:54 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:54 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 22/07/2020 10:45:55 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+

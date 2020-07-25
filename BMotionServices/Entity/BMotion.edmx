@@ -4,13 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="DocumentNo" />
           </Key>
           <Property Name="DocumentNo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DocumentFile" Type="varchar" MaxLength="30" />
+          <Property Name="NIP" Type="varchar" MaxLength="50" />
+          <Property Name="DocumentFile" Type="varchar" MaxLength="250" />
+          <Property Name="ExpDate" Type="datetime" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
@@ -108,6 +110,16 @@
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="NIP" />
@@ -121,7 +133,23 @@
           <Property Name="Phone" Type="varchar" MaxLength="15" />
           <Property Name="KTP" Type="varchar" MaxLength="50" />
           <Property Name="verification" Type="varchar" MaxLength="1" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Documents_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="NIP" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="NIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MemberDetails_Documents">
           <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
           <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="*" />
@@ -240,7 +268,12 @@
           <EntitySet Name="Outlets" EntityType="Self.Outlets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restriction" EntityType="Self.Restriction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Documents_Users" Association="Self.FK_Documents_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
           <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
             <End Role="Documents" EntitySet="Documents" />
             <End Role="MemberDetails" EntitySet="MemberDetails" />
@@ -278,7 +311,8 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BMotionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -287,11 +321,14 @@
             <PropertyRef Name="DocumentNo" />
           </Key>
           <Property Name="DocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DocumentFile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ExpDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Documents_Users" FromRole="Documents" ToRole="Users" />
           <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Documents" FromRole="Documents" ToRole="MemberDetails" />
         </EntityType>
         <EntityType Name="Fuel">
@@ -401,6 +438,16 @@
           <NavigationProperty Name="Restrictions" Relationship="Self.FK_Restriction_Role" FromRole="Role" ToRole="Restriction" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="NIP" />
@@ -412,11 +459,28 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
           <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="verification" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Users" FromRole="Users" ToRole="Documents" />
+          <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
+        <Association Name="FK_Documents_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="NIP" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="NIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MemberDetails_Documents">
           <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />
           <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
@@ -535,7 +599,12 @@
           <EntitySet Name="Outlets" EntityType="Self.Outlet" />
           <EntitySet Name="Restrictions" EntityType="Self.Restriction" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Documents_Users" Association="Self.FK_Documents_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
           <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
             <End Role="Documents" EntitySet="Documents" />
             <End Role="MemberDetails" EntitySet="MemberDetails" />
@@ -583,7 +652,9 @@
             <EntityTypeMapping TypeName="BMotionDBModel.Document">
               <MappingFragment StoreEntitySet="Documents">
                 <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -691,11 +762,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BMotionDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="BMotionDBModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="verification" ColumnName="verification" />
-                <ScalarProperty Name="KTP" ColumnName="KTP" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -703,6 +783,12 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="KTP" ColumnName="KTP" />
+                <ScalarProperty Name="verification" ColumnName="verification" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

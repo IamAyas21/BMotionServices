@@ -1,0 +1,356 @@
+Time: 23/07/2020 05:02:44 AM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":"\"9497949464664667\"","RoleId":0,"Name":"\"hdhshshsh\"","Profession":null,"Email":"\"hshshshhs\"","Password":null,"Phone":"\"6464667\"","KTP":"\"ktp_20200723_0503388826462244344007986.jpg8366932538881024531.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 05:12:34 AM
+------------------------------------------------------------------------
+Message: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+StackTrace:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: EntityFramework
+TargetSite: Int32 SaveChanges()
+Payload: {"NIP":"\"979764646464646\"","RoleId":0,"Name":"\"hahahahhawh\"","Profession":null,"Email":"\"hahahaha\"","Password":null,"Phone":"\"6464646\"","KTP":"\"ktp_20200723_05135645021984769193535831782901433688278983.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:24:34 PM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"564546898649898\"","RoleId":0,"Name":"\"shshdhdj\"","Profession":null,"Email":"\"rjfuff\"","Password":null,"Phone":"\"565589\"","KTP":"\"ktp_20200723_2024541006810296097158436.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:24:38 PM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"564546898649898\"","RoleId":0,"Name":"\"shshdhdj\"","Profession":null,"Email":"\"rjfuff\"","Password":null,"Phone":"\"565589\"","KTP":"\"ktp_20200723_2024541006810296097158436.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:34:39 PM
+------------------------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at BMotionServices.Logic.UserLogic.Add()
+Source: BMotionServices
+TargetSite: BMotionServices.Models.Users Add()
+Payload: {"NIP":"\"49646464\"","RoleId":0,"Name":"\"hahahahwh\"","Profession":null,"Email":"\"hahahshs\"","Password":null,"Phone":"\"9496464\"","KTP":"\"ktp_20200723_2035354539050389216685124.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:36:55 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:38:33 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:38:43 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:08 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:12 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:12 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:13 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:13 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:13 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:13 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:13 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:39:16 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:44:26 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:45:44 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:46:03 PM
+------------------------------------------------------------------------
+Message: Maximum request length exceeded.
+StackTrace:    at System.Web.HttpRequest.GetEntireRawContent()
+   at System.Web.HttpRequest.GetMultipartContent()
+   at System.Web.HttpRequest.FillInFilesCollection()
+   at System.Web.HttpRequest.EnsureFiles()
+   at System.Web.HttpRequest.get_Files()
+   at BMotionServices.Logic.UserLogic.Add()
+Source: System.Web
+TargetSite: System.Web.HttpRawUploadedContent GetEntireRawContent()
+Payload: {"NIP":null,"RoleId":0,"Name":null,"Profession":null,"Email":null,"Password":null,"Phone":null,"KTP":null,"Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:47:16 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"5455565497556\"","RoleId":0,"Name":"\"rhgdfhhdfgh\"","Profession":null,"Email":"\"ghgddghdff\"","Password":null,"Phone":"\"5665554899\"","KTP":"\"ktp_20200723_2048285483416613226772038.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:49:33 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"5455565497556\"","RoleId":0,"Name":"\"rhgdfhhdfgh\"","Profession":null,"Email":"\"ghgddghdff\"","Password":null,"Phone":"\"5665554899\"","KTP":"\"ktp_20200723_2048285483416613226772038.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:50:15 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"5455565497556\"","RoleId":0,"Name":"\"rhgdfhhdfgh\"","Profession":null,"Email":"\"ghgddghdff\"","Password":null,"Phone":"\"5665554899\"","KTP":"\"ktp_20200723_2048285483416613226772038.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:51:44 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"4994646464664644979\"","RoleId":0,"Name":"\"hshshshshsh\"","Profession":null,"Email":"\"hshshsheh\"","Password":null,"Phone":"\"64646464\"","KTP":"\"ktp_20200723_2052592651022793805483356.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:54:04 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"4994646464664644979\"","RoleId":0,"Name":"\"hshshshshsh\"","Profession":null,"Email":"\"hshshsheh\"","Password":null,"Phone":"\"64646464\"","KTP":"\"ktp_20200723_2052592651022793805483356.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:54:04 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"4994646464664644979\"","RoleId":0,"Name":"\"hshshshshsh\"","Profession":null,"Email":"\"hshshsheh\"","Password":null,"Phone":"\"64646464\"","KTP":"\"ktp_20200723_2052592651022793805483356.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:54:04 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"4994646464664644979\"","RoleId":0,"Name":"\"hshshshshsh\"","Profession":null,"Email":"\"hshshsheh\"","Password":null,"Phone":"\"64646464\"","KTP":"\"ktp_20200723_2052592651022793805483356.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:54:52 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"865959116495\"","RoleId":0,"Name":"\"dbdhdhr\"","Profession":null,"Email":"\"eheyehe\"","Password":null,"Phone":"\"59595464\"","KTP":"\"ktp_20200723_205610440255479437780473.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+
+Time: 23/07/2020 08:55:35 PM
+------------------------------------------------------------------------
+Message: String was not recognized as a valid DateTime.
+StackTrace:    at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value)
+   at BMotionServices.Logic.UserLogic.Add()
+Source: mscorlib
+TargetSite: System.DateTime Parse(System.String, System.Globalization.DateTimeFormatInfo, System.Globalization.DateTimeStyles)
+Payload: {"NIP":"\"4994646464664644979\"","RoleId":0,"Name":"\"hshshshshsh\"","Profession":null,"Email":"\"hshshsheh\"","Password":null,"Phone":"\"64646464\"","KTP":"\"ktp_20200723_2052592651022793805483356.jpg\"","Verification":null,"ImageKTP":null,"FilePDF":null,"ExpDate":"0001-01-01T00:00:00","isSuccess":false}
+------------------------------------------------------------------------
+

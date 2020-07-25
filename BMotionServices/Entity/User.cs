@@ -17,6 +17,7 @@ namespace BMotionServices.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.Documents = new HashSet<Document>();
             this.MemberDetails = new HashSet<MemberDetail>();
         }
     
@@ -29,7 +30,13 @@ namespace BMotionServices.Entity
         public string Phone { get; set; }
         public string KTP { get; set; }
         public string verification { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Document> Documents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberDetail> MemberDetails { get; set; }
         public virtual Role Role { get; set; }

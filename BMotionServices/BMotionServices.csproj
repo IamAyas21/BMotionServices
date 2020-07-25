@@ -252,6 +252,9 @@
     <Compile Include="Entity\Role.cs">
       <DependentUpon>BMotion.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sysdiagram.cs">
+      <DependentUpon>BMotion.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\User.cs">
       <DependentUpon>BMotion.tt</DependentUpon>
     </Compile>
