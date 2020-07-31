@@ -7,7 +7,9 @@
           <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+          <ScalarProperty Name="Quota" ColumnName="Quota" />
           <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -18,27 +20,12 @@
     <EntitySetMapping Name="Fuels">
       <EntityTypeMapping TypeName="BMotionDBModel.Fuel">
         <MappingFragment StoreEntitySet="Fuels">
-          <ScalarProperty Name="IsSubsidy" ColumnName="IsSubsidy" />
-          <ScalarProperty Name="FuildId" ColumnName="FuildId" />
+          <ScalarProperty Name="FuilId" ColumnName="FuilId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MemberDetails">
-      <EntityTypeMapping TypeName="BMotionDBModel.MemberDetail">
-        <MappingFragment StoreEntitySet="MemberDetails">
-          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
-          <ScalarProperty Name="MemberDetailId" ColumnName="MemberDetailId" />
-          <ScalarProperty Name="NIP" ColumnName="NIP" />
-          <ScalarProperty Name="FuelId" ColumnName="FuelId" />
-          <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
-          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
-          <ScalarProperty Name="Quota" ColumnName="Quota" />
+          <ScalarProperty Name="IsSubsidy" ColumnName="IsSubsidy" />
+          <ScalarProperty Name="BackgroundColor" ColumnName="BackgroundColor" />
+          <ScalarProperty Name="TextColor" ColumnName="TextColor" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -59,6 +46,7 @@
         <MappingFragment StoreEntitySet="OrderDetails">
           <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="FuelId" ColumnName="FuelId" />
           <ScalarProperty Name="Liter" ColumnName="Liter" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -70,9 +58,9 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="BMotionDBModel.Order">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="MemberDetailId" ColumnName="MemberDetailId" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-          <ScalarProperty Name="FuildId" ColumnName="FuildId" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -86,6 +74,8 @@
           <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -134,12 +124,14 @@
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Profession" ColumnName="Profession" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="KTP" ColumnName="KTP" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />

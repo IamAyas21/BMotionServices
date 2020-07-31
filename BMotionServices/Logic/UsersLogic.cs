@@ -51,15 +51,6 @@ namespace BMotionServices.Logic
                 user.KTP = postedContext.Request.Params["ktp"];
                 user.ExpDate = postedContext.Request.Params["expdate"];
 
-                Logging.Log.getInstance().CreateConsoleLog(user.NIP);
-                Logging.Log.getInstance().CreateConsoleLog(user.Name);
-                Logging.Log.getInstance().CreateConsoleLog(user.Password);
-                Logging.Log.getInstance().CreateConsoleLog(user.Phone);
-                Logging.Log.getInstance().CreateConsoleLog(user.Profession);
-                Logging.Log.getInstance().CreateConsoleLog(user.Email);
-                Logging.Log.getInstance().CreateConsoleLog(user.KTP);
-                Logging.Log.getInstance().CreateConsoleLog(user.ExpDate);
-
                 var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) || usr.NIP.Equals(user.NIP)).ToList();
                 if (userList.Count == 0)
                 {

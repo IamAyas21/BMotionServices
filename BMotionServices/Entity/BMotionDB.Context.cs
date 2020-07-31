@@ -27,7 +27,6 @@ namespace BMotionServices.Entity
     
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<Fuel> Fuels { get; set; }
-        public virtual DbSet<MemberDetail> MemberDetails { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }

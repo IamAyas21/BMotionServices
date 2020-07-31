@@ -207,66 +207,71 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FuelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Entity\BMotion.Context.cs">
+    <Compile Include="Entity\BMotionDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMotion.Context.tt</DependentUpon>
+      <DependentUpon>BMotionDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\BMotion.cs">
+    <Compile Include="Entity\BMotionDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\BMotion.Designer.cs">
+    <Compile Include="Entity\BMotionDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMotion.edmx</DependentUpon>
+      <DependentUpon>BMotionDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\Document.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Fuel.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\MemberDetail.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Menu.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Order.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\OrderDetail.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Outlet.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Restriction.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Role.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagram.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
-      <DependentUpon>BMotion.tt</DependentUpon>
+      <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logic\OrdersLogic.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\OrderDetails.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Fuel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Logic\UsersLogic.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Parse\ResponseOrders.cs" />
+    <Compile Include="Parse\ResponseFuels.cs" />
     <Compile Include="Parse\ResponseUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -277,15 +282,15 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Entity\BMotion.Context.tt">
+    <Content Include="Entity\BMotionDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BMotion.edmx</DependentUpon>
-      <LastGenOutput>BMotion.Context.cs</LastGenOutput>
+      <DependentUpon>BMotionDB.edmx</DependentUpon>
+      <LastGenOutput>BMotionDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\BMotion.tt">
+    <Content Include="Entity\BMotionDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BMotion.edmx</DependentUpon>
-      <LastGenOutput>BMotion.cs</LastGenOutput>
+      <DependentUpon>BMotionDB.edmx</DependentUpon>
+      <LastGenOutput>BMotionDB.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -311,12 +316,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Entity\BMotion.edmx">
+    <EntityDeploy Include="Entity\BMotionDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BMotion.Designer.cs</LastGenOutput>
+      <LastGenOutput>BMotionDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Entity\BMotion.edmx.diagram">
-      <DependentUpon>BMotion.edmx</DependentUpon>
+    <Content Include="Entity\BMotionDB.edmx.diagram">
+      <DependentUpon>BMotionDB.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BmotionServices.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -330,7 +335,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
