@@ -5,32 +5,25 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.stratone.bmotion.activities.LoginActivity;
+import com.stratone.bmotion.model.User;
 
+import java.util.Date;
 import java.util.HashMap;
 
 public class SessionManager {
     SharedPreferences pref;
-
-    // Editor for Shared preferences
     SharedPreferences.Editor editor;
 
-    // Context
     Context _context;
 
-    // Shared pref mode
     int PRIVATE_MODE = 0;
-
-    // Sharedpref file name
     private static final String PREF_NAME = "AndroidHivePref";
 
-    // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
-
-    // User name (make variable public to access from outside)
     public static final String KEY_NAME = "name";
-
-    // Email address (make variable public to access from outside)
     public static final String KEY_EMAIL = "email";
+    public static final String KEY_NIP = "nip";
+    private static final String KEY_EXPIRES = "expires";
 
     // Constructor
     public SessionManager(Context context){
@@ -42,17 +35,16 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String name, String email){
-        // Storing login value as TRUE
+    public void createLoginSession(User user){
         editor.putBoolean(IS_LOGIN, true);
+        editor.putString(KEY_NAME, user.getName());
+        editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_NIP, user.getNIP());
 
-        // Storing name in pref
-        editor.putString(KEY_NAME, name);
-
-        // Storing email in pref
-        editor.putString(KEY_EMAIL, email);
-
-        // commit changes
+        Date date = new Date();
+        //Set user session for next 7 days
+        long millis = date.getTime() + (7 * 24 * 60 * 60 * 1000);
+        editor.putLong(KEY_EXPIRES, millis);
         editor.commit();
     }
 
@@ -62,17 +54,10 @@ public class SessionManager {
      * Else won't do anything
      * */
     public void checkLogin(){
-        // Check login status
         if(!this.isLoggedIn()){
-            // user is not logged in redirect him to Login Activity
             Intent i = new Intent(_context, LoginActivity.class);
-            // Closing all the Activities
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            // Add new Flag to start new Activity
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            // Staring Login Activity
             _context.startActivity(i);
         }
 
@@ -83,15 +68,11 @@ public class SessionManager {
     /**
      * Get stored session data
      * */
-    public HashMap<String, String> getUserDetails(){
-        HashMap<String, String> user = new HashMap<String, String>();
-        // user name
-        user.put(KEY_NAME, pref.getString(KEY_NAME, null));
-
-        // user email id
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
-
-        // return user
+    public User getUserDetails(){
+        User user = new User();
+        user.setName(pref.getString(KEY_NAME, null));
+        user.setEmail(pref.getString(KEY_EMAIL, null));
+        user.setNIP(pref.getString(KEY_NIP, null));
         return user;
     }
 
@@ -99,19 +80,11 @@ public class SessionManager {
      * Clear session details
      * */
     public void logoutUser(){
-        // Clearing all data from Shared Preferences
         editor.clear();
         editor.commit();
-
-        // After logout redirect user to Loing Activity
         Intent i = new Intent(_context, LoginActivity.class);
-        // Closing all the Activities
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        // Add new Flag to start new Activity
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        // Staring Login Activity
         _context.startActivity(i);
     }
 
@@ -120,6 +93,13 @@ public class SessionManager {
      * **/
     // Get Login State
     public boolean isLoggedIn(){
-        return pref.getBoolean(IS_LOGIN, false);
+        Date currentDate = new Date();
+        long millis = pref.getLong(KEY_EXPIRES, 0);
+        if (millis == 0) {
+            return false;
+        }
+        Date expiryDate = new Date(millis);
+        return currentDate.before(expiryDate);
+        /*return pref.getBoolean(IS_LOGIN, false);*/
     }
 }

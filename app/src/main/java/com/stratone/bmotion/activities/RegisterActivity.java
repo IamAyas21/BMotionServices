@@ -1,7 +1,7 @@
 package com.stratone.bmotion.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.MediaType;
@@ -11,20 +11,22 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.PowerManager;
-import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,15 +35,14 @@ import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.response.ResponseUser;
 import com.stratone.bmotion.rest.ApiClient;
 import com.stratone.bmotion.rest.ApiInterface;
+import com.stratone.bmotion.utils.SessionManager;
 import com.stratone.bmotion.utils.UploadService;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -75,11 +76,14 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.uploadFile)
     EditText uploadFile;
 
+    @BindView(R.id.imgBtnBack)
+    ImageButton back;
+
     ApiInterface apiService;
-    PowerManager.WakeLock wakeLock;
 
     static final int REQUEST_TAKE_PHOTO = 100;
     private static final int PICK_FILE_REQUEST = 1;
+    private int isObject = 0;
     private Uri uri, uriFile;
     private Bitmap imageBitmap;
     private String currentPhotoPath;
@@ -90,12 +94,22 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private File arrFile[] = new File[2];
     private ProgressDialog pDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+
+        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        if(sessionManager.isLoggedIn())
+        {
+            Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intent);
+            finish();
+        }
 
         /*Get Path PDF*/
         GetPutExtra();
@@ -107,7 +121,8 @@ public class RegisterActivity extends AppCompatActivity {
         mCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dispatchTakePictureIntent();
+                isObject = 1;
+                showImageChooser();
             }
         });
 
@@ -115,9 +130,12 @@ public class RegisterActivity extends AppCompatActivity {
         bSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrFile[0] = image;
-                arrFile[1] = new File(selectedFilePath);
-                signUp(arrFile);
+                if(ValidateRegister())
+                {
+                    arrFile[0] = image;
+                    arrFile[1] = new File(selectedFilePath);
+                    signUp(arrFile);
+                }
             }
         });
 
@@ -148,7 +166,15 @@ public class RegisterActivity extends AppCompatActivity {
         uploadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFileChooser();
+                isObject = 2;
+                SelectMedia();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Back();
             }
         });
     }
@@ -176,7 +202,7 @@ public class RegisterActivity extends AppCompatActivity {
         MultipartBody.Part pdfPart = MultipartBody.Part.createFormData("filepdf",
                 file[1].getName(), pdfBody);
 
-        User user = new User();
+        final User user = new User();
         user.setNIP(eNIK.getText().toString());
         user.setEmail(eEmail.getText().toString());
         user.setName(eFullName.getText().toString());
@@ -195,8 +221,12 @@ public class RegisterActivity extends AppCompatActivity {
                     if(baseResponse.getStatus().equals("success"))
                     {
                         pDialog.dismiss();
+
+                        SessionManager sessionManager = new SessionManager(getApplicationContext());
+                        sessionManager.createLoginSession(user);
+
                         Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this,DashboardActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(intent);
                         finish();
@@ -215,24 +245,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-    private void dispatchTakePictureIntent()
-    {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-            }
-            if (photoFile != null) {
-                uri = FileProvider.getUriForFile(this,
-                        "com.bmotion.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
     }
 
     @Override
@@ -255,16 +267,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "ktp_" + timeStamp;
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
     private void showFileChooser() {
         Intent intent = new Intent(getApplicationContext(), PdfActivity.class);
         SetPutExtra(intent);
@@ -273,7 +275,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void SetPutExtra(Intent intent)
     {
-        intent.putExtra("image_ktp",image.getAbsolutePath());
+        if(image != null)
+        {
+            intent.putExtra("image_ktp",image.getAbsolutePath());
+        }
+
+        intent.putExtra("object",isObject);
         intent.putExtra("nik",eNIK.getText().toString());
         intent.putExtra("full_name",eFullName.getText().toString());
         intent.putExtra("email_address",eEmail.getText().toString());
@@ -281,13 +288,14 @@ public class RegisterActivity extends AppCompatActivity {
         intent.putExtra("phone_number",ePhone.getText().toString());
         intent.putExtra("city",eCity.getText().toString());
         intent.putExtra("exp_date",expDate.getText().toString());
-        intent.putExtra("path_pdf",selectedFilePath);
+        intent.putExtra("path_file",selectedFilePath);
     }
 
     private void GetPutExtra()
     {
         if(getIntent().getExtras()!=null){
-            selectedFilePath = String.valueOf(getIntent().getStringExtra("path_pdf")) ;
+            isObject = Integer.valueOf(getIntent().getIntExtra("object",0)) ;
+            selectedFilePath = String.valueOf(getIntent().getStringExtra("path_file")) ;
             eNIK.setText(String.valueOf(getIntent().getStringExtra("nik")));
             eFullName.setText(String.valueOf(getIntent().getStringExtra("full_name")));
             eEmail.setText(String.valueOf(getIntent().getStringExtra("email_address")));
@@ -295,18 +303,137 @@ public class RegisterActivity extends AppCompatActivity {
             ePhone.setText(String.valueOf(getIntent().getStringExtra("phone_number")));
             eCity.setText(String.valueOf(getIntent().getStringExtra("city")));
             expDate.setText(String.valueOf(getIntent().getStringExtra("exp_date")));
-            /*uri = Uri.parse(getIntent().getStringExtra("image_ktp"));
-            mCamera.setImageURI(uri);*/
             uploadFile.setText(selectedFilePath);
-            image = new File(getIntent().getStringExtra("image_ktp"));
-            uri = Uri.fromFile(new File(image.getPath()));
-            mCamera.setImageURI(uri);
+
+            if(getIntent().getStringExtra("image_ktp") != null)
+            {
+                image = new File(getIntent().getStringExtra("image_ktp"));
+                uri = Uri.fromFile(new File(image.getPath()));
+                mCamera.setImageURI(uri);
+            }
         }
     }
-    @Override
-    public void onBackPressed() {
+
+    private void showImageChooser() {
+        Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+        SetPutExtra(intent);
+        startActivity(intent);
+    }
+
+    private void SelectMedia()
+    {
+        final CharSequence[] options = {"Browse Image", "Browse PDF", "cancel"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+        builder.setTitle("upload file");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @SuppressLint("IntentReset")
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (options[item].equals("Browse Image"))
+                {
+                    showImageChooser();
+                }
+                else if (options[item].equals("Browse PDF"))
+                {
+                    showFileChooser();
+                }
+                else if (options[item].equals("Cancel"))
+                {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private boolean ValidateRegister()
+    {
+        boolean isSuccess = false;
+        if(image != null)
+        {
+            if(!eNIK.getText().toString().equals(""))
+            {
+                if(!eFullName.getText().toString().equals(""))
+                {
+                    if(!eEmail.getText().toString().equals(""))
+                    {
+                        if(!ePassword.getText().toString().equals(""))
+                        {
+                            if(!ePhone.getText().toString().equals(""))
+                            {
+                                if(!eCity.getText().toString().equals(""))
+                                {
+                                    if(!expDate.getText().toString().equals(""))
+                                    {
+                                        if(!uploadFile.getText().toString().equals(""))
+                                        {
+                                            isSuccess = true;
+                                        }
+                                        else
+                                        {
+                                            uploadFile.setError(getResources().getString(R.string.error_cant_empty));
+                                            uploadFile.requestFocus();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        expDate.setError(getResources().getString(R.string.error_cant_empty));
+                                        expDate.requestFocus();
+                                    }
+                                }
+                                else
+                                {
+                                    eCity.setError(getResources().getString(R.string.error_cant_empty));
+                                    eCity.requestFocus();
+                                }
+                            }
+                            else
+                            {
+                                ePhone.setError(getResources().getString(R.string.error_cant_empty));
+                                ePhone.requestFocus();
+                            }
+                        }
+                        else
+                        {
+                            ePassword.setError(getResources().getString(R.string.error_cant_empty));
+                            ePassword.requestFocus();
+                        }
+                    }
+                    else
+                    {
+                        eEmail.setError(getResources().getString(R.string.error_cant_empty));
+                        eEmail.requestFocus();
+                    }
+                }
+                else
+                {
+                    eFullName.setError(getResources().getString(R.string.error_cant_empty));
+                    eFullName.requestFocus();
+                }
+            }
+            else
+            {
+                eNIK.setError(getResources().getString(R.string.error_cant_empty));
+                eNIK.requestFocus();
+            }
+        }
+        else
+        {
+            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.error_cant_empty), Toast.LENGTH_SHORT).show();
+        }
+        return isSuccess;
+    }
+
+    private void Back()
+    {
         Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Back();
     }
 }

@@ -1,13 +1,21 @@
 package com.stratone.bmotion.rest;
 
+import com.stratone.bmotion.model.OrderDetails;
+import com.stratone.bmotion.model.Orders;
+import com.stratone.bmotion.response.ResponseFuels;
+import com.stratone.bmotion.response.ResponseOrders;
 import com.stratone.bmotion.response.ResponseUser;
 
+import java.util.List;
+
 import androidx.annotation.Nullable;
+import okhttp3.Callback;
 import okhttp3.MultipartBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -45,5 +53,18 @@ public interface ApiInterface {
             @Field("phone") String phone,
             @Field("ktp") String ktp,
             @Part MultipartBody.Part imageKtp
+    );
+
+    @FormUrlEncoded
+    @POST("api/fuel/fuels")
+    Call<ResponseFuels> fuels(
+        @Field("isSubsidy") String isSubsidy
+    );
+
+    /*@FormUrlEncoded*/
+    @Headers("Content-Type: application/json")
+    @POST("api/orders/order")
+    Call<ResponseOrders> order(
+        @Body Orders order
     );
     }
