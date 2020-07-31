@@ -2,7 +2,6 @@ package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.MediaType;
@@ -21,15 +20,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.PowerManager;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,15 +35,14 @@ import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.response.ResponseUser;
 import com.stratone.bmotion.rest.ApiClient;
 import com.stratone.bmotion.rest.ApiInterface;
+import com.stratone.bmotion.utils.SessionManager;
 import com.stratone.bmotion.utils.UploadService;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -80,8 +76,10 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.uploadFile)
     EditText uploadFile;
 
+    @BindView(R.id.imgBtnBack)
+    ImageButton back;
+
     ApiInterface apiService;
-    PowerManager.WakeLock wakeLock;
 
     static final int REQUEST_TAKE_PHOTO = 100;
     private static final int PICK_FILE_REQUEST = 1;
@@ -104,6 +102,15 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
+        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        if(sessionManager.isLoggedIn())
+        {
+            Intent intent = new Intent(RegisterActivity.this, DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intent);
+            finish();
+        }
+
         /*Get Path PDF*/
         GetPutExtra();
 
@@ -123,9 +130,12 @@ public class RegisterActivity extends AppCompatActivity {
         bSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrFile[0] = image;
-                arrFile[1] = new File(selectedFilePath);
-                signUp(arrFile);
+                if(ValidateRegister())
+                {
+                    arrFile[0] = image;
+                    arrFile[1] = new File(selectedFilePath);
+                    signUp(arrFile);
+                }
             }
         });
 
@@ -160,6 +170,13 @@ public class RegisterActivity extends AppCompatActivity {
                 SelectMedia();
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Back();
+            }
+        });
     }
 
     private void updateExpDate() {
@@ -185,7 +202,7 @@ public class RegisterActivity extends AppCompatActivity {
         MultipartBody.Part pdfPart = MultipartBody.Part.createFormData("filepdf",
                 file[1].getName(), pdfBody);
 
-        User user = new User();
+        final User user = new User();
         user.setNIP(eNIK.getText().toString());
         user.setEmail(eEmail.getText().toString());
         user.setName(eFullName.getText().toString());
@@ -204,6 +221,10 @@ public class RegisterActivity extends AppCompatActivity {
                     if(baseResponse.getStatus().equals("success"))
                     {
                         pDialog.dismiss();
+
+                        SessionManager sessionManager = new SessionManager(getApplicationContext());
+                        sessionManager.createLoginSession(user);
+
                         Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RegisterActivity.this,DashboardActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
@@ -225,24 +246,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    private void dispatchTakePictureIntent()
-    {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-            }
-            if (photoFile != null) {
-                uri = FileProvider.getUriForFile(this,
-                        "com.bmotion.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -262,16 +265,6 @@ public class RegisterActivity extends AppCompatActivity {
             selectedFilePath = pathsToFile.toString();
             uploadFile.setText(selectedFilePath);
         }
-    }
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "ktp_" + timeStamp;
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
     }
 
     private void showFileChooser() {
@@ -321,14 +314,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void BrowseGallery(){
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        File f = new File(currentPhotoPath);
-        Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        this.sendBroadcast(mediaScanIntent);
-    }
-
     private void showImageChooser() {
         Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
         SetPutExtra(intent);
@@ -361,11 +346,94 @@ public class RegisterActivity extends AppCompatActivity {
         builder.show();
     }
 
-    @Override
-    public void onBackPressed() {
+    private boolean ValidateRegister()
+    {
+        boolean isSuccess = false;
+        if(image != null)
+        {
+            if(!eNIK.getText().toString().equals(""))
+            {
+                if(!eFullName.getText().toString().equals(""))
+                {
+                    if(!eEmail.getText().toString().equals(""))
+                    {
+                        if(!ePassword.getText().toString().equals(""))
+                        {
+                            if(!ePhone.getText().toString().equals(""))
+                            {
+                                if(!eCity.getText().toString().equals(""))
+                                {
+                                    if(!expDate.getText().toString().equals(""))
+                                    {
+                                        if(!uploadFile.getText().toString().equals(""))
+                                        {
+                                            isSuccess = true;
+                                        }
+                                        else
+                                        {
+                                            uploadFile.setError(getResources().getString(R.string.error_cant_empty));
+                                            uploadFile.requestFocus();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        expDate.setError(getResources().getString(R.string.error_cant_empty));
+                                        expDate.requestFocus();
+                                    }
+                                }
+                                else
+                                {
+                                    eCity.setError(getResources().getString(R.string.error_cant_empty));
+                                    eCity.requestFocus();
+                                }
+                            }
+                            else
+                            {
+                                ePhone.setError(getResources().getString(R.string.error_cant_empty));
+                                ePhone.requestFocus();
+                            }
+                        }
+                        else
+                        {
+                            ePassword.setError(getResources().getString(R.string.error_cant_empty));
+                            ePassword.requestFocus();
+                        }
+                    }
+                    else
+                    {
+                        eEmail.setError(getResources().getString(R.string.error_cant_empty));
+                        eEmail.requestFocus();
+                    }
+                }
+                else
+                {
+                    eFullName.setError(getResources().getString(R.string.error_cant_empty));
+                    eFullName.requestFocus();
+                }
+            }
+            else
+            {
+                eNIK.setError(getResources().getString(R.string.error_cant_empty));
+                eNIK.requestFocus();
+            }
+        }
+        else
+        {
+            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.error_cant_empty), Toast.LENGTH_SHORT).show();
+        }
+        return isSuccess;
+    }
+
+    private void Back()
+    {
         Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Back();
     }
 }

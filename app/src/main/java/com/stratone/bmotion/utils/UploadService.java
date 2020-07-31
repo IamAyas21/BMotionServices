@@ -2,9 +2,11 @@ package com.stratone.bmotion.utils;
 
 import com.stratone.bmotion.BuildConfig;
 import com.stratone.bmotion.config.ServerConfig;
+import com.stratone.bmotion.model.OrderDetails;
 import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.rest.ApiInterface;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
@@ -24,9 +26,9 @@ public class UploadService {
 
     public UploadService() {
         OkHttpClient.Builder okhttpBuilder = new OkHttpClient().newBuilder();
-        okhttpBuilder.connectTimeout(60, TimeUnit.SECONDS);
-        okhttpBuilder.writeTimeout(60, TimeUnit.SECONDS);
-        okhttpBuilder.readTimeout(60, TimeUnit.SECONDS);
+        okhttpBuilder.connectTimeout(180, TimeUnit.SECONDS);
+        okhttpBuilder.writeTimeout(180, TimeUnit.SECONDS);
+        okhttpBuilder.readTimeout(180, TimeUnit.SECONDS);
         okhttpBuilder.retryOnConnectionFailure(true);
 
         if (BuildConfig.DEBUG) {
@@ -51,4 +53,9 @@ public class UploadService {
     public void SignUpBase64(User user, MultipartBody.Part ktp, Callback callback) {
         uploadInterface.registerBase64(user.getNIP(),user.getName(),user.getProfession(),user.getEmail(),user.getPassword(),user.getPhone(),user.getKTP(), ktp).enqueue(callback);
     }
+
+    /*public void Order(String nip, List<OrderDetails> orderDetails, Callback callback)
+    {
+         uploadInterface.order(nip,orderDetails).enqueue(callback);
+    }*/
 }

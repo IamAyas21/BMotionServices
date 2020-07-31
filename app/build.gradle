@@ -50,6 +50,10 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.nbsp:library:1.8'
 
+    /*QR Code*/
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+    implementation project(':QRGenearator')
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

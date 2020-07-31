@@ -6,6 +6,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,10 +39,10 @@ public class LoginActivity extends AbsRunTimePermission{
     TextView signUp;
 
     ApiInterface apiService;
-    SessionManager sessionManager;
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_PERMISSION = 10;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,15 @@ public class LoginActivity extends AbsRunTimePermission{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        if(sessionManager.isLoggedIn())
+        {
+            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intent);
+            finish();
+        }
 
         //request permission here
         requestAppPermissions(new String[]{
@@ -76,7 +86,6 @@ public class LoginActivity extends AbsRunTimePermission{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                /*intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);*/
                 startActivity(intent);
                 finish();
             }
@@ -90,6 +99,12 @@ public class LoginActivity extends AbsRunTimePermission{
 
     private void loginUser()
     {
+        pDialog = new ProgressDialog(LoginActivity.this);
+        pDialog.setMessage(getResources().getString(R.string.prompt_loading));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
         String userName = etUser.getText().toString();
         String password = etPassword.getText().toString();
         apiService.login(userName,password).enqueue(new Callback<ResponseUser>() {
@@ -97,10 +112,14 @@ public class LoginActivity extends AbsRunTimePermission{
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
                 if(response.isSuccessful())
                 {
-                    User userLoggedIn = response.body().getUser();
                     if(response.body().getStatus().equals("success"))
                     {
+                        pDialog.dismiss();
+                        User userLoggedIn = response.body().getUser();
+
+                        SessionManager sessionManager = new SessionManager(getApplicationContext());
                         sessionManager.createLoginSession(userLoggedIn);
+
                         Intent intent = new Intent(LoginActivity.this,DashboardActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
                         Toast.makeText(LoginActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
@@ -108,17 +127,20 @@ public class LoginActivity extends AbsRunTimePermission{
                         finish();
                     }
                     else {
+                        pDialog.dismiss();
                         Toast.makeText(LoginActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 }
                 else if(!response.isSuccessful())
                 {
+                    pDialog.dismiss();
                     Toast.makeText(LoginActivity.this,getApplicationContext().getResources().getString(R.string.login_failed),Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseUser> call, Throwable t) {
+                pDialog.dismiss();
                 Log.e(TAG,"onFailure: "+t.getLocalizedMessage());
                 Toast.makeText(LoginActivity.this,getApplicationContext().getResources().getString(R.string.connect_server_failed),Toast.LENGTH_SHORT).show();
             }

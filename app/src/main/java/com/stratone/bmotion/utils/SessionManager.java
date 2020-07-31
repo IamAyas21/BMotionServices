@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import com.stratone.bmotion.activities.LoginActivity;
 import com.stratone.bmotion.model.User;
 
+import java.util.Date;
 import java.util.HashMap;
 
 public class SessionManager {
@@ -21,6 +22,8 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "name";
     public static final String KEY_EMAIL = "email";
+    public static final String KEY_NIP = "nip";
+    private static final String KEY_EXPIRES = "expires";
 
     // Constructor
     public SessionManager(Context context){
@@ -36,6 +39,12 @@ public class SessionManager {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putString(KEY_NIP, user.getNIP());
+
+        Date date = new Date();
+        //Set user session for next 7 days
+        long millis = date.getTime() + (7 * 24 * 60 * 60 * 1000);
+        editor.putLong(KEY_EXPIRES, millis);
         editor.commit();
     }
 
@@ -59,10 +68,11 @@ public class SessionManager {
     /**
      * Get stored session data
      * */
-    public HashMap<String, String> getUserDetails(){
-        HashMap<String, String> user = new HashMap<String, String>();
-        user.put(KEY_NAME, pref.getString(KEY_NAME, null));
-        user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
+    public User getUserDetails(){
+        User user = new User();
+        user.setName(pref.getString(KEY_NAME, null));
+        user.setEmail(pref.getString(KEY_EMAIL, null));
+        user.setNIP(pref.getString(KEY_NIP, null));
         return user;
     }
 
@@ -83,6 +93,13 @@ public class SessionManager {
      * **/
     // Get Login State
     public boolean isLoggedIn(){
-        return pref.getBoolean(IS_LOGIN, false);
+        Date currentDate = new Date();
+        long millis = pref.getLong(KEY_EXPIRES, 0);
+        if (millis == 0) {
+            return false;
+        }
+        Date expiryDate = new Date(millis);
+        return currentDate.before(expiryDate);
+        /*return pref.getBoolean(IS_LOGIN, false);*/
     }
 }

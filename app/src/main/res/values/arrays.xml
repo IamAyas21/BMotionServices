@@ -13,4 +13,9 @@
         <item>remove_image</item>
     </string-array>
 
+    <array name="fuels">
+        <item>PREMIUM</item>
+        <item>PERTALITE</item>
+        <item>PERTAMAX</item>
+    </array>
 </resources>

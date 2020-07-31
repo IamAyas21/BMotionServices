@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/background_home"
     tools:context=".activities.DashboardActivity">
 
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
             <RelativeLayout
                 android:id="@+id/headerDashboard"
                 android:layout_width="match_parent"
@@ -23,7 +23,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:background="@drawable/rounded_welcome_home"
@@ -67,6 +67,7 @@
                                         android:text="@string/prompt_welcome" />
 
                                     <TextView
+                                        android:id="@+id/fullName"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/poppins_semibold"
@@ -90,6 +91,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="right"
+                                        android:textSize="12dp"
                                         android:text="@string/prompt_quota_bbm" />
 
                                 </LinearLayout>
@@ -104,6 +106,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
+                                        android:textSize="12dp"
                                         android:text="@string/prompt_total_buy_bbm" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -162,6 +165,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/dateNow"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -179,9 +183,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        android:layout_margin="15dp"
-                        android:background="@drawable/rounded_welcome_home"
+                        android:background="@drawable/rounded_menu_item"
+                        android:layout_margin="30dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -191,7 +194,7 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:id="@+id/btnScan_Home"
+                                android:id="@+id/input"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_margin="10dp"
@@ -217,7 +220,7 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/layoutNearby"
+                                android:id="@+id/support"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_margin="10dp"
@@ -249,7 +252,7 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:id="@+id/layoutProfile"
+                                android:id="@+id/profile"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_margin="10dp"
@@ -275,7 +278,7 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/layoutSupport"
+                                android:id="@+id/info"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_margin="10dp"
@@ -362,6 +365,7 @@
 
                 </LinearLayout>
             </RelativeLayout>
+
 </ScrollView>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -370,7 +374,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_welcome_home"
@@ -378,60 +382,60 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_wallet" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_history" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_home" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_profile" />
             </LinearLayout>
