@@ -2,8 +2,10 @@ package com.stratone.bmotion.rest;
 
 import com.stratone.bmotion.model.OrderDetails;
 import com.stratone.bmotion.model.Orders;
+import com.stratone.bmotion.model.PurchaseHistory;
 import com.stratone.bmotion.response.ResponseFuels;
 import com.stratone.bmotion.response.ResponseOrders;
+import com.stratone.bmotion.response.ResponsePurchaseHistory;
 import com.stratone.bmotion.response.ResponseUser;
 
 import java.util.List;
@@ -66,5 +68,11 @@ public interface ApiInterface {
     @POST("api/orders/order")
     Call<ResponseOrders> order(
         @Body Orders order
+    );
+
+    @Headers("Content-Type: application/json")
+    @POST("api/profile/profiles")
+    Call<ResponsePurchaseHistory> profiles(
+            @Body PurchaseHistory purchaseHistory
     );
     }

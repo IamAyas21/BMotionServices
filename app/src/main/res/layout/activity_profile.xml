@@ -283,6 +283,18 @@
                                     android:text="@string/prompt_purchase_history"/>
                             </LinearLayout>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ListView
+                                android:id="@+id/lvPurchaseHistory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:dividerHeight="2dp"
+                                android:fillViewport="true"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
