@@ -16,12 +16,14 @@ namespace BMotionServices.Entity
     {
         public int OrderDetailId { get; set; }
         public string OrderNo { get; set; }
+        public Nullable<int> FuelId { get; set; }
         public Nullable<int> Liter { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
     
+        public virtual Fuel Fuel { get; set; }
         public virtual Order Order { get; set; }
     }
 }

@@ -7,49 +7,30 @@
     <Property Name="DocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DocumentFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Quota" Type="Int32" />
     <Property Name="ExpDate" Type="DateTime" Precision="3" />
+    <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Documents_Users" FromRole="Documents" ToRole="Users" />
-    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Documents" FromRole="Documents" ToRole="MemberDetails" />
   </EntityType>
   <EntityType Name="Fuel">
     <Key>
-      <PropertyRef Name="FuildId" />
+      <PropertyRef Name="FuilId" />
     </Key>
-    <Property Name="FuildId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FuilId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="Double" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Fuels" FromRole="Fuels" ToRole="MemberDetails" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Fuels" FromRole="Fuels" ToRole="Orders" />
     <Property Name="IsSubsidy" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="MemberDetail">
-    <Key>
-      <PropertyRef Name="MemberDetailId" />
-    </Key>
-    <Property Name="MemberDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FuelId" Type="Int32" />
-    <Property Name="DocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="OutletNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Quota" Type="Int32" />
+    <Property Name="BackgroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TextColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Document" Relationship="Self.FK_MemberDetails_Documents" FromRole="MemberDetails" ToRole="Documents" />
-    <NavigationProperty Name="Fuel" Relationship="Self.FK_MemberDetails_Fuels" FromRole="MemberDetails" ToRole="Fuels" />
-    <NavigationProperty Name="Outlet" Relationship="Self.FK_MemberDetails_Outlets" FromRole="MemberDetails" ToRole="Outlets" />
-    <NavigationProperty Name="User" Relationship="Self.FK_MemberDetails_Users" FromRole="MemberDetails" ToRole="Users" />
-    <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orders" Relationship="BMotionDBModel.FK_Orders_MemberDetails" FromRole="MemberDetail" ToRole="Order" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Fuels" FromRole="Fuels" ToRole="OrderDetails" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -65,11 +46,13 @@
     </Key>
     <Property Name="OrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FuelId" Type="Int32" />
     <Property Name="Liter" Type="Int32" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fuel" Relationship="Self.FK_OrderDetails_Fuels" FromRole="OrderDetails" ToRole="Fuels" />
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
   </EntityType>
   <EntityType Name="Order">
@@ -77,15 +60,14 @@
       <PropertyRef Name="OrderNo" />
     </Key>
     <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FuildId" Type="Int32" />
+    <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Fuel" Relationship="Self.FK_Orders_Fuels" FromRole="Orders" ToRole="Fuels" />
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
-    <Property Name="MemberDetailId" Type="Int32" />
-    <NavigationProperty Name="MemberDetail" Relationship="BMotionDBModel.FK_Orders_MemberDetails" FromRole="Order" ToRole="MemberDetail" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
   </EntityType>
   <EntityType Name="Outlet">
     <Key>
@@ -94,11 +76,13 @@
     <Property Name="OutletNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Outlets" FromRole="Outlets" ToRole="MemberDetails" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Outlets" FromRole="Outlets" ToRole="Users" />
   </EntityType>
   <EntityType Name="Restriction">
     <Key>
@@ -143,19 +127,21 @@
     </Key>
     <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="RoleId" Type="Int32" />
+    <Property Name="OutletNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="Profession" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="verification" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Users" FromRole="Users" ToRole="Documents" />
-    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_Users" FromRole="Users" ToRole="MemberDetails" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Outlet" Relationship="Self.FK_Users_Outlets" FromRole="Users" ToRole="Outlets" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
   </EntityType>
   <Association Name="FK_Documents_Users">
@@ -170,63 +156,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MemberDetails_Documents">
-    <End Role="Documents" Type="Self.Document" Multiplicity="0..1" />
-    <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Documents">
-        <PropertyRef Name="DocumentNo" />
-      </Principal>
-      <Dependent Role="MemberDetails">
-        <PropertyRef Name="DocumentNo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MemberDetails_Fuels">
+  <Association Name="FK_OrderDetails_Fuels">
     <End Role="Fuels" Type="Self.Fuel" Multiplicity="0..1" />
-    <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
+    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Fuels">
-        <PropertyRef Name="FuildId" />
+        <PropertyRef Name="FuilId" />
       </Principal>
-      <Dependent Role="MemberDetails">
+      <Dependent Role="OrderDetails">
         <PropertyRef Name="FuelId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Orders_Fuels">
-    <End Role="Fuels" Type="Self.Fuel" Multiplicity="0..1" />
-    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Fuels">
-        <PropertyRef Name="FuildId" />
-      </Principal>
-      <Dependent Role="Orders">
-        <PropertyRef Name="FuildId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MemberDetails_Outlets">
-    <End Role="Outlets" Type="Self.Outlet" Multiplicity="0..1" />
-    <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Outlets">
-        <PropertyRef Name="OutletNo" />
-      </Principal>
-      <Dependent Role="MemberDetails">
-        <PropertyRef Name="OutletNo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MemberDetails_Users">
-    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-    <End Role="MemberDetails" Type="Self.MemberDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="NIP" />
-      </Principal>
-      <Dependent Role="MemberDetails">
-        <PropertyRef Name="NIP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -251,6 +189,30 @@
       </Principal>
       <Dependent Role="OrderDetails">
         <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="NIP" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="NIP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Outlets">
+    <End Role="Outlets" Type="Self.Outlet" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Outlets">
+        <PropertyRef Name="OutletNo" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="OutletNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -281,7 +243,6 @@
   <EntityContainer Name="BMotionDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Documents" EntityType="Self.Document" />
     <EntitySet Name="Fuels" EntityType="Self.Fuel" />
-    <EntitySet Name="MemberDetails" EntityType="Self.MemberDetail" />
     <EntitySet Name="Menus" EntityType="Self.Menu" />
     <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
@@ -294,25 +255,9 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Documents" EntitySet="Documents" />
     </AssociationSet>
-    <AssociationSet Name="FK_MemberDetails_Documents" Association="Self.FK_MemberDetails_Documents">
-      <End Role="Documents" EntitySet="Documents" />
-      <End Role="MemberDetails" EntitySet="MemberDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MemberDetails_Fuels" Association="Self.FK_MemberDetails_Fuels">
+    <AssociationSet Name="FK_OrderDetails_Fuels" Association="Self.FK_OrderDetails_Fuels">
       <End Role="Fuels" EntitySet="Fuels" />
-      <End Role="MemberDetails" EntitySet="MemberDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Orders_Fuels" Association="Self.FK_Orders_Fuels">
-      <End Role="Fuels" EntitySet="Fuels" />
-      <End Role="Orders" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MemberDetails_Outlets" Association="Self.FK_MemberDetails_Outlets">
-      <End Role="Outlets" EntitySet="Outlets" />
-      <End Role="MemberDetails" EntitySet="MemberDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MemberDetails_Users" Association="Self.FK_MemberDetails_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="MemberDetails" EntitySet="MemberDetails" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_Restriction_Menus" Association="Self.FK_Restriction_Menus">
       <End Role="Menus" EntitySet="Menus" />
@@ -322,6 +267,14 @@
       <End Role="Orders" EntitySet="Orders" />
       <End Role="OrderDetails" EntitySet="OrderDetails" />
     </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Outlets" Association="Self.FK_Users_Outlets">
+      <End Role="Outlets" EntitySet="Outlets" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
     <AssociationSet Name="FK_Restriction_Role" Association="Self.FK_Restriction_Role">
       <End Role="Role" EntitySet="Roles" />
       <End Role="Restriction" EntitySet="Restrictions" />
@@ -330,21 +283,5 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
-    <AssociationSet Name="FK_Orders_MemberDetails" Association="BMotionDBModel.FK_Orders_MemberDetails">
-      <End Role="MemberDetail" EntitySet="MemberDetails" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
   </EntityContainer>
-  <Association Name="FK_Orders_MemberDetails">
-    <End Type="BMotionDBModel.MemberDetail" Role="MemberDetail" Multiplicity="0..1" />
-    <End Type="BMotionDBModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MemberDetail">
-        <PropertyRef Name="MemberDetailId" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="MemberDetailId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>
