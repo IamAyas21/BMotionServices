@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stratone.bmotion.R;
@@ -49,6 +50,9 @@ public class InputActivity extends AppCompatActivity {
     @BindView(R.id.imgBtnBack)
     ImageView back;
 
+    @BindView(R.id.Quota)
+    TextView quota;
+
     private User user;
     private FuelAdapter adapter;
     private List<Fuel> fuelListSubsidy, fuelListNonSubsidy;
@@ -68,6 +72,7 @@ public class InputActivity extends AppCompatActivity {
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
+        quota.setText(user.getQuota());
 
         fuelList("Y");
         fuelList("N");
@@ -75,7 +80,14 @@ public class InputActivity extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Order();
+                if(fuelListSubsidy.size() > 0 || fuelListNonSubsidy.size() > 0)
+                {
+                    Order();
+                }
+                else
+                {
+                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.error_cant_empty),Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
