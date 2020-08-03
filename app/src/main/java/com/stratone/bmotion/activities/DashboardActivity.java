@@ -7,10 +7,10 @@ import butterknife.ButterKnife;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +37,14 @@ public class DashboardActivity extends AppCompatActivity {
     @BindView(R.id.profile)
     LinearLayout profile;
 
+    @BindView(R.id.Quota)
+    TextView quota;
+
+    @BindView(R.id.purchasedBBM)
+    TextView purchasedBBM;
+
     private boolean doubleBackToExitPressedOnce = false;
+    private static final String TAG = "DashboardActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -76,9 +83,11 @@ public class DashboardActivity extends AppCompatActivity {
     private void SetInstance(User user)
     {
         eFullName.setText(user.getName());
+        quota.setText(user.getQuota());
+        purchasedBBM.setText(user.getPurchaseBBM());
+        Log.e(TAG,"PurchaseBBM: "+user.getPurchaseBBM());
 
         Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
         eDateNow.setText(df.format(c));
 

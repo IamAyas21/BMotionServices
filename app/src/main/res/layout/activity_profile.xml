@@ -125,6 +125,7 @@
                                             android:textSize="20dp" />
 
                                         <TextView
+                                            android:id="@+id/phoneNumber"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/prompt_phone_number" />
@@ -193,6 +194,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/Quota"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="right"
@@ -200,7 +202,7 @@
                                             android:gravity="right"
                                             android:padding="10dp"
                                             android:text="@string/prompt_count_quota_bbm"
-                                            android:textSize="20dp" />
+                                            android:textSize="14dp" />
                                     </LinearLayout>
 
                                     <LinearLayout
@@ -212,6 +214,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/purchasedBBM"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="left"
@@ -220,7 +223,7 @@
                                             android:gravity="left"
                                             android:padding="10dp"
                                             android:text="@string/prompt_count_quota_bbm"
-                                            android:textSize="20dp" />
+                                            android:textSize="14dp" />
                                     </LinearLayout>
 
                                     <LinearLayout
