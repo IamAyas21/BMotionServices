@@ -37,6 +37,9 @@ public class DashboardActivity extends AppCompatActivity {
     @BindView(R.id.profile)
     LinearLayout profile;
 
+    @BindView(R.id.support)
+    LinearLayout support;
+
     @BindView(R.id.Quota)
     TextView quota;
 
@@ -73,6 +76,16 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, SupportActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
                 finish();
