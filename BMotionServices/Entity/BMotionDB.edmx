@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="DocumentNo" />
@@ -229,6 +229,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_HistorPerUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_UserPurchasedBBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_UserQuota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nip" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="BMotionDBModelStoreContainer">
           <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fuels" EntityType="Self.Fuels" Schema="dbo" store:Type="Tables" />
@@ -273,8 +282,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BMotionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -561,7 +569,22 @@
             <End Role="Role" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <FunctionImport Name="sp_HistorPerUser" ReturnType="Collection(BMotionDBModel.sp_HistorPerUser_Result)">
+          <Parameter Name="nip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserPurchasedBBM" ReturnType="Collection(String)">
+            <Parameter Name="nip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserQuota" ReturnType="Collection(String)">
+            <Parameter Name="nip" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="sp_HistorPerUser_Result">
+          <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TransactionDate" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Liter" Nullable="true" MaxLength="34" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -706,6 +729,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+                <ScalarProperty Name="Liter" ColumnName="Liter" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
+          <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

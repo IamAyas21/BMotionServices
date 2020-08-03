@@ -12,6 +12,8 @@ namespace BMotionServices.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BMotionDBEntities : DbContext
     {
@@ -35,5 +37,32 @@ namespace BMotionServices.Entity
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<sp_HistorPerUser_Result> sp_HistorPerUser(string nip)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("nip", nip) :
+                new ObjectParameter("nip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_HistorPerUser_Result>("sp_HistorPerUser", nipParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_UserPurchasedBBM(string nip)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("nip", nip) :
+                new ObjectParameter("nip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserPurchasedBBM", nipParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_UserQuota(string nip)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("nip", nip) :
+                new ObjectParameter("nip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserQuota", nipParameter);
+        }
     }
 }

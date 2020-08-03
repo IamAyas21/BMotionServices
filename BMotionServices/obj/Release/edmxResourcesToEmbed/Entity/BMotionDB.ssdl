@@ -224,6 +224,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_HistorPerUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nip" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BMotionDBModelStoreContainer">
     <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fuels" EntityType="Self.Fuels" Schema="dbo" store:Type="Tables" />

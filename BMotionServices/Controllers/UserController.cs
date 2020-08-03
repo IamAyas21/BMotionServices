@@ -37,6 +37,8 @@ namespace BMotionServices.Controllers
                 var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) && usr.Password.Equals(user.Password)).ToList();
                 if (userList.Count > 0)
                 {
+                    var quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault();
+                    var purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault();
                     return new ResponseUsers
                     {
                         status = "success",
@@ -47,7 +49,9 @@ namespace BMotionServices.Controllers
                             Name = userList.FirstOrDefault().Name,
                             NIP = userList.FirstOrDefault().NIP,
                             Phone = userList.FirstOrDefault().Phone,
-                            Profession = userList.FirstOrDefault().Profession
+                            Profession = userList.FirstOrDefault().Profession,
+                            Quota = quota,
+                            PurchaseBBM = purchasedBBM
                         }
                     };
                 }
@@ -79,7 +83,9 @@ namespace BMotionServices.Controllers
             Users user = UserLogic.getInstance().Add();
             try
             {
-                if(user.isSuccess)
+                var quota = db.sp_UserQuota(user.NIP).FirstOrDefault();
+                var purchasedBBM = db.sp_UserPurchasedBBM(user.NIP).FirstOrDefault();
+                if (user.isSuccess)
                 {
                     return new ResponseUsers
                     {
@@ -91,7 +97,9 @@ namespace BMotionServices.Controllers
                             Name = user.Name,
                             NIP = user.NIP,
                             Phone = user.Phone,
-                            Profession = user.Profession
+                            Profession = user.Profession,
+                            Quota = quota,
+                            PurchaseBBM = purchasedBBM
                         }
                     };
                 }
@@ -114,5 +122,7 @@ namespace BMotionServices.Controllers
                 };
             }
         }
+
+
     }
 }

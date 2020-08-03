@@ -99,5 +99,18 @@ namespace BMotionServices.Models
             set { issuccess = value; }
         }
 
+        String quota;
+        public String Quota
+        {
+            get { return quota; }
+            set { quota = value; }
+        }
+
+        String purchaseBBM;
+        public String PurchaseBBM
+        {
+            get { return purchaseBBM; }
+            set { purchaseBBM = value; }
+        }
     }
 }

@@ -283,5 +283,14 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <FunctionImport Name="sp_HistorPerUser" ReturnType="Collection(BMotionDBModel.sp_HistorPerUser_Result)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="sp_HistorPerUser_Result">
+    <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TransactionDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Liter" Nullable="true" MaxLength="34" />
+  </ComplexType>
 </Schema>

@@ -139,5 +139,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

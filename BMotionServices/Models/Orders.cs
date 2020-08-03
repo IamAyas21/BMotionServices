@@ -28,6 +28,13 @@ namespace BMotionServices.Models
             set { isVerify = value; }
         }
 
+        string createdDate;
+        public String CreatedDate
+        {
+            get { return createdDate; }
+            set { createdDate = value; }
+        }
+
         List<OrderDetails> orderDetails;
         public List<OrderDetails> OrderDetails
         {
