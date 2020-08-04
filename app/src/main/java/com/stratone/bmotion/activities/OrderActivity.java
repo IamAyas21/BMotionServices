@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.stratone.bmotion.R;
 
@@ -28,9 +29,13 @@ public class OrderActivity extends AppCompatActivity {
     @BindView(R.id.imgBtnBack)
     ImageButton back;
 
+    @BindView(R.id.purchased)
+    TextView purchased;
+
     private String orderNo;
     private QRGEncoder qrgEncoder;
     private Bitmap bitmap;
+    private int purchasedBBM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -41,6 +46,7 @@ public class OrderActivity extends AppCompatActivity {
         GetPutExtra();
         GenerateQRCode();
 
+        purchased.setText(purchasedBBM + " ltr");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +58,7 @@ public class OrderActivity extends AppCompatActivity {
     private void GetPutExtra() {
         if (getIntent().getExtras() != null) {
             orderNo = getIntent().getStringExtra("orderNo");
+            purchasedBBM = getIntent().getIntExtra("liter",0);
         }
     }
 

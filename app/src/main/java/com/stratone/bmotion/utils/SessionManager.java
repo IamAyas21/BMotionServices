@@ -24,6 +24,10 @@ public class SessionManager {
     public static final String KEY_EMAIL = "email";
     public static final String KEY_NIP = "nip";
     private static final String KEY_EXPIRES = "expires";
+    private static final String KEY_QUOTA = "quota";
+    private static final String KEY_PURCHASED_BBM = "purchaseBBM";
+  /*  private static final String KEY_PHONE = "phone";
+    private static final String KEY_PASSWORD = "password";*/
 
     // Constructor
     public SessionManager(Context context){
@@ -40,6 +44,10 @@ public class SessionManager {
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_NIP, user.getNIP());
+        editor.putString(KEY_QUOTA, user.getQuota());
+        editor.putString(KEY_PURCHASED_BBM, user.getPurchaseBBM());
+     /*   editor.putString(KEY_PHONE, user.getPhone());
+        editor.putString(KEY_PASSWORD, user.getPassword());*/
 
         Date date = new Date();
         //Set user session for next 7 days
@@ -73,6 +81,10 @@ public class SessionManager {
         user.setName(pref.getString(KEY_NAME, null));
         user.setEmail(pref.getString(KEY_EMAIL, null));
         user.setNIP(pref.getString(KEY_NIP, null));
+        user.setQuota(pref.getString(KEY_QUOTA, null));
+        user.setPurchaseBBM(pref.getString(KEY_PURCHASED_BBM, null));
+        /*user.setPhone(pref.getString(KEY_PHONE, null));
+        user.setPassword(pref.getString(KEY_PASSWORD, null));*/
         return user;
     }
 

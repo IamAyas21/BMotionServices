@@ -40,8 +40,8 @@
     <string name="prompt_count_quota_bbm">200 ltr</string>
     <string name="prompt_month_year">APR 2020</string>
     <string name="prompt_input">Input</string>
-    <string name="prompt_support">Support</string>
-    <string name="prompt_profile">Profile</string>
+    <string name="prompt_support">Dukungan</string>
+    <string name="prompt_profile">Profil</string>
     <string name="prompt_info">Info</string>
     <string name="prompt_outlet">Outlet Terdekat</string>
     <string name="prompt_item_outlet">SPBU 567</string>
@@ -62,4 +62,8 @@
     <string name="prompt_remark_qr_code">Scan QR code ini di Kasir SPBU kami untuk mendapatkan\nstruk yang berisi barcode untuk ditunjukan kepada\noperator pengisian bahan bakar</string>
     <string name="prompt_phone_number">0895355358977</string>
     <string name="prompt_purchase_history">Riwayat Pembelian</string>
+    <string name="prompt_qa">Tanya Jawab</string>
+    <string name="prompt_kritik_saran">Kritik dan Saran</string>
+    <string name="prompt_sk">Syarat dan Ketentuan</string>
+    <string name="prompt_quota_user_up">Belanja Anda sudah melebihi Quota</string>
 </resources>

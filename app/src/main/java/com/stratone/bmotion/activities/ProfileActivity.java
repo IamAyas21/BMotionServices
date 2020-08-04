@@ -11,9 +11,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stratone.bmotion.R;
@@ -30,12 +33,31 @@ import com.stratone.bmotion.rest.ApiClient;
 import com.stratone.bmotion.rest.ApiInterface;
 import com.stratone.bmotion.utils.SessionManager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.lvPurchaseHistory)
     ListView listView;
+
+    @BindView(R.id.Quota)
+    TextView quota;
+
+    @BindView(R.id.purchasedBBM)
+    TextView purchasedBBM;
+
+    @BindView(R.id.imgBtnBack)
+    ImageView back;
+
+    @BindView(R.id.phoneNumber)
+    TextView phone;
+
+    @BindView(R.id.dateNow)
+    TextView dateNow;
 
     ApiInterface apiService;
     private User user;
@@ -57,6 +79,20 @@ public class ProfileActivity extends AppCompatActivity {
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
 
+        quota.setText(user.getQuota());
+        purchasedBBM.setText(user.getPurchaseBBM());
+        phone.setText(user.getPhone());
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
+        dateNow.setText(df.format(c));
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Back();
+            }
+        });
         purchaseHistory(user.getNIP());
     }
 
@@ -95,5 +131,18 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this,getApplicationContext().getResources().getString(R.string.connect_server_failed),Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void Back()
+    {
+        Intent i = new Intent(ProfileActivity.this, DashboardActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(i);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Back();
     }
 }

@@ -35,6 +35,13 @@ public class User {
     @Expose
     private String expdate;
 
+    @SerializedName("Quota")
+    @Expose
+    private String quota;
+    @SerializedName("PurchaseBBM")
+    @Expose
+    private String purchaseBBM;
+
     public String getNIP() {
         return nIP;
     }
@@ -103,5 +110,20 @@ public class User {
 
     public void setExpdate(String expdate) {
         this.expdate = expdate;
+    }
+
+    public String getQuota() {
+        return quota;
+    }
+
+    public void setQuota(String quota) {
+        this.quota = quota;
+    }
+    public String getPurchaseBBM() {
+        return purchaseBBM;
+    }
+
+    public void setPurchaseBBM(String purchaseBBM) {
+        this.purchaseBBM = purchaseBBM;
     }
 }

@@ -3,6 +3,7 @@ package com.stratone.bmotion.rest;
 import com.stratone.bmotion.model.OrderDetails;
 import com.stratone.bmotion.model.Orders;
 import com.stratone.bmotion.model.PurchaseHistory;
+import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.response.ResponseFuels;
 import com.stratone.bmotion.response.ResponseOrders;
 import com.stratone.bmotion.response.ResponsePurchaseHistory;
@@ -73,6 +74,13 @@ public interface ApiInterface {
     @Headers("Content-Type: application/json")
     @POST("api/profile/profiles")
     Call<ResponsePurchaseHistory> profiles(
-            @Body PurchaseHistory purchaseHistory
+        @Body PurchaseHistory purchaseHistory
     );
+
+    @FormUrlEncoded
+    @POST("api/user/limitquota")
+    Call<ResponseUser> limitquota(
+            @Field("nip") String nip
+    );
+
     }
