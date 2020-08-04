@@ -286,6 +286,12 @@
     <FunctionImport Name="sp_HistorPerUser" ReturnType="Collection(BMotionDBModel.sp_HistorPerUser_Result)">
       <Parameter Name="nip" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_UserPurchasedBBM" ReturnType="Collection(String)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UserQuota" ReturnType="Collection(String)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_HistorPerUser_Result">
     <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />

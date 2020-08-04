@@ -51,7 +51,8 @@ namespace BMotionServices.Controllers
                             Phone = userList.FirstOrDefault().Phone,
                             Profession = userList.FirstOrDefault().Profession,
                             Quota = quota,
-                            PurchaseBBM = purchasedBBM
+                            PurchaseBBM = purchasedBBM,
+                            Password = userList.FirstOrDefault().Password
                         }
                     };
                 }
@@ -99,7 +100,8 @@ namespace BMotionServices.Controllers
                             Phone = user.Phone,
                             Profession = user.Profession,
                             Quota = quota,
-                            PurchaseBBM = purchasedBBM
+                            PurchaseBBM = purchasedBBM,
+                            Password = user.Password
                         }
                     };
                 }
@@ -123,6 +125,53 @@ namespace BMotionServices.Controllers
             }
         }
 
-
+        [HttpPost]
+        [Route("LimitQuota")]
+        public ResponseUsers LimitQuota(Users user)
+        {
+            try
+            {
+                var userList = db.Users.Where(usr => usr.NIP.Equals(user.NIP)).ToList();
+                if (userList.Count > 0)
+                {
+                    var quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr","").Trim();
+                    var purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr", "").Trim();
+                    var limitQuota = Convert.ToInt32(quota) - Convert.ToInt32(purchasedBBM);
+                    return new ResponseUsers
+                    {
+                        status = "success",
+                        message = "",
+                        Data = new Users
+                        {
+                            Email = userList.FirstOrDefault().Email,
+                            Name = userList.FirstOrDefault().Name,
+                            NIP = userList.FirstOrDefault().NIP,
+                            Phone = userList.FirstOrDefault().Phone,
+                            Profession = userList.FirstOrDefault().Profession,
+                            Quota = limitQuota.ToString() + " ltr",
+                            PurchaseBBM = purchasedBBM + " ltr",
+                            Password = userList.FirstOrDefault().Password
+                        }
+                    };
+                }
+                else
+                {
+                    return new ResponseUsers
+                    {
+                        status = "failed",
+                        message = ""
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(user));
+                return new ResponseUsers
+                {
+                    status = "failed",
+                    message = e.Message
+                };
+            }
+        }
     }
 }

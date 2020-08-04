@@ -149,5 +149,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
+    <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota" />
   </EntityContainerMapping>
 </Mapping>
