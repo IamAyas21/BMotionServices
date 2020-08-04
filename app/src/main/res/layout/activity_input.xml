@@ -117,7 +117,7 @@
                                         android:background="@color/colorBlue" />
 
                                     <TextView
-                                        android:id="@+id/Quota"
+                                        android:id="@+id/QuotaInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/prompt_quota_remaining"

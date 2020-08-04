@@ -65,4 +65,5 @@
     <string name="prompt_qa">Tanya Jawab</string>
     <string name="prompt_kritik_saran">Kritik dan Saran</string>
     <string name="prompt_sk">Syarat dan Ketentuan</string>
+    <string name="prompt_quota_user_up">Belanja Anda sudah melebihi Quota</string>
 </resources>

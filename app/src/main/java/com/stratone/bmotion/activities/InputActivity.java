@@ -9,6 +9,7 @@ import retrofit2.Response;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.icu.math.BigDecimal;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,7 +51,7 @@ public class InputActivity extends AppCompatActivity {
     @BindView(R.id.imgBtnBack)
     ImageView back;
 
-    @BindView(R.id.Quota)
+    @BindView(R.id.QuotaInput)
     TextView quota;
 
     private User user;
@@ -58,6 +59,7 @@ public class InputActivity extends AppCompatActivity {
     private List<Fuel> fuelListSubsidy, fuelListNonSubsidy;
     private static final String TAG = "InputActivity";
     private ProgressDialog pDialog;
+    int purchasedBBM = 0;
 
     ApiInterface apiService;
     @Override
@@ -80,14 +82,7 @@ public class InputActivity extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(fuelListSubsidy.size() > 0 || fuelListNonSubsidy.size() > 0)
-                {
-                    Order();
-                }
-                else
-                {
-                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.error_cant_empty),Toast.LENGTH_SHORT).show();
-                }
+                Order();
             }
         });
 
@@ -142,11 +137,13 @@ public class InputActivity extends AppCompatActivity {
 
     private void Order()
     {
-        pDialog = new ProgressDialog(InputActivity.this);
-        pDialog.setMessage(getResources().getString(R.string.prompt_loading));
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
+        boolean isEmptySubsidy = false;
+        boolean isEmptyNonSubsidy = false;
+        boolean isLimitEmpty = false;
+        boolean result = true;
+        int subsidyLiter = 0;
+        int queueSubsidy = 0;
+        int queueNonSubsidy = 0;
 
         Orders orders = new Orders();
         List<OrderDetails> orderDetails = new ArrayList<>();
@@ -158,6 +155,17 @@ public class InputActivity extends AppCompatActivity {
                 orderDetail.setFuelId(fuelListSubsidy.get(i).getFuelId());
                 orderDetail.setLiter(fuelListSubsidy.get(i).getLiter());
                 orderDetails.add(orderDetail);
+                subsidyLiter = subsidyLiter + fuelListSubsidy.get(i).getLiter();
+                purchasedBBM = purchasedBBM + fuelListSubsidy.get(i).getLiter();
+
+                isEmptySubsidy = false;
+                queueSubsidy++;
+            }
+            else {
+                if(queueSubsidy == 0)
+                {
+                    isEmptySubsidy = true;
+                }
             }
         }
 
@@ -168,35 +176,82 @@ public class InputActivity extends AppCompatActivity {
                 orderDetail.setFuelId(fuelListNonSubsidy.get(i).getFuelId());
                 orderDetail.setLiter(fuelListNonSubsidy.get(i).getLiter());
                 orderDetails.add(orderDetail);
+                purchasedBBM = purchasedBBM + fuelListNonSubsidy.get(i).getLiter();
+
+                isEmptyNonSubsidy = false;
+                queueNonSubsidy++;
+            }
+            else{
+                if(queueNonSubsidy == 0)
+                {
+                    isEmptyNonSubsidy = true;
+                }
             }
         }
 
-        orders.setNIP(user.getNIP());
-        orders.setOrderDetails(orderDetails);
-        apiService.order(orders).enqueue(new Callback<ResponseOrders>() {
-            @Override
-            public void onResponse(Call<ResponseOrders> call, Response<ResponseOrders> response) {
-                if(response.body().getStatus().equals("success"))
+        if(isEmptySubsidy == false || isEmptyNonSubsidy == false)
+        {
+            if(isEmptySubsidy == false)
+            {
+                if(Integer.parseInt(user.getQuota().replace("ltr","").trim()) >= subsidyLiter)
                 {
-                    pDialog.dismiss();
-                    Intent intent = new Intent(InputActivity.this, OrderActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
-                    intent.putExtra("orderNo",response.body().getData().getOrderNo());
-                    startActivity(intent);
-                    finish();
+                    isLimitEmpty = false;
                 }
                 else {
-                    pDialog.dismiss();
-                    Toast.makeText(InputActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    isLimitEmpty = true;
+                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.prompt_quota_user_up),Toast.LENGTH_SHORT).show();
+                }
+
+                if(isLimitEmpty)
+                {
+                    result = false;
+                }
+                else {
+                    result = true;
                 }
             }
 
-            @Override
-            public void onFailure(Call<ResponseOrders> call, Throwable t) {
-                Log.e(TAG,"onFailure: "+t.getLocalizedMessage());
-                Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.connect_server_failed),Toast.LENGTH_SHORT).show();
+            if(result)
+            {
+                pDialog = new ProgressDialog(InputActivity.this);
+                pDialog.setMessage(getResources().getString(R.string.prompt_loading));
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(false);
+                pDialog.show();
+
+                orders.setNIP(user.getNIP());
+                orders.setOrderDetails(orderDetails);
+                apiService.order(orders).enqueue(new Callback<ResponseOrders>() {
+                    @Override
+                    public void onResponse(Call<ResponseOrders> call, Response<ResponseOrders> response) {
+                        if(response.body().getStatus().equals("success"))
+                        {
+                            pDialog.dismiss();
+                            Intent intent = new Intent(InputActivity.this, OrderActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                            intent.putExtra("orderNo",response.body().getData().getOrderNo());
+                            intent.putExtra("liter",purchasedBBM);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else {
+                            pDialog.dismiss();
+                            Toast.makeText(InputActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseOrders> call, Throwable t) {
+                        pDialog.dismiss();
+                        Log.e(TAG,"onFailure: "+t.getLocalizedMessage());
+                        Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.connect_server_failed),Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-        });
+        }
+       else{
+            Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.error_cant_empty),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void Back()
