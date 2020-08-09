@@ -1,8 +1,8 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity {
-    @BindView(R.id.lvPurchaseHistory)
+   /* @BindView(R.id.lvPurchaseHistory)
     ListView listView;
 
     @BindView(R.id.Quota)
@@ -57,7 +57,11 @@ public class ProfileActivity extends AppCompatActivity {
     TextView phone;
 
     @BindView(R.id.dateNow)
-    TextView dateNow;
+    TextView dateNow;*/
+
+    ListView listView;
+    TextView quota, purchasedBBM,phone, dateNow, fullName;
+    ImageView back;
 
     ApiInterface apiService;
     private User user;
@@ -72,13 +76,23 @@ public class ProfileActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        listView = findViewById(R.id.lvPurchaseHistory);
+        fullName = findViewById(R.id.fullName);
+        quota = findViewById(R.id.Quota);
+        purchasedBBM = findViewById(R.id.purchasedBBM);
+        phone = findViewById(R.id.phoneNumber);
+        dateNow = findViewById(R.id.dateNow);
+        back = findViewById(R.id.imgBtnBack);
+
         apiService = ApiClient.getClient().create(ApiInterface.class);
 
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
 
+        fullName.setText(user.getName());
         quota.setText(user.getQuota());
         purchasedBBM.setText(user.getPurchaseBBM());
         phone.setText(user.getPhone());

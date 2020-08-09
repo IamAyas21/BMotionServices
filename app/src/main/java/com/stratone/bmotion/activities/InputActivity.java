@@ -1,8 +1,8 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
-    @BindView(R.id.lvFuelSubsidy)
+    /*@BindView(R.id.lvFuelSubsidy)
     ListView fuelSubsidy;
 
     @BindView(R.id.lvFuelNonSubsidy)
@@ -52,7 +52,7 @@ public class InputActivity extends AppCompatActivity {
     ImageView back;
 
     @BindView(R.id.QuotaInput)
-    TextView quota;
+    TextView quota;*/
 
     private User user;
     private FuelAdapter adapter;
@@ -60,6 +60,10 @@ public class InputActivity extends AppCompatActivity {
     private static final String TAG = "InputActivity";
     private ProgressDialog pDialog;
     int purchasedBBM = 0;
+    ListView fuelSubsidy, fuelNonSubsidy;
+    Button order;
+    ImageView back;
+    TextView quota;
 
     ApiInterface apiService;
     @Override
@@ -68,7 +72,13 @@ public class InputActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+        fuelSubsidy = findViewById(R.id.lvFuelSubsidy);
+        fuelNonSubsidy = findViewById(R.id.lvFuelNonSubsidy);
+        order = findViewById(R.id.OkOrder);
+        back = findViewById(R.id.imgBtnBack);
+        quota = findViewById(R.id.QuotaInput);
+
         apiService = ApiClient.getClient().create(ApiInterface.class);
 
         SessionManager sessionManager = new SessionManager(getApplicationContext());

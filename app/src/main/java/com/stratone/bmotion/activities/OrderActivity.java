@@ -3,8 +3,8 @@ package com.stratone.bmotion.activities;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,13 +23,17 @@ import android.widget.TextView;
 import com.stratone.bmotion.R;
 
 public class OrderActivity extends AppCompatActivity {
-    @BindView(R.id.barcode)
+  /*  @BindView(R.id.barcode)
     ImageView barcode;
 
     @BindView(R.id.imgBtnBack)
     ImageButton back;
 
     @BindView(R.id.purchased)
+    TextView purchased;*/
+
+    ImageView barcode;
+    ImageButton back;
     TextView purchased;
 
     private String orderNo;
@@ -42,7 +46,12 @@ public class OrderActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        barcode = findViewById(R.id.barcode);
+        back = findViewById(R.id.imgBtnBack);
+        purchased = findViewById(R.id.purchased);
+
         GetPutExtra();
         GenerateQRCode();
 

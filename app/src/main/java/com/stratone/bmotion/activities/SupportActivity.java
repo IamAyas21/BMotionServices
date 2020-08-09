@@ -1,8 +1,8 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,9 @@ import android.widget.TextView;
 import com.stratone.bmotion.R;
 
 public class SupportActivity extends AppCompatActivity {
-    @BindView(R.id.imgBtnBack)
+   /* @BindView(R.id.imgBtnBack)
+    ImageView back;*/
+
     ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,9 @@ public class SupportActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_support);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
 
+        back = findViewById(R.id.imgBtnBack);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

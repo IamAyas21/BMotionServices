@@ -1,6 +1,6 @@
 package com.stratone.bmotion.activities;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +26,7 @@ import com.stratone.bmotion.rest.ApiInterface;
 import com.stratone.bmotion.utils.SessionManager;
 
 public class LoginActivity extends AbsRunTimePermission{
+/*
     @BindView(R.id.edtUser)
     EditText etUser;
 
@@ -37,6 +38,7 @@ public class LoginActivity extends AbsRunTimePermission{
 
     @BindView(R.id.txvSignUp)
     TextView signUp;
+*/
 
     ApiInterface apiService;
 
@@ -44,13 +46,22 @@ public class LoginActivity extends AbsRunTimePermission{
     private static final int REQUEST_PERMISSION = 10;
     private ProgressDialog pDialog;
 
+    EditText etUser, etPassword;
+    Button login;
+    TextView signUp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        etUser = findViewById(R.id.edtUser);
+        etPassword = findViewById(R.id.edtPassword);
+        login = findViewById(R.id.btnLogin);
+        signUp = findViewById(R.id.txvSignUp);
 
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         if(sessionManager.isLoggedIn())

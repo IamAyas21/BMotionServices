@@ -1,8 +1,8 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,7 +32,9 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DashboardActivity extends AppCompatActivity {
-    @BindView(R.id.fullName)
+    TextView eFullName, eDateNow, quota, purchasedBBM;
+    LinearLayout input, support, profile;
+   /* @BindView(R.id.fullName)
     TextView eFullName;
 
     @BindView(R.id.dateNow)
@@ -51,7 +53,7 @@ public class DashboardActivity extends AppCompatActivity {
     TextView quota;
 
     @BindView(R.id.purchasedBBM)
-    TextView purchasedBBM;
+    TextView purchasedBBM;*/
 
     ApiInterface apiService;
     User user;
@@ -64,7 +66,16 @@ public class DashboardActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        eFullName = findViewById(R.id.fullName);
+        eDateNow = findViewById(R.id.dateNow);
+        quota = findViewById(R.id.Quota);
+        purchasedBBM= findViewById(R.id.purchasedBBM);
+
+        input = findViewById(R.id.input);
+        support= findViewById(R.id.support);
+        profile= findViewById(R.id.profile);
 
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
