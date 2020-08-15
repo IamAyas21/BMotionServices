@@ -283,5 +283,73 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DocumentListByUser" ReturnType="Collection(BMotionDBModel.sp_DocumentListByUser_Result)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_HistorPerUser" ReturnType="Collection(BMotionDBModel.sp_HistorPerUser_Result)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_StrukPengambilanBBM" ReturnType="Collection(BMotionDBModel.sp_StrukPengambilanBBM_Result)">
+      <Parameter Name="orderNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_UserPurchasedBBM" ReturnType="Collection(String)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UserQuota" ReturnType="Collection(String)">
+      <Parameter Name="nip" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="sp_DocumentListByUser_Result">
+    <Property Type="Int64" Name="No" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="DocumentNo" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="ExpDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Quota" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="DocumentName" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sp_HistorPerUser_Result">
+    <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TransactionDate" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Liter" Nullable="true" MaxLength="34" />
+  </ComplexType>
+  <ComplexType Name="sp_StrukPengambilanBBM_Result">
+    <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OutletName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FuelName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Liter" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
 </Schema>

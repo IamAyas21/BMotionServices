@@ -252,7 +252,13 @@
     <Compile Include="Entity\Role.cs">
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sp_DocumentListByUser_Result.cs">
+      <DependentUpon>BMotionDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sp_HistorPerUser_Result.cs">
+      <DependentUpon>BMotionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_StrukPengambilanBBM_Result.cs">
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagram.cs">
@@ -362,6 +368,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

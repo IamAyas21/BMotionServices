@@ -115,7 +115,7 @@ namespace BMotionServices.Logic
                             Document docEntity = new Document();
                             docEntity.DocumentNo = "Doc_" + dateTimeDayNow;
                             docEntity.NIP = strUser;
-                            docEntity.Quota = 200;
+                            docEntity.Quota = 0;
                             docEntity.DocumentFile = user.FilePDF;
                             docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
                             docEntity.CreatedDate = DateTime.Now;

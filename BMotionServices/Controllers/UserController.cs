@@ -58,11 +58,36 @@ namespace BMotionServices.Controllers
                 }
                 else
                 {
-                    return new ResponseUsers
+                    userList = db.Users.Where(usr => usr.Phone.Equals(user.Email) && usr.Password.Equals(user.Password)).ToList();
+                    if (userList.Count > 0)
                     {
-                        status = "failed",
-                        message = "user not found"
-                    };
+                        var quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault();
+                        var purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault();
+                        return new ResponseUsers
+                        {
+                            status = "success",
+                            message = "user found",
+                            Data = new Users
+                            {
+                                Email = userList.FirstOrDefault().Email,
+                                Name = userList.FirstOrDefault().Name,
+                                NIP = userList.FirstOrDefault().NIP,
+                                Phone = userList.FirstOrDefault().Phone,
+                                Profession = userList.FirstOrDefault().Profession,
+                                Quota = quota,
+                                PurchaseBBM = purchasedBBM,
+                                Password = userList.FirstOrDefault().Password
+                            }
+                        };
+                    }
+                    else
+                    {
+                        return new ResponseUsers
+                        {
+                            status = "failed",
+                            message = "user not found"
+                        };
+                    }
                 }
             }
             catch (Exception e)
@@ -84,6 +109,7 @@ namespace BMotionServices.Controllers
             Users user = UserLogic.getInstance().Add();
             try
             {
+                db = new BMotionDBEntities();
                 var quota = db.sp_UserQuota(user.NIP).FirstOrDefault();
                 var purchasedBBM = db.sp_UserPurchasedBBM(user.NIP).FirstOrDefault();
                 if (user.isSuccess)
@@ -99,8 +125,8 @@ namespace BMotionServices.Controllers
                             NIP = user.NIP,
                             Phone = user.Phone,
                             Profession = user.Profession,
-                            Quota = quota,
-                            PurchaseBBM = purchasedBBM,
+                            Quota = quota == null?"0 Ltr":quota,
+                            PurchaseBBM = purchasedBBM == null ? "0 Ltr" :purchasedBBM,
                             Password = user.Password
                         }
                     };
@@ -134,9 +160,15 @@ namespace BMotionServices.Controllers
                 var userList = db.Users.Where(usr => usr.NIP.Equals(user.NIP)).ToList();
                 if (userList.Count > 0)
                 {
-                    var quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr","").Trim();
-                    var purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr", "").Trim();
-                    var limitQuota = Convert.ToInt32(quota) - Convert.ToInt32(purchasedBBM);
+                    string purchasedBBM = string.Empty;
+                    int limitQuota = 0;
+                    string quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr","").Trim();
+                    if(db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault() != null)
+                    {
+                        purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr", "").Trim();
+                        limitQuota = Convert.ToInt32(quota) - Convert.ToInt32(purchasedBBM);
+                    }
+
                     return new ResponseUsers
                     {
                         status = "success",
