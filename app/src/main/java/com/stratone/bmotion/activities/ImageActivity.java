@@ -2,8 +2,8 @@ package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,14 +33,17 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 public class ImageActivity extends AppCompatActivity implements View.OnClickListener {
-    @BindView(R.id.preview)
+    /*@BindView(R.id.preview)
     ImageView preview;
 
     @BindView(R.id.pickImage)
     Button pickImage;
 
     @BindView(R.id.OkImage)
-    Button okImage;
+    Button okImage;*/
+
+    ImageView preview;
+    Button pickImage, okImage;
 
     private static final int REQUEST_TAKE_PHOTO = 100;
     private static final int REQUEST_PICK_PHOTO = 2;
@@ -64,7 +67,11 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        preview = findViewById(R.id.preview);
+        pickImage = findViewById(R.id.pickImage);
+        okImage = findViewById(R.id.OkImage);
 
         GetPutExtra();
 

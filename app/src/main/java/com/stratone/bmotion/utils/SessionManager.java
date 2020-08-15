@@ -3,18 +3,30 @@ package com.stratone.bmotion.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.stratone.bmotion.R;
+import com.stratone.bmotion.activities.DashboardActivity;
 import com.stratone.bmotion.activities.LoginActivity;
 import com.stratone.bmotion.model.User;
+import com.stratone.bmotion.response.ResponseUser;
+import com.stratone.bmotion.rest.ApiClient;
+import com.stratone.bmotion.rest.ApiInterface;
 
 import java.util.Date;
 import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SessionManager {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
     Context _context;
+    User user;
 
     int PRIVATE_MODE = 0;
     private static final String PREF_NAME = "AndroidHivePref";
@@ -114,4 +126,37 @@ public class SessionManager {
         return currentDate.before(expiryDate);
         /*return pref.getBoolean(IS_LOGIN, false);*/
     }
+
+   /* public User refreshSession(final Context context)
+    {
+        user = getUserDetails();
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        apiService.limitquota(user.getNIP()).enqueue(new Callback<ResponseUser>() {
+            @Override
+            public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getStatus().equals("success"))
+                    {
+                        user = response.body().getUser();
+                        SessionManager sessionManager = new SessionManager(context);
+                        sessionManager.createLoginSession(user);
+                    }
+                    else {
+                        Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(!response.isSuccessful())
+                {
+                    Toast.makeText(context,context.getResources().getString(R.string.login_failed),Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseUser> call, Throwable t) {
+                Toast.makeText(context,context.getResources().getString(R.string.connect_server_failed),Toast.LENGTH_SHORT).show();
+            }
+        });
+        return user;
+    }*/
 }

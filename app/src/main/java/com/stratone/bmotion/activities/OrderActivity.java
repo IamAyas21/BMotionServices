@@ -3,46 +3,80 @@ package com.stratone.bmotion.activities;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stratone.bmotion.R;
+import com.stratone.bmotion.model.User;
+import com.stratone.bmotion.response.ResponseUser;
+import com.stratone.bmotion.rest.ApiClient;
+import com.stratone.bmotion.rest.ApiInterface;
+import com.stratone.bmotion.utils.SessionManager;
 
 public class OrderActivity extends AppCompatActivity {
-    @BindView(R.id.barcode)
+  /*  @BindView(R.id.barcode)
     ImageView barcode;
 
     @BindView(R.id.imgBtnBack)
     ImageButton back;
 
     @BindView(R.id.purchased)
+    TextView purchased;*/
+
+    ImageView barcode;
+    ImageButton back;
     TextView purchased;
+    LinearLayout lnWallet, lnHistory, lnHome, lnProfile;
 
     private String orderNo;
     private QRGEncoder qrgEncoder;
     private Bitmap bitmap;
     private int purchasedBBM;
+    private User user;
+
+    ApiInterface apiService;
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+
+        barcode = findViewById(R.id.barcode);
+        back = findViewById(R.id.imgBtnBack);
+        purchased = findViewById(R.id.purchased);
+        lnWallet = findViewById(R.id.lnWallet);
+        lnHistory = findViewById(R.id.lnHistory);
+        lnHome = findViewById(R.id.lnHome);
+        lnProfile= findViewById(R.id.lnProfile);
+        apiService = ApiClient.getClient().create(ApiInterface.class);
+
+        sessionManager = new SessionManager(getApplicationContext());
+        sessionManager.checkLogin();
+        user = sessionManager.getUserDetails();
+
         GetPutExtra();
         GenerateQRCode();
 
@@ -51,6 +85,43 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Back();
+            }
+        });
+
+        lnWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logoutUser();
+            }
+        });
+
+        lnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
             }
         });
     }

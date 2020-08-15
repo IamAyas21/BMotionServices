@@ -3,6 +3,7 @@ package com.stratone.bmotion.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,9 @@ public class FuelAdapter extends ArrayAdapter<Fuel>
             holder.lnFuel = v.findViewById(R.id.lnFuelSubsidy);
             holder.tvFuelName = v.findViewById(R.id.tvFuelSubsidy);
             holder.edFuel = v.findViewById(R.id.edFuelSubsidy);
+            holder.edFuel.setFilters(new InputFilter[] {
+                    new InputFilter.LengthFilter(3)
+            });
 
             Fuel fuelModel = list.get(position);
             holder.tvFuelName.setBackgroundColor(Color.parseColor(fuelModel.getBackgroundColor()));

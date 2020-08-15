@@ -2,8 +2,8 @@ package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -46,7 +46,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
-    @BindView(R.id.imgCamera)
+    /*@BindView(R.id.imgCamera)
     ImageView mCamera;
 
     @BindView(R.id.btnSignUp)
@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText uploadFile;
 
     @BindView(R.id.imgBtnBack)
-    ImageButton back;
+    ImageButton back;*/
 
     ApiInterface apiService;
 
@@ -94,13 +94,32 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private File arrFile[] = new File[2];
     private ProgressDialog pDialog;
+
+    ImageView mCamera;
+    Button bSignUp;
+    EditText eNIK, eFullName, ePassword,
+    eEmail, ePhone, eCity, expDate, uploadFile;
+    ImageButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        ButterKnife.bind(this);
+     /*   ButterKnife.bind(this);*/
+
+        mCamera = findViewById(R.id.imgCamera);
+        bSignUp = findViewById(R.id.btnSignUp);
+        eNIK =findViewById(R.id.edtNIK);
+        eFullName = findViewById(R.id.edtFullName);
+        ePassword = findViewById(R.id.edtPassword);
+        eEmail = findViewById(R.id.edtEmail);
+        ePhone = findViewById(R.id.edtPhone);
+        eCity = findViewById(R.id.edtCity);
+        expDate = findViewById(R.id.expiredDate);
+        uploadFile = findViewById(R.id.uploadFile);
+        back = findViewById(R.id.imgBtnBack);
 
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         if(sessionManager.isLoggedIn())

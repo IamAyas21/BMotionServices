@@ -1,8 +1,9 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,7 +33,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DashboardActivity extends AppCompatActivity {
-    @BindView(R.id.fullName)
+    TextView eFullName, eDateNow, quota, purchasedBBM;
+    LinearLayout input, support, profile, lnWallet, lnHistory, lnHome, lnProfile;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+   /* @BindView(R.id.fullName)
     TextView eFullName;
 
     @BindView(R.id.dateNow)
@@ -51,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
     TextView quota;
 
     @BindView(R.id.purchasedBBM)
-    TextView purchasedBBM;
+    TextView purchasedBBM;*/
 
     ApiInterface apiService;
     User user;
@@ -64,14 +68,34 @@ public class DashboardActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
 
-        SessionManager sessionManager = new SessionManager(getApplicationContext());
-        sessionManager.checkLogin();
-        user = sessionManager.getUserDetails();
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
+        eFullName = findViewById(R.id.fullName);
+        eDateNow = findViewById(R.id.dateNow);
+        quota = findViewById(R.id.Quota);
+        purchasedBBM= findViewById(R.id.purchasedBBM);
+        lnWallet = findViewById(R.id.lnWallet);
+        lnHistory = findViewById(R.id.lnHistory);
+        lnHome = findViewById(R.id.lnHome);
+        lnProfile= findViewById(R.id.lnProfile);
+        input = findViewById(R.id.input);
+        support= findViewById(R.id.support);
+        profile= findViewById(R.id.profile);
+
         apiService = ApiClient.getClient().create(ApiInterface.class);
-        refreshDashboard();
+
+        final SessionManager sessionManager = new SessionManager(getApplicationContext());
+        user = sessionManager.getUserDetails();
         SetInstance(user);
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshDashboard();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         input.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +121,43 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivity.this, SupportActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logoutUser();
+            }
+        });
+
+        lnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
                 finish();
@@ -140,7 +201,7 @@ public class DashboardActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    private void refreshDashboard()
+    public void refreshDashboard()
     {
         apiService.limitquota(user.getNIP()).enqueue(new Callback<ResponseUser>() {
             @Override
@@ -152,6 +213,7 @@ public class DashboardActivity extends AppCompatActivity {
                         user = response.body().getUser();
                         SessionManager sessionManager = new SessionManager(getApplicationContext());
                         sessionManager.createLoginSession(user);
+                        SetInstance(user);
                     }
                     else {
                         Toast.makeText(DashboardActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
@@ -159,7 +221,7 @@ public class DashboardActivity extends AppCompatActivity {
                 }
                 else if(!response.isSuccessful())
                 {
-                    Toast.makeText(DashboardActivity.this,getApplicationContext().getResources().getString(R.string.login_failed),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DashboardActivity.this,getApplicationContext().getResources().getString(R.string.prompt_failed_get_quota),Toast.LENGTH_SHORT).show();
                 }
             }
 

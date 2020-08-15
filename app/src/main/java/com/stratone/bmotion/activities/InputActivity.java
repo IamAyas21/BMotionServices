@@ -1,8 +1,8 @@
 package com.stratone.bmotion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+/*import butterknife.BindView;
+import butterknife.ButterKnife;*/
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.stratone.bmotion.model.Orders;
 import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.response.ResponseFuels;
 import com.stratone.bmotion.response.ResponseOrders;
+import com.stratone.bmotion.response.ResponseUser;
 import com.stratone.bmotion.rest.ApiClient;
 import com.stratone.bmotion.rest.ApiInterface;
 import com.stratone.bmotion.utils.SessionManager;
@@ -39,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
-    @BindView(R.id.lvFuelSubsidy)
+    /*@BindView(R.id.lvFuelSubsidy)
     ListView fuelSubsidy;
 
     @BindView(R.id.lvFuelNonSubsidy)
@@ -52,7 +54,7 @@ public class InputActivity extends AppCompatActivity {
     ImageView back;
 
     @BindView(R.id.QuotaInput)
-    TextView quota;
+    TextView quota;*/
 
     private User user;
     private FuelAdapter adapter;
@@ -60,18 +62,36 @@ public class InputActivity extends AppCompatActivity {
     private static final String TAG = "InputActivity";
     private ProgressDialog pDialog;
     int purchasedBBM = 0;
+    ListView fuelSubsidy, fuelNonSubsidy;
+    LinearLayout lnWallet, lnHistory, lnHome, lnProfile;
+
+    Button order;
+    ImageView back;
+    TextView quota;
 
     ApiInterface apiService;
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
-        ButterKnife.bind(this);
+        /*ButterKnife.bind(this);*/
+        fuelSubsidy = findViewById(R.id.lvFuelSubsidy);
+        fuelNonSubsidy = findViewById(R.id.lvFuelNonSubsidy);
+        order = findViewById(R.id.OkOrder);
+        back = findViewById(R.id.imgBtnBack);
+        quota = findViewById(R.id.QuotaInput);
+        lnWallet = findViewById(R.id.lnWallet);
+        lnHistory = findViewById(R.id.lnHistory);
+        lnHome = findViewById(R.id.lnHome);
+        lnProfile= findViewById(R.id.lnProfile);
+
         apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
         quota.setText(user.getQuota());
@@ -90,6 +110,43 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Back();
+            }
+        });
+
+        lnWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logoutUser();
+            }
+        });
+
+        lnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -123,7 +180,7 @@ public class InputActivity extends AppCompatActivity {
                 }
                 else if(!response.isSuccessful())
                 {
-                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.login_failed),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.prompt_failed_get_fuel),Toast.LENGTH_SHORT).show();
                 }
             }
 
