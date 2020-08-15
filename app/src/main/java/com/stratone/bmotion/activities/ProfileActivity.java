@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,9 +62,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     ListView listView;
     TextView quota, purchasedBBM,phone, dateNow, fullName;
+    LinearLayout lnWallet, lnHistory, lnHome, lnProfile;
     ImageView back;
 
     ApiInterface apiService;
+    SessionManager sessionManager;
+
     private User user;
     private PurchaseHistoryAdapter adapter;
     private ProgressDialog pDialog;
@@ -85,10 +89,14 @@ public class ProfileActivity extends AppCompatActivity {
         phone = findViewById(R.id.phoneNumber);
         dateNow = findViewById(R.id.dateNow);
         back = findViewById(R.id.imgBtnBack);
+        lnWallet = findViewById(R.id.lnWallet);
+        lnHistory = findViewById(R.id.lnHistory);
+        lnHome = findViewById(R.id.lnHome);
+        lnProfile= findViewById(R.id.lnProfile);
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
 
@@ -108,6 +116,43 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
         purchaseHistory(user.getNIP());
+
+        lnWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logoutUser();
+            }
+        });
+
+        lnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void purchaseHistory(String nip)

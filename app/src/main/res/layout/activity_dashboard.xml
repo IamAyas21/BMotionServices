@@ -7,9 +7,13 @@
     android:background="@drawable/background_home"
     tools:context=".activities.DashboardActivity">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <RelativeLayout
                 android:id="@+id/headerDashboard"
                 android:layout_width="match_parent"
@@ -368,7 +372,8 @@
                 </LinearLayout>
             </RelativeLayout>
 
-</ScrollView>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -383,6 +388,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/lnWallet"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
@@ -398,6 +404,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnHistory"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
@@ -413,6 +420,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnHome"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
@@ -428,6 +436,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"

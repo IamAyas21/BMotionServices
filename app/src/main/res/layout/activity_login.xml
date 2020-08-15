@@ -59,10 +59,11 @@
                                     android:layout_marginTop="30dp"
                                     android:layout_marginRight="30dp"
                                     android:drawableLeft="@drawable/mail"
-                                    android:hint="@string/prompt_email"
+                                    android:hint="@string/prompt_user_login"
                                     android:gravity="center"
                                     android:imeOptions="actionNext"
                                     android:singleLine="true"
+                                    android:maxLength="100"
                                     android:textColor="@color/cardview_light_background"
                                     android:textColorHint="@color/cardview_light_background"/>
                                 <EditText
@@ -77,6 +78,7 @@
                                     android:inputType="textPassword"
                                     android:imeOptions="actionDone"
                                     android:gravity="center"
+                                    android:maxLength="50"
                                     android:textColor="@color/cardview_light_background"
                                     android:textColorHint="@color/cardview_light_background"/>
 

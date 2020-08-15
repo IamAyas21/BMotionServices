@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BMotion</string>
     <!-- Strings related to login -->
+    <string name="prompt_user_login">email/phone no</string>
     <string name="prompt_email">email</string>
     <string name="prompt_password">password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -66,4 +67,7 @@
     <string name="prompt_kritik_saran">Kritik dan Saran</string>
     <string name="prompt_sk">Syarat dan Ketentuan</string>
     <string name="prompt_quota_user_up">Belanja Anda sudah melebihi Quota</string>
+    <string name="prompt_menu_not_ready">Menu belum tersedia</string>
+    <string name="prompt_failed_get_quota">Gagal perbaharui limit quota</string>
+    <string name="prompt_failed_get_fuel">Gagal perbaharui BBM</string>
 </resources>

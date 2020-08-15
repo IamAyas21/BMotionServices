@@ -50,6 +50,8 @@ public class LoginActivity extends AbsRunTimePermission{
     Button login;
     TextView signUp;
 
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);

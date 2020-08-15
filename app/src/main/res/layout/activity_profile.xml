@@ -336,6 +336,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/lnWallet"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
@@ -351,6 +352,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnHistory"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
@@ -366,6 +368,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnHome"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
@@ -381,6 +384,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"

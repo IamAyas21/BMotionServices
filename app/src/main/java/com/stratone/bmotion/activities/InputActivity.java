@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.stratone.bmotion.model.Orders;
 import com.stratone.bmotion.model.User;
 import com.stratone.bmotion.response.ResponseFuels;
 import com.stratone.bmotion.response.ResponseOrders;
+import com.stratone.bmotion.response.ResponseUser;
 import com.stratone.bmotion.rest.ApiClient;
 import com.stratone.bmotion.rest.ApiInterface;
 import com.stratone.bmotion.utils.SessionManager;
@@ -61,11 +63,15 @@ public class InputActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     int purchasedBBM = 0;
     ListView fuelSubsidy, fuelNonSubsidy;
+    LinearLayout lnWallet, lnHistory, lnHome, lnProfile;
+
     Button order;
     ImageView back;
     TextView quota;
 
     ApiInterface apiService;
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -78,10 +84,14 @@ public class InputActivity extends AppCompatActivity {
         order = findViewById(R.id.OkOrder);
         back = findViewById(R.id.imgBtnBack);
         quota = findViewById(R.id.QuotaInput);
+        lnWallet = findViewById(R.id.lnWallet);
+        lnHistory = findViewById(R.id.lnHistory);
+        lnHome = findViewById(R.id.lnHome);
+        lnProfile= findViewById(R.id.lnProfile);
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
 
-        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         user = sessionManager.getUserDetails();
         quota.setText(user.getQuota());
@@ -100,6 +110,43 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Back();
+            }
+        });
+
+        lnWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManager.logoutUser();
+            }
+        });
+
+        lnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InputActivity.this, ProfileActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -133,7 +180,7 @@ public class InputActivity extends AppCompatActivity {
                 }
                 else if(!response.isSuccessful())
                 {
-                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.login_failed),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InputActivity.this,getApplicationContext().getResources().getString(R.string.prompt_failed_get_fuel),Toast.LENGTH_SHORT).show();
                 }
             }
 
