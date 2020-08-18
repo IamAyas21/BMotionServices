@@ -61,7 +61,7 @@ namespace BMotionServices.Logic
                 }
 
                 order.OrderNo = guidId.ToString();
-                order.IsVerify = orderEntity.IsVerify;
+                order.IsVerify = "N";
 
                 return order;
             }

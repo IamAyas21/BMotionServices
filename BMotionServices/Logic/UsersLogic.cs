@@ -69,8 +69,8 @@ namespace BMotionServices.Logic
                             string dateDayNow = DateTime.Now.ToString("ddMMyyyy");
                             string dateTimeDayNow = DateTime.Now.ToString("ddMMyyyyHHmmss");
 
-                            var pathImgKtp = Path.Combine(HttpContext.Current.Server.MapPath(pathUpload), dateDayNow,"KTP");
-                            var pathFilePdf = Path.Combine(HttpContext.Current.Server.MapPath(pathUpload),dateDayNow, "Document");
+                            var pathImgKtp = Path.Combine(pathUpload, "KTP");//(HttpContext.Current.Server.MapPath(pathUpload), dateDayNow,"KTP");
+                            var pathFilePdf = Path.Combine(pathUpload, "Document");//(HttpContext.Current.Server.MapPath(pathUpload),dateDayNow, "Document");
 
                             if (!Directory.Exists(pathImgKtp))
                             {
