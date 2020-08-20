@@ -104,6 +104,7 @@ namespace BMotionServices.Logic
                             userEntity.CreatedDate = DateTime.Now;
                             userEntity.CreatedBy = strUser;
                             userEntity.Password = user.Password.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
+                            userEntity.IsVerify = "N";
                             //userEntity.verification = user.Verification.ToString().Replace('"', ' ').Replace('"', ' ');
                             //userEntity.Profession = user.Profession.ToString().Replace('"', ' ').Replace('"', ' ');
                             //userEntity.RoleId = user.RoleId;
@@ -120,6 +121,7 @@ namespace BMotionServices.Logic
                             docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
                             docEntity.CreatedDate = DateTime.Now;
                             docEntity.CreatedBy = strUser;
+                            docEntity.IsVerify = "N";
                             db.Documents.Add(docEntity);
                             db.SaveChanges();
                         }

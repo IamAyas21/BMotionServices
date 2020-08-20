@@ -52,7 +52,8 @@ namespace BMotionServices.Controllers
                             Profession = userList.FirstOrDefault().Profession,
                             Quota = quota,
                             PurchaseBBM = purchasedBBM,
-                            Password = userList.FirstOrDefault().Password
+                            Password = userList.FirstOrDefault().Password,
+                            Verification = userList.FirstOrDefault().IsVerify
                         }
                     };
                 }
@@ -66,7 +67,7 @@ namespace BMotionServices.Controllers
                         return new ResponseUsers
                         {
                             status = "success",
-                            message = "user found",
+                            message = "user success login",
                             Data = new Users
                             {
                                 Email = userList.FirstOrDefault().Email,
@@ -76,7 +77,8 @@ namespace BMotionServices.Controllers
                                 Profession = userList.FirstOrDefault().Profession,
                                 Quota = quota,
                                 PurchaseBBM = purchasedBBM,
-                                Password = userList.FirstOrDefault().Password
+                                Password = userList.FirstOrDefault().Password,
+                                Verification = userList.FirstOrDefault().IsVerify
                             }
                         };
                     }
@@ -85,7 +87,7 @@ namespace BMotionServices.Controllers
                         return new ResponseUsers
                         {
                             status = "failed",
-                            message = "user not found"
+                            message = "user failed login"
                         };
                     }
                 }
@@ -125,9 +127,10 @@ namespace BMotionServices.Controllers
                             NIP = user.NIP,
                             Phone = user.Phone,
                             Profession = user.Profession,
-                            Quota = quota == null?"0 Ltr":quota,
-                            PurchaseBBM = purchasedBBM == null ? "0 Ltr" :purchasedBBM,
-                            Password = user.Password
+                            Quota = quota == null ? "0 Ltr" : quota,
+                            PurchaseBBM = purchasedBBM == null ? "0 Ltr" : purchasedBBM,
+                            Password = user.Password,
+                            Verification = "N"
                         }
                     };
                 }
@@ -168,6 +171,10 @@ namespace BMotionServices.Controllers
                         purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr", "").Trim();
                         limitQuota = Convert.ToInt32(quota) - Convert.ToInt32(purchasedBBM);
                     }
+                    else
+                    {
+                        limitQuota = Convert.ToInt32(quota);
+                    }
 
                     return new ResponseUsers
                     {
@@ -182,7 +189,8 @@ namespace BMotionServices.Controllers
                             Profession = userList.FirstOrDefault().Profession,
                             Quota = limitQuota.ToString() + " ltr",
                             PurchaseBBM = purchasedBBM + " ltr",
-                            Password = userList.FirstOrDefault().Password
+                            Password = userList.FirstOrDefault().Password,
+                            Verification = userList.FirstOrDefault().IsVerify
                         }
                     };
                 }
