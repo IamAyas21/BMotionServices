@@ -112,5 +112,12 @@ namespace BMotionServices.Models
             get { return purchaseBBM; }
             set { purchaseBBM = value; }
         }
+
+        String documentNo;
+        public String DocumentNo
+        {
+            get { return documentNo; }
+            set { documentNo = value; }
+        }
     }
 }

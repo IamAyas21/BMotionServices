@@ -50,6 +50,8 @@ namespace BMotionServices.Logic
                 user.Email = postedContext.Request.Params["email"];
                 user.KTP = postedContext.Request.Params["ktp"];
                 user.ExpDate = postedContext.Request.Params["expdate"];
+                user.Quota = postedContext.Request.Params["quota"];
+                user.DocumentNo = postedContext.Request.Params["documentNo"];
 
                 var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) || usr.NIP.Equals(user.NIP)).ToList();
                 if (userList.Count == 0)
@@ -58,7 +60,7 @@ namespace BMotionServices.Logic
                     {
                         if (Request["imagektp"].ContentType.ToLower() == "image/jpg" ||
                         Request["imagektp"].ContentType.ToLower() == "image/jpeg" ||
-                        Request["imagektp"].ContentType.ToLower() == "image/png" && 
+                        Request["imagektp"].ContentType.ToLower() == "image/png" || 
                         Request["filepdf"].ContentType.ToLower() == "application/pdf")
                         {
                             HttpPostedFile imgKtp = Request["imagektp"];
@@ -114,9 +116,9 @@ namespace BMotionServices.Logic
 
                             db = new BMotionDBEntities();
                             Document docEntity = new Document();
-                            docEntity.DocumentNo = "Doc_" + dateTimeDayNow;
+                            docEntity.DocumentNo = user.DocumentNo;
                             docEntity.NIP = strUser;
-                            docEntity.Quota = 0;
+                            docEntity.Quota = Convert.ToInt32(user.Quota.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
                             docEntity.DocumentFile = user.FilePDF;
                             docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
                             docEntity.CreatedDate = DateTime.Now;
