@@ -49,9 +49,7 @@ namespace BMotionServices.Logic
                 user.Profession = postedContext.Request.Params["profession"];
                 user.Email = postedContext.Request.Params["email"];
                 user.KTP = postedContext.Request.Params["ktp"];
-                user.ExpDate = postedContext.Request.Params["expdate"];
-                user.Quota = postedContext.Request.Params["quota"];
-                user.DocumentNo = postedContext.Request.Params["documentNo"];
+                user.District = postedContext.Request.Params["city"];
 
                 var userList = db.Users.Where(usr => usr.Email.Equals(user.Email) || usr.NIP.Equals(user.NIP)).ToList();
                 if (userList.Count == 0)
@@ -64,40 +62,22 @@ namespace BMotionServices.Logic
                         Request["filepdf"].ContentType.ToLower() == "application/pdf")
                         {
                             HttpPostedFile imgKtp = Request["imagektp"];
-                            HttpPostedFile filePdf = Request["filepdf"];
 
                             user.ImageKTP = imgKtp.FileName;
-                            user.FilePDF = filePdf.FileName;
-                            string dateDayNow = DateTime.Now.ToString("ddMMyyyy");
-                            string dateTimeDayNow = DateTime.Now.ToString("ddMMyyyyHHmmss");
-
                             var pathImgKtp = Path.Combine(pathUpload, "KTP");//(HttpContext.Current.Server.MapPath(pathUpload), dateDayNow,"KTP");
-                            var pathFilePdf = Path.Combine(pathUpload, "Document");//(HttpContext.Current.Server.MapPath(pathUpload),dateDayNow, "Document");
-
                             if (!Directory.Exists(pathImgKtp))
                             {
                                 System.IO.Directory.CreateDirectory(pathImgKtp);
                             }
-
-                            if (!Directory.Exists(pathFilePdf))
-                            {
-                                System.IO.Directory.CreateDirectory(pathFilePdf);
-                            }
-
                             using (var fileStream = new System.IO.FileStream(pathImgKtp + "\\" + user.ImageKTP, System.IO.FileMode.Create, System.IO.FileAccess.Write))
                             {
                                 imgKtp.InputStream.CopyTo(fileStream);
                             }
 
-                            using (var fileStream = new System.IO.FileStream(pathFilePdf + "\\" + user.FilePDF, System.IO.FileMode.Create, System.IO.FileAccess.Write))
-                            {
-                                filePdf.InputStream.CopyTo(fileStream);
-                            }
-
                             string strUser = user.NIP.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             db = new BMotionDBEntities();
                             User userEntity = new User();
-                            userEntity.NIP = strUser;  
+                            userEntity.NIP = strUser;
                             userEntity.Email = user.Email.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             userEntity.Name = user.Name.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             userEntity.Phone = user.Phone.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
@@ -107,25 +87,47 @@ namespace BMotionServices.Logic
                             userEntity.CreatedBy = strUser;
                             userEntity.Password = user.Password.ToString().Replace('"', ' ').Replace('\\', ' ').Trim();
                             userEntity.IsVerify = "N";
+                            userEntity.District = user.District;
                             //userEntity.verification = user.Verification.ToString().Replace('"', ' ').Replace('"', ' ');
                             //userEntity.Profession = user.Profession.ToString().Replace('"', ' ').Replace('"', ' ');
                             //userEntity.RoleId = user.RoleId;
-
                             db.Users.Add(userEntity);
                             db.SaveChanges();
 
-                            db = new BMotionDBEntities();
-                            Document docEntity = new Document();
-                            docEntity.DocumentNo = user.DocumentNo;
-                            docEntity.NIP = strUser;
-                            docEntity.Quota = Convert.ToInt32(user.Quota.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
-                            docEntity.DocumentFile = user.FilePDF;
-                            docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
-                            docEntity.CreatedDate = DateTime.Now;
-                            docEntity.CreatedBy = strUser;
-                            docEntity.IsVerify = "N";
-                            db.Documents.Add(docEntity);
-                            db.SaveChanges();
+                            HttpPostedFile filePdf = Request["filepdf"];
+                            if(filePdf != null)
+                            {
+                                user.ExpDate = postedContext.Request.Params["expdate"];
+                                user.Quota = postedContext.Request.Params["quota"];
+                                user.DocumentNo = postedContext.Request.Params["documentNo"];
+
+                                user.FilePDF = filePdf.FileName;
+
+                                var pathFilePdf = Path.Combine(pathUpload, "Document");//(HttpContext.Current.Server.MapPath(pathUpload),dateDayNow, "Document");
+
+                                if (!Directory.Exists(pathFilePdf))
+                                {
+                                    System.IO.Directory.CreateDirectory(pathFilePdf);
+                                }
+
+                                using (var fileStream = new System.IO.FileStream(pathFilePdf + "\\" + user.FilePDF, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                                {
+                                    filePdf.InputStream.CopyTo(fileStream);
+                                }
+
+                                db = new BMotionDBEntities();
+                                Document docEntity = new Document();
+                                docEntity.DocumentNo = user.DocumentNo;
+                                docEntity.NIP = strUser;
+                                docEntity.Quota = Convert.ToInt32(user.Quota.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
+                                docEntity.DocumentFile = user.FilePDF;
+                                docEntity.ExpDate = Convert.ToDateTime(user.ExpDate.ToString().Replace('"', ' ').Replace('\\', ' ').Trim());
+                                docEntity.CreatedDate = DateTime.Now;
+                                docEntity.CreatedBy = strUser;
+                                docEntity.IsVerify = "N";
+                                db.Documents.Add(docEntity);
+                                db.SaveChanges();
+                            }
                         }
                     }
 

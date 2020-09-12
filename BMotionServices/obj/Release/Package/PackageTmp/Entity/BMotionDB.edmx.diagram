@@ -23,6 +23,7 @@
         <AssociationConnector Association="BMotionDBModel.FK_Users_Outlets" ManuallyRouted="false" />
         <AssociationConnector Association="BMotionDBModel.FK_Restriction_Role" ManuallyRouted="false" />
         <AssociationConnector Association="BMotionDBModel.FK_Users_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BMotionDBModel.Notification" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

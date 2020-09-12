@@ -37,6 +37,7 @@ namespace BMotionServices.Entity
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -184,6 +185,101 @@ namespace BMotionServices.Entity
                 new ObjectParameter("nip", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserQuota", nipParameter);
+        }
+    
+        public virtual ObjectResult<sp_Feedback_Result> sp_Feedback()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Feedback_Result>("sp_Feedback");
+        }
+    
+        public virtual int sp_FeedbackInsert(string nip, string feedback)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("Nip", nip) :
+                new ObjectParameter("Nip", typeof(string));
+    
+            var feedbackParameter = feedback != null ?
+                new ObjectParameter("Feedback", feedback) :
+                new ObjectParameter("Feedback", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_FeedbackInsert", nipParameter, feedbackParameter);
+        }
+    
+        public virtual ObjectResult<sp_HomeTotalFuel_Result> sp_HomeTotalFuel(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_HomeTotalFuel_Result>("sp_HomeTotalFuel", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_HomeUserPengguna_Result> sp_HomeUserPengguna(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_HomeUserPengguna_Result>("sp_HomeUserPengguna", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_Notification_Result> sp_Notification()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Notification_Result>("sp_Notification");
+        }
+    
+        public virtual int sp_NotificationInsert(string message, string title)
+        {
+            var messageParameter = message != null ?
+                new ObjectParameter("Message", message) :
+                new ObjectParameter("Message", typeof(string));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_NotificationInsert", messageParameter, titleParameter);
+        }
+    
+        public virtual ObjectResult<sp_OrderAllActivity_Result> sp_OrderAllActivity()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_OrderAllActivity_Result>("sp_OrderAllActivity");
+        }
+    
+        public virtual int sp_OrderDetailVerify(string orderDetailId)
+        {
+            var orderDetailIdParameter = orderDetailId != null ?
+                new ObjectParameter("OrderDetailId", orderDetailId) :
+                new ObjectParameter("OrderDetailId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_OrderDetailVerify", orderDetailIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_OrderMonitoring_Result> sp_OrderMonitoring(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_OrderMonitoring_Result>("sp_OrderMonitoring", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_RiwayatPengambilanBBM_Result> sp_RiwayatPengambilanBBM(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RiwayatPengambilanBBM_Result>("sp_RiwayatPengambilanBBM", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_UserPengguna_Result> sp_UserPengguna(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_UserPengguna_Result>("sp_UserPengguna", userIdParameter);
         }
     }
 }

@@ -119,5 +119,12 @@ namespace BMotionServices.Models
             get { return documentNo; }
             set { documentNo = value; }
         }
+
+        String district;
+        public String District
+        {
+            get { return district; }
+            set { district = value; }
+        }
     }
 }

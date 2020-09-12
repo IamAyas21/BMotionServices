@@ -44,6 +44,8 @@
     <EntitySetMapping Name="OrderDetails">
       <EntityTypeMapping TypeName="BMotionDBModel.OrderDetail">
         <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
           <ScalarProperty Name="FuelId" ColumnName="FuelId" />
@@ -58,6 +60,8 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="BMotionDBModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Print" ColumnName="Print" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
@@ -122,6 +126,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="BMotionDBModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
@@ -183,5 +189,114 @@
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BMotionDBModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
     <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota" />
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="BMotionDBModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Feedback" FunctionName="BMotionDBModel.Store.sp_Feedback">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_Feedback_Result">
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_FeedbackInsert" FunctionName="BMotionDBModel.Store.sp_FeedbackInsert" />
+    <FunctionImportMapping FunctionImportName="sp_HomeTotalFuel" FunctionName="BMotionDBModel.Store.sp_HomeTotalFuel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_HomeTotalFuel_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_HomeUserPengguna" FunctionName="BMotionDBModel.Store.sp_HomeUserPengguna">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_HomeUserPengguna_Result">
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Verify" ColumnName="Verify" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Notification" FunctionName="BMotionDBModel.Store.sp_Notification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_Notification_Result">
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NotificationInsert" FunctionName="BMotionDBModel.Store.sp_NotificationInsert" />
+    <FunctionImportMapping FunctionImportName="sp_OrderAllActivity" FunctionName="BMotionDBModel.Store.sp_OrderAllActivity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_OrderAllActivity_Result">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
+          <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+          <ScalarProperty Name="FuelId" ColumnName="FuelId" />
+          <ScalarProperty Name="FuelName" ColumnName="FuelName" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_OrderDetailVerify" FunctionName="BMotionDBModel.Store.sp_OrderDetailVerify" />
+    <FunctionImportMapping FunctionImportName="sp_OrderMonitoring" FunctionName="BMotionDBModel.Store.sp_OrderMonitoring">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_OrderMonitoring_Result">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_RiwayatPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_RiwayatPengambilanBBM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_RiwayatPengambilanBBM_Result">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_UserPengguna" FunctionName="BMotionDBModel.Store.sp_UserPengguna">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_UserPengguna_Result">
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Verify" ColumnName="Verify" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
