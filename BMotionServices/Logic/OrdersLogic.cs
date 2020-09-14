@@ -44,16 +44,25 @@ namespace BMotionServices.Logic
                 orderEntity.IsVerify = "N";
                 orderEntity.CreatedDate = DateTime.Now;
                 orderEntity.CreatedBy = orderEntity.NIP;
+                orderEntity.ExpiredDate = DateTime.Now.AddHours(4);
+                order.ExpiredDate = DateTime.Now.AddHours(4).ToString("HH:mm");
                 db.Orders.Add(orderEntity);
                 db.SaveChanges();
 
                 foreach (var item in order.OrderDetails)
                 {
                     db = new BMotionDBEntities();
+
+                    var fPrice = from f in db.Fuels
+                                 where f.FuilId == item.FuelId
+                                 select f.Price;
+                    decimal price = Convert.ToDecimal(fPrice.FirstOrDefault().ToString());
+
                     OrderDetail orderDetailEntity = new OrderDetail();
                     orderDetailEntity.OrderNo = orderEntity.OrderNo;
                     orderDetailEntity.FuelId = item.FuelId;
                     orderDetailEntity.Liter = item.Liter;
+                    orderDetailEntity.Price = price;
                     orderDetailEntity.CreatedDate = DateTime.Now;
                     orderDetailEntity.CreatedBy = orderEntity.NIP;
                     db.OrderDetails.Add(orderDetailEntity);

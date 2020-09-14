@@ -11,12 +11,13 @@ namespace BMotionServices.Entity
 {
     using System;
     
-    public partial class sp_HistorPerUser_Result
+    public partial class sp_RiwayatPengambilanBBMExport_Result
     {
-        public string OrderNo { get; set; }
-        public string TransactionDate { get; set; }
-        public string OutletNo { get; set; }
-        public string Liter { get; set; }
-        public string ExpiredDate { get; set; }
+        public Nullable<long> No { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string NIP { get; set; }
+        public string Name { get; set; }
+        public string Fuel { get; set; }
+        public Nullable<int> Liter { get; set; }
     }
 }

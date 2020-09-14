@@ -32,6 +32,7 @@ namespace BMotionServices.Controllers
                     historyItem.OutletNo = item.OutletNo;
                     historyItem.TransactionDate = item.TransactionDate;
                     historyItem.Liter = item.Liter;
+                    historyItem.ExpiredDate = item.ExpiredDate;
                     listHistory.Add(historyItem);
                 }
 

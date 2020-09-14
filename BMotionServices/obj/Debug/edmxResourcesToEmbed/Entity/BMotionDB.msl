@@ -41,27 +41,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="BMotionDBModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="OrderDetails">
       <EntityTypeMapping TypeName="BMotionDBModel.OrderDetail">
         <MappingFragment StoreEntitySet="OrderDetails">
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
           <ScalarProperty Name="FuelId" ColumnName="FuelId" />
           <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="BMotionDBModel.Order">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="Print" ColumnName="Print" />
-          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
@@ -69,6 +78,8 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+          <ScalarProperty Name="Print" ColumnName="Print" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -126,8 +137,6 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="BMotionDBModel.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="District" ColumnName="District" />
-          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="NIP" ColumnName="NIP" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
@@ -138,6 +147,8 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="KTP" ColumnName="KTP" />
           <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="District" ColumnName="District" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -161,45 +172,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BMotionDBModel.Store.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BMotionDBModel.Store.sp_helpdiagramdefinition" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BMotionDBModel.Store.sp_helpdiagrams" />
-    <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
-          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
-          <ScalarProperty Name="Liter" ColumnName="Liter" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BMotionDBModel.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_StrukPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_StrukPengambilanBBM">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BMotionDBModel.sp_StrukPengambilanBBM_Result">
-          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
-          <ScalarProperty Name="OutletName" ColumnName="OutletName" />
-          <ScalarProperty Name="FuelName" ColumnName="FuelName" />
-          <ScalarProperty Name="Liter" ColumnName="Liter" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BMotionDBModel.Store.sp_upgraddiagrams" />
-    <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
-    <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota" />
-    <EntitySetMapping Name="Notifications">
-      <EntityTypeMapping TypeName="BMotionDBModel.Notification">
-        <MappingFragment StoreEntitySet="Notification">
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
-          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_Feedback" FunctionName="BMotionDBModel.Store.sp_Feedback">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BMotionDBModel.sp_Feedback_Result">
@@ -213,6 +185,19 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_FeedbackInsert" FunctionName="BMotionDBModel.Store.sp_FeedbackInsert" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BMotionDBModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BMotionDBModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_HomeTotalFuel" FunctionName="BMotionDBModel.Store.sp_HomeTotalFuel">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BMotionDBModel.sp_HomeTotalFuel_Result">
@@ -274,6 +259,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BMotionDBModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_RiwayatPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_RiwayatPengambilanBBM">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BMotionDBModel.sp_RiwayatPengambilanBBM_Result">
@@ -286,6 +272,33 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_RiwayatPengambilanBBMExport" FunctionName="BMotionDBModel.Store.sp_RiwayatPengambilanBBMExport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_RiwayatPengambilanBBMExport_Result">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_StrukPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_StrukPengambilanBBM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_StrukPengambilanBBM_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+          <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+          <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+          <ScalarProperty Name="FuelName" ColumnName="FuelName" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BMotionDBModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="sp_UserPengguna" FunctionName="BMotionDBModel.Store.sp_UserPengguna">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BMotionDBModel.sp_UserPengguna_Result">
@@ -295,6 +308,15 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Verify" ColumnName="Verify" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
+    <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BMotionDBModel.sp_UserQuota_Result">
+          <ScalarProperty Name="Quota" ColumnName="Quota" />
+          <ScalarProperty Name="TotalPurchaseBBM" ColumnName="TotalPurchaseBBM" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -30,6 +30,7 @@ namespace BMotionServices.Entity
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<Fuel> Fuels { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Outlet> Outlets { get; set; }
@@ -37,7 +38,6 @@ namespace BMotionServices.Entity
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Notification> Notifications { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -103,6 +103,24 @@ namespace BMotionServices.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
+        public virtual ObjectResult<sp_Feedback_Result> sp_Feedback()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Feedback_Result>("sp_Feedback");
+        }
+    
+        public virtual int sp_FeedbackInsert(string nip, string feedback)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("Nip", nip) :
+                new ObjectParameter("Nip", typeof(string));
+    
+            var feedbackParameter = feedback != null ?
+                new ObjectParameter("Feedback", feedback) :
+                new ObjectParameter("Feedback", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_FeedbackInsert", nipParameter, feedbackParameter);
+        }
+    
         public virtual int sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
@@ -136,73 +154,6 @@ namespace BMotionServices.Entity
                 new ObjectParameter("nip", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_HistorPerUser_Result>("sp_HistorPerUser", nipParameter);
-        }
-    
-        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var new_diagramnameParameter = new_diagramname != null ?
-                new ObjectParameter("new_diagramname", new_diagramname) :
-                new ObjectParameter("new_diagramname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        public virtual ObjectResult<sp_StrukPengambilanBBM_Result> sp_StrukPengambilanBBM(string orderNo)
-        {
-            var orderNoParameter = orderNo != null ?
-                new ObjectParameter("orderNo", orderNo) :
-                new ObjectParameter("orderNo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_StrukPengambilanBBM_Result>("sp_StrukPengambilanBBM", orderNoParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual ObjectResult<string> sp_UserPurchasedBBM(string nip)
-        {
-            var nipParameter = nip != null ?
-                new ObjectParameter("nip", nip) :
-                new ObjectParameter("nip", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserPurchasedBBM", nipParameter);
-        }
-    
-        public virtual ObjectResult<string> sp_UserQuota(string nip)
-        {
-            var nipParameter = nip != null ?
-                new ObjectParameter("nip", nip) :
-                new ObjectParameter("nip", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserQuota", nipParameter);
-        }
-    
-        public virtual ObjectResult<sp_Feedback_Result> sp_Feedback()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Feedback_Result>("sp_Feedback");
-        }
-    
-        public virtual int sp_FeedbackInsert(string nip, string feedback)
-        {
-            var nipParameter = nip != null ?
-                new ObjectParameter("Nip", nip) :
-                new ObjectParameter("Nip", typeof(string));
-    
-            var feedbackParameter = feedback != null ?
-                new ObjectParameter("Feedback", feedback) :
-                new ObjectParameter("Feedback", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_FeedbackInsert", nipParameter, feedbackParameter);
         }
     
         public virtual ObjectResult<sp_HomeTotalFuel_Result> sp_HomeTotalFuel(string userId)
@@ -264,6 +215,23 @@ namespace BMotionServices.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_OrderMonitoring_Result>("sp_OrderMonitoring", userIdParameter);
         }
     
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
         public virtual ObjectResult<sp_RiwayatPengambilanBBM_Result> sp_RiwayatPengambilanBBM(string userId)
         {
             var userIdParameter = userId != null ?
@@ -273,6 +241,29 @@ namespace BMotionServices.Entity
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RiwayatPengambilanBBM_Result>("sp_RiwayatPengambilanBBM", userIdParameter);
         }
     
+        public virtual ObjectResult<sp_RiwayatPengambilanBBMExport_Result> sp_RiwayatPengambilanBBMExport(string userId)
+        {
+            var userIdParameter = userId != null ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RiwayatPengambilanBBMExport_Result>("sp_RiwayatPengambilanBBMExport", userIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_StrukPengambilanBBM_Result> sp_StrukPengambilanBBM(string orderNo)
+        {
+            var orderNoParameter = orderNo != null ?
+                new ObjectParameter("orderNo", orderNo) :
+                new ObjectParameter("orderNo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_StrukPengambilanBBM_Result>("sp_StrukPengambilanBBM", orderNoParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
         public virtual ObjectResult<sp_UserPengguna_Result> sp_UserPengguna(string userId)
         {
             var userIdParameter = userId != null ?
@@ -280,6 +271,24 @@ namespace BMotionServices.Entity
                 new ObjectParameter("UserId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_UserPengguna_Result>("sp_UserPengguna", userIdParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_UserPurchasedBBM(string nip)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("nip", nip) :
+                new ObjectParameter("nip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_UserPurchasedBBM", nipParameter);
+        }
+    
+        public virtual ObjectResult<sp_UserQuota_Result> sp_UserQuota(string nip)
+        {
+            var nipParameter = nip != null ?
+                new ObjectParameter("nip", nip) :
+                new ObjectParameter("nip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_UserQuota_Result>("sp_UserQuota", nipParameter);
         }
     }
 }

@@ -40,5 +40,12 @@ namespace BMotionServices.Models
             get { return liter; }
             set { liter = value; }
         }
+
+        string expiredDate;
+        public String ExpiredDate
+        {
+            get { return expiredDate; }
+            set { expiredDate = value; }
+        }
     }
 }

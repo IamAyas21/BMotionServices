@@ -310,6 +310,9 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
   <Function Name="sp_RiwayatPengambilanBBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserId" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="sp_RiwayatPengambilanBBMExport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_StrukPengambilanBBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="orderNo" Type="varchar" Mode="In" />
   </Function>

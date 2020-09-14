@@ -1,0 +1,13 @@
+Time: 12/09/2020 04:06:32 PM
+------------------------------------------------------------------------
+Message: Access to the path '~/Uploads\KTP' is denied.
+StackTrace:    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
+   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
+   at System.IO.Directory.CreateDirectory(String path)
+   at BMotionServices.Logic.UserLogic.Add() in D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\Logic\UsersLogic.cs:line 70
+Source: mscorlib
+TargetSite: Void WinIOError(Int32, System.String)
+Payload: {"NIP":"34324844832","RoleId":0,"Name":"dasdass","Profession":"dsadsa","Email":"kfslkfsl","Password":"dadsa","Phone":"949324823","KTP":"dsadasd","Verification":null,"ImageKTP":"Saras_11092020 015.png","FilePDF":null,"ExpDate":null,"isSuccess":false,"Quota":null,"PurchaseBBM":null,"DocumentNo":null,"District":null}
+------------------------------------------------------------------------
+

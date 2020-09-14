@@ -1,4 +1,4 @@
-﻿using BMotionServices.Logic;
+﻿using BMotionServices.Entity;
 using BMotionServices.Models;
 using BMotionServices.Parse;
 using Newtonsoft.Json;
@@ -11,28 +11,27 @@ using System.Web.Http;
 
 namespace BMotionServices.Controllers
 {
-    //[Authorize]
-    [RoutePrefix("api/Orders")]
-    public class OrdersController : ApiController
+    [RoutePrefix("api/Feedback")]
+    public class FeedbackController : ApiController
     {
+        BMotionDBEntities db = new BMotionDBEntities();
         [HttpPost]
-        [Route("Order")]
-        public ResponseOrders Order(Orders order)
+        [Route("Add")]
+        public ResponseFeedback All(FeedbackModels Model)
         {
-            Orders orderDetails = OrdersLogic.getInstance().Add(order);
             try
             {
-                return new ResponseOrders
+                var infoList = db.sp_FeedbackInsert(Model.Nip,Model.Message);
+                return new ResponseFeedback
                 {
                     status = "success",
-                    message = "user successfully inserted",
-                    Data = orderDetails
+                    message = "feedback has been inserted."
                 };
             }
             catch (Exception e)
             {
-                Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(order));
-                return new ResponseOrders
+                Logging.Log.getInstance().CreateLogError(e, JsonConvert.SerializeObject(Model));
+                return new ResponseFeedback
                 {
                     status = "failed",
                     message = e.Message

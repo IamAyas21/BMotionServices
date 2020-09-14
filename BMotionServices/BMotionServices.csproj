@@ -207,8 +207,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\FuelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -279,6 +281,9 @@
     <Compile Include="Entity\sp_OrderMonitoring_Result.cs">
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sp_RiwayatPengambilanBBMExport_Result.cs">
+      <DependentUpon>BMotionDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sp_RiwayatPengambilanBBM_Result.cs">
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
@@ -286,6 +291,9 @@
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sp_UserPengguna_Result.cs">
+      <DependentUpon>BMotionDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_UserQuota_Result.cs">
       <DependentUpon>BMotionDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagram.cs">
@@ -301,6 +309,7 @@
     <Compile Include="Logic\OrdersLogic.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FeedbackModels.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\Fuel.cs" />
@@ -308,6 +317,8 @@
     <Compile Include="Logic\UsersLogic.cs" />
     <Compile Include="Models\PurchaseHistory.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Parse\ResponseFeedback.cs" />
+    <Compile Include="Parse\ResponseInfo.cs" />
     <Compile Include="Parse\ResponseOrders.cs" />
     <Compile Include="Parse\ResponseFuels.cs" />
     <Compile Include="Parse\ResponsePurchaseHistory.cs" />
@@ -396,6 +407,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
     <Folder Include="Utils\" />
+    <Folder Include="Views\Info\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

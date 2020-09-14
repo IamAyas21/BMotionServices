@@ -152,3 +152,156 @@ D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\bin\System.Web.
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.csprojResolveAssemblyReference.cache
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.dll
 D:\Visual Studio\Project\BMotion\BMotionServices\BMotionServices\obj\Debug\BMotionServices.pdb
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\csc.exe
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\System.Collections.Immutable.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\System.Reflection.Metadata.dll
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\vbc.exe
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\VBCSCompiler.exe
+C:\Project\BMotionApps\BMotionServices\bin\roslyn\VBCSCompiler.exe.config
+C:\Project\BMotionApps\BMotionServices\bin\BMotionServices.dll.config
+C:\Project\BMotionApps\BMotionServices\bin\BMotionServices.dll
+C:\Project\BMotionApps\BMotionServices\bin\BMotionServices.pdb
+C:\Project\BMotionApps\BMotionServices\bin\Antlr3.Runtime.dll
+C:\Project\BMotionApps\BMotionServices\bin\EntityFramework.dll
+C:\Project\BMotionApps\BMotionServices\bin\EntityFramework.SqlServer.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Google.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Web.Infrastructure.dll
+C:\Project\BMotionApps\BMotionServices\bin\Newtonsoft.Json.dll
+C:\Project\BMotionApps\BMotionServices\bin\Owin.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Net.Http.Formatting.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Helpers.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.Owin.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.WebHost.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Mvc.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Optimization.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Razor.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.Deployment.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.dll
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.Razor.dll
+C:\Project\BMotionApps\BMotionServices\bin\WebGrease.dll
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Project\BMotionApps\BMotionServices\bin\Newtonsoft.Json.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Net.Http.Formatting.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Helpers.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.WebHost.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Mvc.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Optimization.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Razor.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.Deployment.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.WebPages.Razor.xml
+C:\Project\BMotionApps\BMotionServices\bin\Antlr3.Runtime.pdb
+C:\Project\BMotionApps\BMotionServices\bin\EntityFramework.xml
+C:\Project\BMotionApps\BMotionServices\bin\EntityFramework.SqlServer.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Google.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Project\BMotionApps\BMotionServices\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Project\BMotionApps\BMotionServices\bin\System.Web.Http.Owin.xml
+C:\Project\BMotionApps\BMotionServices\obj\Debug\BMotionServices.dll
+C:\Project\BMotionApps\BMotionServices\obj\Debug\BMotionServices.pdb
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\obj\Debug\BMotionServices.csprojResolveAssemblyReference.cache
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\obj\Debug\BMotionServices.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\obj\Debug\BMotionServices.pdb
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\csc.exe
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\System.Collections.Immutable.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\System.Reflection.Metadata.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\vbc.exe
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\VBCSCompiler.exe
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\roslyn\VBCSCompiler.exe.config
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\BMotionServices.dll.config
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\BMotionServices.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\BMotionServices.pdb
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Antlr3.Runtime.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\EntityFramework.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\EntityFramework.SqlServer.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Google.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Web.Infrastructure.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Newtonsoft.Json.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Owin.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Net.Http.Formatting.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Helpers.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.Owin.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.WebHost.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Mvc.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Optimization.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Razor.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.Deployment.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.Razor.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\WebGrease.dll
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Newtonsoft.Json.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Net.Http.Formatting.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Helpers.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.WebHost.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Mvc.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Optimization.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Razor.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.Deployment.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.WebPages.Razor.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Antlr3.Runtime.pdb
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\EntityFramework.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\EntityFramework.SqlServer.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Google.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Visual Studio\Project\BMotionServices\BMotionApps-master\BMotionServices\bin\System.Web.Http.Owin.xml

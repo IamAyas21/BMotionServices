@@ -1,2 +1,0 @@
-include ':app', ':QRGenearator'
-rootProject.name='BMotion'

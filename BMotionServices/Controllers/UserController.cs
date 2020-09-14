@@ -20,6 +20,7 @@ namespace BMotionServices.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
+        private static string pathImageProfile = ConfigurationManager.AppSettings["PathImageProfile"];
         BMotionDBEntities db = new BMotionDBEntities();
 
         [Route("All")]
@@ -50,10 +51,11 @@ namespace BMotionServices.Controllers
                             NIP = userList.FirstOrDefault().NIP,
                             Phone = userList.FirstOrDefault().Phone,
                             Profession = userList.FirstOrDefault().Profession,
-                            Quota = quota,
+                            Quota = quota.Quota,
                             PurchaseBBM = purchasedBBM,
                             Password = userList.FirstOrDefault().Password,
-                            Verification = userList.FirstOrDefault().IsVerify
+                            Verification = userList.FirstOrDefault().IsVerify,
+                            ImageProfilePath = string.Format("{0}/{1}", pathImageProfile, userList.FirstOrDefault().KTP)
                         }
                     };
                 }
@@ -75,10 +77,11 @@ namespace BMotionServices.Controllers
                                 NIP = userList.FirstOrDefault().NIP,
                                 Phone = userList.FirstOrDefault().Phone,
                                 Profession = userList.FirstOrDefault().Profession,
-                                Quota = quota,
+                                Quota = quota.Quota,
                                 PurchaseBBM = purchasedBBM,
                                 Password = userList.FirstOrDefault().Password,
-                                Verification = userList.FirstOrDefault().IsVerify
+                                Verification = userList.FirstOrDefault().IsVerify,
+                                ImageProfilePath = string.Format("{0}/{1}", pathImageProfile, userList.FirstOrDefault().KTP)
                             }
                         };
                     }
@@ -127,10 +130,11 @@ namespace BMotionServices.Controllers
                             NIP = user.NIP,
                             Phone = user.Phone,
                             Profession = user.Profession,
-                            Quota = quota == null ? "0 Ltr" : quota,
+                            Quota = quota.Quota == null ? "0 Ltr" : quota.Quota,
                             PurchaseBBM = purchasedBBM == null ? "0 Ltr" : purchasedBBM,
                             Password = user.Password,
-                            Verification = "N"
+                            Verification = "N",
+                            ImageProfilePath = string.Format("{0}/{1}", pathImageProfile, user.KTP)
                         }
                     };
                 }
@@ -165,17 +169,7 @@ namespace BMotionServices.Controllers
                 {
                     string purchasedBBM = string.Empty;
                     int limitQuota = 0;
-                    string quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr","").Trim();
-                    if(db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault() != null)
-                    {
-                        purchasedBBM = db.sp_UserPurchasedBBM(userList.FirstOrDefault().NIP).FirstOrDefault().Replace("ltr", "").Trim();
-                        limitQuota = Convert.ToInt32(quota) - Convert.ToInt32(purchasedBBM);
-                    }
-                    else
-                    {
-                        limitQuota = Convert.ToInt32(quota);
-                    }
-
+                    var quota = db.sp_UserQuota(userList.FirstOrDefault().NIP).FirstOrDefault();
                     return new ResponseUsers
                     {
                         status = "success",
@@ -187,11 +181,12 @@ namespace BMotionServices.Controllers
                             NIP = userList.FirstOrDefault().NIP,
                             Phone = userList.FirstOrDefault().Phone,
                             Profession = userList.FirstOrDefault().Profession,
-                            Quota = limitQuota.ToString() + " ltr",
-                            PurchaseBBM = purchasedBBM + " ltr",
+                            Quota = quota.Quota,
+                            PurchaseBBM = quota.TotalPurchaseBBM,
                             Password = userList.FirstOrDefault().Password,
-                            Verification = userList.FirstOrDefault().IsVerify
-                        }
+                            Verification = userList.FirstOrDefault().IsVerify,
+                            ImageProfilePath = string.Format("{0}/{1}", pathImageProfile, userList.FirstOrDefault().KTP),
+                }
                     };
                 }
                 else

@@ -12,20 +12,22 @@ namespace BMotionServices.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class MemberDetail
     {
-        public int OrderDetailId { get; set; }
-        public string OrderNo { get; set; }
+        public int MemberDetailId { get; set; }
+        public string NIP { get; set; }
         public Nullable<int> FuelId { get; set; }
-        public Nullable<int> Liter { get; set; }
-        public string IsVerify { get; set; }
+        public string DocumentNo { get; set; }
+        public string OutletNo { get; set; }
+        public Nullable<int> Quota { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-        public Nullable<decimal> Price { get; set; }
     
+        public virtual Document Document { get; set; }
         public virtual Fuel Fuel { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Outlet Outlet { get; set; }
+        public virtual User User { get; set; }
     }
 }

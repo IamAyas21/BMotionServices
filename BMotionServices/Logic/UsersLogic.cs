@@ -32,7 +32,7 @@ namespace BMotionServices.Logic
                 return usrRgs;
             }
         }
-        
+
         public Users Add()
         {
             Users user = new Users();
@@ -58,7 +58,7 @@ namespace BMotionServices.Logic
                     {
                         if (Request["imagektp"].ContentType.ToLower() == "image/jpg" ||
                         Request["imagektp"].ContentType.ToLower() == "image/jpeg" ||
-                        Request["imagektp"].ContentType.ToLower() == "image/png" || 
+                        Request["imagektp"].ContentType.ToLower() == "image/png" ||
                         Request["filepdf"].ContentType.ToLower() == "application/pdf")
                         {
                             HttpPostedFile imgKtp = Request["imagektp"];
@@ -95,7 +95,7 @@ namespace BMotionServices.Logic
                             db.SaveChanges();
 
                             HttpPostedFile filePdf = Request["filepdf"];
-                            if(filePdf != null)
+                            if (filePdf != null)
                             {
                                 user.ExpDate = postedContext.Request.Params["expdate"];
                                 user.Quota = postedContext.Request.Params["quota"];
@@ -133,7 +133,7 @@ namespace BMotionServices.Logic
 
                     user.isSuccess = true;
                 }
-                
+
                 return user;
             }
             catch (Exception e)
@@ -142,7 +142,7 @@ namespace BMotionServices.Logic
                 throw e;
             }
         }
-       
+
         public List<User> getAllUsers()
         {
             return userList;

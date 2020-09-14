@@ -35,6 +35,13 @@ namespace BMotionServices.Models
             set { createdDate = value; }
         }
 
+        string expiredDate;
+        public String ExpiredDate
+        {
+            get { return expiredDate; }
+            set { expiredDate = value; }
+        }
+
         List<OrderDetails> orderDetails;
         public List<OrderDetails> OrderDetails
         {

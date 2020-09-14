@@ -112,7 +112,6 @@ namespace BMotionServices.Models
             get { return purchaseBBM; }
             set { purchaseBBM = value; }
         }
-
         String documentNo;
         public String DocumentNo
         {
@@ -125,6 +124,13 @@ namespace BMotionServices.Models
         {
             get { return district; }
             set { district = value; }
+        }
+
+        String imageProfilePath;
+        public String ImageProfilePath
+        {
+            get { return imageProfilePath; }
+            set { imageProfilePath = value; }
         }
     }
 }

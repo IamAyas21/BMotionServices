@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BMotionDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="DocumentNo" />
@@ -315,6 +315,9 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
         <Function Name="sp_RiwayatPengambilanBBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_RiwayatPengambilanBBMExport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_StrukPengambilanBBM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="orderNo" Type="varchar" Mode="In" />
         </Function>
@@ -373,7 +376,8 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BMotionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -417,6 +421,16 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Restrictions" Relationship="Self.FK_Restriction_Menus" FromRole="Menus" ToRole="Restriction" />
         </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="OrderDetailId" />
@@ -425,14 +439,14 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FuelId" Type="Int32" />
           <Property Name="Liter" Type="Int32" />
+          <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Fuel" Relationship="Self.FK_OrderDetails_Fuels" FromRole="OrderDetails" ToRole="Fuels" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
-          <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -445,10 +459,10 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
           <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
           <Property Name="Print" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
         </EntityType>
         <EntityType Name="Outlet">
           <Key>
@@ -516,6 +530,8 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="KTP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsVerify" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
@@ -524,8 +540,6 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
           <NavigationProperty Name="Outlet" Relationship="Self.FK_Users_Outlets" FromRole="Users" ToRole="Outlets" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
-          <Property Name="IsAdmin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Documents_Users">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
@@ -627,6 +641,7 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <EntitySet Name="Documents" EntityType="Self.Document" />
           <EntitySet Name="Fuels" EntityType="Self.Fuel" />
           <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Outlets" EntityType="Self.Outlet" />
@@ -679,11 +694,16 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_DocumentListByUser" ReturnType="Collection(BMotionDBModel.sp_DocumentListByUser_Result)">
-          <Parameter Name="nip" Mode="In" Type="String" />
+            <Parameter Name="nip" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Feedback" ReturnType="Collection(BMotionDBModel.sp_Feedback_Result)" />
+          <FunctionImport Name="sp_FeedbackInsert">
+            <Parameter Name="Nip" Mode="In" Type="String" />
+            <Parameter Name="Feedback" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -694,28 +714,7 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_HistorPerUser" ReturnType="Collection(BMotionDBModel.sp_HistorPerUser_Result)">
-          <Parameter Name="nip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_StrukPengambilanBBM" ReturnType="Collection(BMotionDBModel.sp_StrukPengambilanBBM_Result)">
-          <Parameter Name="orderNo" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="sp_UserPurchasedBBM" ReturnType="Collection(String)">
-          <Parameter Name="nip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_UserQuota" ReturnType="Collection(String)">
-          <Parameter Name="nip" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="Notifications" EntityType="BMotionDBModel.Notification" />
-          <FunctionImport Name="sp_Feedback" ReturnType="Collection(BMotionDBModel.sp_Feedback_Result)" />
-          <FunctionImport Name="sp_FeedbackInsert">
-            <Parameter Name="Nip" Mode="In" Type="String" />
-            <Parameter Name="Feedback" Mode="In" Type="String" />
+            <Parameter Name="nip" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_HomeTotalFuel" ReturnType="Collection(BMotionDBModel.sp_HomeTotalFuel_Result)">
             <Parameter Name="UserId" Mode="In" Type="String" />
@@ -735,11 +734,29 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <FunctionImport Name="sp_OrderMonitoring" ReturnType="Collection(BMotionDBModel.sp_OrderMonitoring_Result)">
             <Parameter Name="UserId" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="sp_RiwayatPengambilanBBM" ReturnType="Collection(BMotionDBModel.sp_RiwayatPengambilanBBM_Result)">
             <Parameter Name="UserId" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_RiwayatPengambilanBBMExport" ReturnType="Collection(BMotionDBModel.sp_RiwayatPengambilanBBMExport_Result)">
+            <Parameter Name="UserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_StrukPengambilanBBM" ReturnType="Collection(BMotionDBModel.sp_StrukPengambilanBBM_Result)">
+            <Parameter Name="orderNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="sp_UserPengguna" ReturnType="Collection(BMotionDBModel.sp_UserPengguna_Result)">
             <Parameter Name="UserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserPurchasedBBM" ReturnType="Collection(String)">
+            <Parameter Name="nip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UserQuota" ReturnType="Collection(BMotionDBModel.sp_UserQuota_Result)">
+            <Parameter Name="nip" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_DocumentListByUser_Result">
@@ -748,33 +765,9 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Type="String" Name="DocumentNo" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="ExpDate" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="Quota" Nullable="true" />
-          <Property Type="String" Name="Status" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="DocumentName" Nullable="true" MaxLength="250" />
         </ComplexType>
-        <ComplexType Name="sp_HistorPerUser_Result">
-          <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="TransactionDate" Nullable="true" MaxLength="4000" />
-          <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Liter" Nullable="true" MaxLength="34" />
-        </ComplexType>
-        <ComplexType Name="sp_StrukPengambilanBBM_Result">
-          <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="OutletName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="FuelName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Liter" Nullable="true" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
-        </ComplexType>
-        <EntityType Name="Notification">
-          <Key>
-            <PropertyRef Name="NotificationId" />
-          </Key>
-          <Property Name="NotificationId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateAt" Type="DateTime" Precision="3" />
-          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <ComplexType Name="sp_Feedback_Result">
           <Property Type="Int64" Name="NO" Nullable="true" />
           <Property Type="String" Name="FeedbackId" Nullable="true" MaxLength="50" />
@@ -782,6 +775,13 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Type="String" Name="CreateBy" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="NIP" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Feedback" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_HistorPerUser_Result">
+          <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TransactionDate" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Liter" Nullable="true" MaxLength="34" />
+          <Property Type="String" Name="ExpiredDate" Nullable="true" MaxLength="4000" />
         </ComplexType>
         <ComplexType Name="sp_HomeTotalFuel_Result">
           <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
@@ -830,6 +830,24 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Type="String" Name="Fuel" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Liter" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="sp_RiwayatPengambilanBBMExport_Result">
+          <Property Type="Int64" Name="No" Nullable="true" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NIP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Fuel" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Liter" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_StrukPengambilanBBM_Result">
+          <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="OrderDetailId" Nullable="false" />
+          <Property Type="String" Name="OutletNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OutletName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="FuelName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Liter" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+        </ComplexType>
         <ComplexType Name="sp_UserPengguna_Result">
           <Property Type="Int64" Name="NO" Nullable="true" />
           <Property Type="String" Name="NIP" Nullable="false" MaxLength="50" />
@@ -837,6 +855,10 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <Property Type="String" Name="Phone" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Verify" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_UserQuota_Result">
+          <Property Type="String" Name="Quota" Nullable="false" MaxLength="16" />
+          <Property Type="String" Name="TotalPurchaseBBM" Nullable="false" MaxLength="16" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -884,27 +906,36 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="BMotionDBModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="BMotionDBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
                 <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="FuelId" ColumnName="FuelId" />
                 <ScalarProperty Name="Liter" ColumnName="Liter" />
+                <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="BMotionDBModel.Order">
               <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="Print" ColumnName="Print" />
-                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
                 <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
@@ -912,6 +943,8 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="Print" ColumnName="Print" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -969,8 +1002,6 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="BMotionDBModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
@@ -981,6 +1012,8 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="KTP" ColumnName="KTP" />
                 <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="District" ColumnName="District" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
@@ -1004,45 +1037,6 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BMotionDBModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BMotionDBModel.Store.sp_helpdiagramdefinition" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BMotionDBModel.Store.sp_helpdiagrams" />
-          <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
-                <ScalarProperty Name="Liter" ColumnName="Liter" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BMotionDBModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_StrukPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_StrukPengambilanBBM">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BMotionDBModel.sp_StrukPengambilanBBM_Result">
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
-                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
-                <ScalarProperty Name="FuelName" ColumnName="FuelName" />
-                <ScalarProperty Name="Liter" ColumnName="Liter" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BMotionDBModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
-          <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota" />
-          <EntitySetMapping Name="Notifications">
-            <EntityTypeMapping TypeName="BMotionDBModel.Notification">
-              <MappingFragment StoreEntitySet="Notification">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
-                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_Feedback" FunctionName="BMotionDBModel.Store.sp_Feedback">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BMotionDBModel.sp_Feedback_Result">
@@ -1056,6 +1050,19 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_FeedbackInsert" FunctionName="BMotionDBModel.Store.sp_FeedbackInsert" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BMotionDBModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BMotionDBModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_HistorPerUser" FunctionName="BMotionDBModel.Store.sp_HistorPerUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BMotionDBModel.sp_HistorPerUser_Result">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+                <ScalarProperty Name="Liter" ColumnName="Liter" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_HomeTotalFuel" FunctionName="BMotionDBModel.Store.sp_HomeTotalFuel">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BMotionDBModel.sp_HomeTotalFuel_Result">
@@ -1117,6 +1124,7 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BMotionDBModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_RiwayatPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_RiwayatPengambilanBBM">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BMotionDBModel.sp_RiwayatPengambilanBBM_Result">
@@ -1129,6 +1137,33 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RiwayatPengambilanBBMExport" FunctionName="BMotionDBModel.Store.sp_RiwayatPengambilanBBMExport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BMotionDBModel.sp_RiwayatPengambilanBBMExport_Result">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="Liter" ColumnName="Liter" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_StrukPengambilanBBM" FunctionName="BMotionDBModel.Store.sp_StrukPengambilanBBM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BMotionDBModel.sp_StrukPengambilanBBM_Result">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+                <ScalarProperty Name="OutletNo" ColumnName="OutletNo" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="FuelName" ColumnName="FuelName" />
+                <ScalarProperty Name="Liter" ColumnName="Liter" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BMotionDBModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_UserPengguna" FunctionName="BMotionDBModel.Store.sp_UserPengguna">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BMotionDBModel.sp_UserPengguna_Result">
@@ -1138,6 +1173,15 @@ warning 6013: The table/view 'BMotionDB.dbo.Feedback' does not have a primary ke
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Verify" ColumnName="Verify" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UserPurchasedBBM" FunctionName="BMotionDBModel.Store.sp_UserPurchasedBBM" />
+          <FunctionImportMapping FunctionImportName="sp_UserQuota" FunctionName="BMotionDBModel.Store.sp_UserQuota">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BMotionDBModel.sp_UserQuota_Result">
+                <ScalarProperty Name="Quota" ColumnName="Quota" />
+                <ScalarProperty Name="TotalPurchaseBBM" ColumnName="TotalPurchaseBBM" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

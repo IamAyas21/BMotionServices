@@ -11,12 +11,9 @@ namespace BMotionServices.Entity
 {
     using System;
     
-    public partial class sp_HistorPerUser_Result
+    public partial class sp_UserQuota_Result
     {
-        public string OrderNo { get; set; }
-        public string TransactionDate { get; set; }
-        public string OutletNo { get; set; }
-        public string Liter { get; set; }
-        public string ExpiredDate { get; set; }
+        public string Quota { get; set; }
+        public string TotalPurchaseBBM { get; set; }
     }
 }
